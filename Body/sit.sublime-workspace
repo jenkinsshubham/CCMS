@@ -1,0 +1,502 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"str",
+				"strcat"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"su",
+				"sum"
+			],
+			[
+				"s",
+				"scanf"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"sum",
+				"sumof"
+			],
+			[
+				"j",
+				"js"
+			],
+			[
+				"sty",
+				"stylers"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "login.php",
+			"settings":
+			{
+				"buffer_size": 6930,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/js/C/777.c",
+			"settings":
+			{
+				"buffer_size": 277,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/html/sitn/controllers/config/config.php",
+			"settings":
+			{
+				"buffer_size": 96,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/var/www/html/project_sit/include/loginregister.php",
+			"settings":
+			{
+				"buffer_size": 2232,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/js/Desktop/  /sitn/controllers/config/database.php",
+			"settings":
+			{
+				"buffer_size": 434,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 3229,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "login1.php",
+			"settings":
+			{
+				"buffer_size": 7065,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 272.0,
+		"selected_items":
+		[
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/js/Desktop/  /sitn/body/sit.sublime-project",
+		"/home/js/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/js/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/js/.config/sublime-text-3/Packages/User/C++.sublime-settings",
+		"/home/js/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/var/www/html/phpoop/07_03/css/style.css",
+		"/home/js/Downloads/localhost230316.php",
+		"/tmp/dbxl_Nvpaj.html",
+		"/var/www/html/sitn/stylers/css/login.css",
+		"/home/js/Downloads/custom_login_registration_amp_forgot_password(1).html",
+		"/var/www/html/sitn/stylers/js/login.js",
+		"/var/www/html/sitn/stylers/js/alert.js",
+		"/home/js/C/fga.c",
+		"/home/js/C/ga.c",
+		"/home/js/Desktop/  /project_sit/public.php",
+		"/home/js/Desktop/  /project_sit/include/loginregister.php",
+		"/home/js/C/suf.c",
+		"/home/js/Desktop/  /sitn/stylers/css/cover.css",
+		"/home/js/Desktop/  /sitn/stylers/images.php",
+		"/home/js/Desktop/  /sitn/body/include/images.php",
+		"/home/js/Desktop/  /sitn/controllers/config/config.php",
+		"/tmp/dbxlZl_911.html",
+		"/home/js/Desktop/  /sitn/stylers/js/login.js",
+		"/home/js/Desktop/  /sitn/stylers/css/varela.css",
+		"/home/js/Desktop/  /sitn/stylers/css/font-awesome.min.css",
+		"/home/js/Desktop/  /sitn/stylers/js/jquery.validate.min.js",
+		"/home/js/Desktop/  /sitn/stylers/js/alert.js",
+		"/home/js/Desktop/  /sitn/body/login.css",
+		"/home/js/MyFiles/bootstrap/custom_login_registration_amp_forgot_password.html",
+		"/home/js/Desktop/  /sitn/body/login.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"&nbsp;",
+			"passwd",
+			"=\"\"></",
+			"id",
+			"reg_gender",
+			" placeholder=\"username\"",
+			"\">",
+			"<div class=\"form-group\">\n                            <label for=\"reg_email\" class=\"sr-only\">Email</label>\n                            <input type=\"text\" class=\"form-control\" id=\"reg_email\" name=\"reg_email\" placeholder=\"email\">\n                        </div>",
+			"chemistry",
+			"physics",
+			"Cycle",
+			"lg_username",
+			"link",
+			"\n/*",
+			"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0",
+			"-->\n",
+			"/assets\n",
+			"/assets",
+			"/dist",
+			"<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n    <!--[if lt IE 9]>\n      <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n      <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n    <![endif]-->",
+			"\n    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n    <!--[if lt IE 9]>\n      <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n      <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n    <![endif]-->",
+			"<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n    <!--[if lt IE 9]>\n      <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n      <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n    <![endif]-->",
+			" <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n    <!--[if lt IE 9]>\n      <script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n      <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n    <![endif]-->",
+			" <body>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"password",
+			"../stylers",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "login.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3283,
+								3283
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/js/C/777.c",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/var/www/html/sitn/controllers/config/config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 96,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								92,
+								92
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/var/www/html/project_sit/include/loginregister.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2232,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1888,
+								1888
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/js/Desktop/  /sitn/controllers/config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								78,
+								78
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "index.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3229,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1996,
+								1996
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 675.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "login1.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								290,
+								290
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "sit.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

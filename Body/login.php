@@ -1,0 +1,140 @@
+<?php require 'config.inc.php';?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>SIT</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
+     
+    <link rel="stylesheet" href="<?php echo STYLERS ?>css/font-awesome.min.css">
+    <link href='<?php echo STYLERS ?>css/varela.css' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link href="<?php echo STYLERS ?>css/login.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <center>
+    <h1>WELCOME  TO </h1>
+    <p> SRINIVAS INSTITUTE OF TECHNOLOGY.</p>
+    <br/> <br/>
+    </center> 
+
+<!-- Where all the magic happens -->
+<?php if(!isset($_GET['register'])&&!isset($_GET['forgot'])) { ?>
+<!-- LOGIN FORM -->
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">login</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+            <form id="login-form" class="text-left">
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="lg_username" class="sr-only">Username</label>
+                            <input type="text" class="form-control" id="lg_username" name="id" placeholder="username or USN" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="lg_password" class="sr-only">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="password"required>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>forgot your password? <a href="login/forgot#forgot-form">click here</a></p>
+                    <p>new user? <a href="login/register#register-form">create new account</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- end:Main Form -->
+    </div>
+<?php } 
+if(isset($_GET['register'])) { ?>
+<!-- REGISTRATION FORM -->
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">register</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+            <form id="register-form" class="text-left">
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="reg_username" class="sr-only">Name</label>
+                            <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="Full Name" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <select name="cycle" required>
+                                <option value="Cycle">--Cycle--</option>
+                                <option value="physics">Physics</option>
+                                <option value="chemistry">Chemistry</option>
+                            </select>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <select name="section" required>
+                                <option value="a1">a1</option>
+                                <option value="a2">a2</option>
+                                <option value="a3">a3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_email" class="sr-only">roll no.</label>
+                            <input type="number" class="form-control" id="reg_roll" name="roll" placeholder="Roll no." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_email" class="sr-only">Email</label>
+                            <input type="email" class="form-control" id="reg_email" name="email" placeholder="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_password" class="sr-only">Password</label>
+                            <input type="password" class="form-control" id="reg_password" name="password" placeholder="password"  required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+                            <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm" placeholder="confirm password"  required>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>already have an account? <a href="login#login-form">login here</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- end:Main Form -->
+    </div>
+<?php } 
+if(isset($_GET['forgot'])) { ?>
+<!-- FORGOT PASSWORD FORM -->
+    <div class="text-center" style="padding:50px 0">
+        <div class="logo">forgot password</div>
+        <!-- Main Form -->
+        <div class="login-form-1">
+            <form id="forgot-form" class="text-left">
+                <div class="etc-login-form">
+                    <p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
+                </div>
+                <div class="login-form-main-message"></div>
+                <div class="main-login-form">
+                    <div class="login-group">
+                        <div class="form-group">
+                            <label for="fp_email" class="sr-only">Email address</label>
+                            <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
+                        </div>
+                    </div>
+                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                </div>
+                <div class="etc-login-form">
+                    <p>already have an account? <a href="login">login here</a></p>
+                    <p>new user? <a href="register#register-form">create new account</a></p>
+                </div>
+            </form>
+        </div>
+        <!-- end:Main Form -->
+    </div>
+<?php } ?>
+    
+</body>
+</html>

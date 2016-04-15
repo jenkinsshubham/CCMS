@@ -1,0 +1,146 @@
+<?php 
+require_once 'config.inc.php';
+// require CONTROLLERS.'config/database.php';
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Jenkins Shubham" >
+    <link rel="icon" href="<?php echo STYLERS ?>favicon.ico">
+
+    <title><?php echo SITENAME ?></title>
+
+    <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo STYLERS ?>css/header.css" rel="stylesheet">
+
+    <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
+    <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
+
+    <script>
+         $(document).ready(function(){ 
+      // ----- popup when not logged in
+      var a= <?php if (!isset($_GET['1'])) {echo "1";} else echo "0"; ?>;
+      if (a==1) {
+        $('[data-popup="login"]').fadeIn(5550);
+        $(".header-wrapper").fadeOut(4400);
+        $("#body").fadeOut(4400);
+        $("#footer").fadeOut(4400);
+        e.preventDefault();
+      };
+      //----- OPEN
+      $('[data-popup-open]').on('click', function(e)  {
+      var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+        e.preventDefault();
+      });
+      //----- CLOSE
+      $('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+        e.preventDefault();
+      });
+    });
+</script>
+  </head>
+
+  <body id="bdy">
+
+
+  <?php
+ 
+  
+  $res=mysql_query("SELECT * FROM register_s WHERE usn=".$_SESSION['user']);
+  $userRow=mysql_fetch_array($res);
+  ?>
+
+
+
+
+<div class="header-wrapper">
+  <div class="ct-wrapper">
+    <div class="row">
+      <div class="header section" id="header"><div class="widget Header" id="Header1">
+        <div id="header-inner">
+          <div class="titlewrapper">
+            <h1 class="title">
+              <?php echo SITENAME ?>
+            </h1>
+          </div>
+          <div class="descriptionwrapper">
+            <p class="description"><span><?php echo TAGLINE ?></span></p>
+          </div>
+        </div>
+        </div>
+      </div>
+      <nav id="nav" class="navbar navbar-default navbar-fixed-top">
+        <div  class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a id="na" class="navbar-brand" href="<?php echo BASEPATH ?>"><b> <?php echo SHORTNAME ?></b></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="?events#events"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Events</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Departments</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Results</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-console" aria-hidden="true"></span> Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right" action="?search">
+              <input type="text" class="form-control" name="q" placeholder="Search...">
+            </form>
+          </div>
+        </div>
+      </nav>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<!--############### login popup ###################3-->
+
+<!-- <a class="btn" data-popup-open="login" href="#">Open Popup #1</a> -->
+<div class="popup" data-popup="login">
+    <div class="popup-inner">
+        <iframe src="<?php echo BASEPATH?>login#login_form" id="iframe" scrolling="no"></iframe>
+        <a class="popup-close" data-popup-close="login" href="?1#">x</a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+  $j=jQuery.noConflict();
+  $j(document).ready(function() {    
+      var nav = $j('#nav');
+      var body = $j('#bdy');
+              $j('#na').hide();
+              nav.css("position","relative");
+      $j(window).scroll(function () {
+          if ($j(this).scrollTop() > 75) {
+            $j('#header').hide(550);
+            $j('#na').show(551);
+            nav.css("position","fixed");
+            body.css("padding-top","150px");
+          } else {
+            $j('#header').show(551);
+            $j('#na').hide(550);
+            nav.css("position","relative");
+            body.css("padding-top","2px");
+          }
+      });
+  });
+</script>
