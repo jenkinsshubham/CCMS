@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8">
-        <title>SIT</title>
+        <title><?php echo SHORTNAME ?></title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
      
@@ -16,7 +16,7 @@
 <body>
     <center>
     <h1>WELCOME  TO </h1>
-    <p> SRINIVAS INSTITUTE OF TECHNOLOGY.</p>
+    <p> <?php echo SITENAME ?></p>
     <br/> <br/>
     </center> 
 
@@ -24,7 +24,8 @@
 <?php if(!isset($_GET['register'])&&!isset($_GET['forgot'])) { ?>
 <!-- LOGIN FORM -->
     <div class="text-center" style="padding:50px 0">
-        <div class="logo">login</div>
+        <div class="logo"> <?php if (isset($_GET['f']))  echo "Faculty";
+                                else echo "Student"; ?> login</div>
         <!-- Main Form -->
         <div class="login-form-1">
             <form id="login-form" class="text-left">
@@ -33,18 +34,22 @@
                     <div class="login-group">
                         <div class="form-group">
                             <label for="lg_username" class="sr-only">Username</label>
-                            <input type="text" class="form-control" id="lg_username" name="id" placeholder="username or USN" required autofocus>
+                            <input type="text" class="form-control" id="lg_username" name="id" placeholder="username or <?php 
+                                if (isset($_GET['f']))  echo "FID";
+                                else echo "USN"; ?>" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="lg_password" class="sr-only">Password</label>
                             <input type="password" class="form-control" name="password" placeholder="password"required>
                         </div>
                     </div>
-                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                    <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
-                    <p>forgot your password? <a href="login/forgot#forgot-form">click here</a></p>
-                    <p>new user? <a href="login/register#register-form">create new account</a></p>
+                    <p>forgot your password? <a href="forgot<?php if (isset($_GET['f']))  echo "/f";
+                                else echo "/student"; ?>#forgot-form">click here</a></p>
+                    <p>new user? <a href="register<?php if (isset($_GET['f']))  echo "/f";
+                                else echo "/student"; ?>#register-form">create new account</a></p>
                 </div>
             </form>
         </div>
@@ -54,7 +59,8 @@
 if(isset($_GET['register'])) { ?>
 <!-- REGISTRATION FORM -->
     <div class="text-center" style="padding:50px 0">
-        <div class="logo">register</div>
+        <div class="logo"> <?php if (isset($_GET['f']))  echo "Faculty";
+                                else echo "Student"; ?> register</div>
         <!-- Main Form -->
         <div class="login-form-1">
             <form id="register-form" class="text-left">
@@ -63,7 +69,7 @@ if(isset($_GET['register'])) { ?>
                     <div class="login-group">
                         <div class="form-group">
                             <label for="reg_username" class="sr-only">Name</label>
-                            <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="Full Name" required autofocus>
+                            <input type="text" class="form-control" id="reg_username" name="name" placeholder="Full Name" required autofocus>
                         </div>
                         <div class="form-group">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -96,10 +102,11 @@ if(isset($_GET['register'])) { ?>
                             <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm" placeholder="confirm password"  required>
                         </div>
                     </div>
-                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                    <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
-                    <p>already have an account? <a href="login#login-form">login here</a></p>
+                    <p>already have an account? <a href="<?php if (isset($_GET['f']))  echo    BASEPATH."/faculty";
+                                else echo BASEPATH."login"; ?>#login-form">login here</a></p>
                 </div>
             </form>
         </div>
@@ -124,11 +131,13 @@ if(isset($_GET['forgot'])) { ?>
                             <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
                         </div>
                     </div>
-                    <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                    <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
-                    <p>already have an account? <a href="login">login here</a></p>
-                    <p>new user? <a href="register#register-form">create new account</a></p>
+                    <p>already have an account? <a href="<?php if (isset($_GET['f']))  echo    BASEPATH."/faculty";
+                                else echo BASEPATH."login"; ?>">login here</a></p>
+                    <p>new user? <a href="register<?php if (isset($_GET['f']))  echo "/f";
+                                else echo "/student"; ?>#register-form">create new account</a></p>
                 </div>
             </form>
         </div>

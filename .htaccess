@@ -1,0 +1,20 @@
+Options All -Indexes
+ErrorDocument 403 "Sorry can't allow you access today"
+ErrorDocument 500 "INTERNAL SERVER ERROR"
+ErrorDocument 404 /sitn/Controllers/errors/404.php
+<IfModule mod_rewrite.c>
+
+	RewriteEngine on
+
+	RewriteRule login\/([[a-z]+)\/?$ Body/login.php?$1 [NC]
+	RewriteRule register\/([[a-z]+)\/?$ Body/login.php?register&$1 [NC]
+	RewriteRule forgot\/([[a-z]+)\/?$ Body/login.php?forgot&$1 [NC]
+	RewriteRule faculty Body/login.php?f [NC]
+
+
+	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]
+
+
+	
+	
+</IfModule>

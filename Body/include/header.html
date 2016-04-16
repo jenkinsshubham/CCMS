@@ -14,7 +14,7 @@ session_start();
     <meta name="author" content="Jenkins Shubham" >
     <link rel="icon" href="<?php echo STYLERS ?>favicon.ico">
 
-    <title><?php echo SITENAME ?></title>
+    <title><?php echo SHORTNAME ?></title>
 
     <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
@@ -131,13 +131,13 @@ session_start();
               nav.css("position","relative");
       $j(window).scroll(function () {
           if ($j(this).scrollTop() > 75) {
-            $j('#header').hide(550);
-            $j('#na').show(551);
+            $j('#header').hide(500);
+            $j('#na').show(552);
             nav.css("position","fixed");
             body.css("padding-top","150px");
           } else {
-            $j('#header').show(551);
-            $j('#na').hide(550);
+            $j('#header').show(451);
+            $j('#na').hide(450);
             nav.css("position","relative");
             body.css("padding-top","2px");
           }
