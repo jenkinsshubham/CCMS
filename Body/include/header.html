@@ -1,6 +1,9 @@
 <?php 
+ini_set('display_errors',1); 
+ error_reporting(E_ALL);
+
 require_once 'config.inc.php';
-// require CONTROLLERS.'config/database.php';
+echo file_get_contents(CONTROLLERS.'config/database.php');
 session_start();
 ?>
 <!DOCTYPE html>
@@ -55,9 +58,9 @@ session_start();
 
   <?php
  
-  
-  $res=mysql_query("SELECT * FROM register_s WHERE usn=".$_SESSION['user']);
-  $userRow=mysql_fetch_array($res);
+  /*
+  $res=mysql_query("SELECT * FROM register_s WHERE usn=".$_SESSION['id']);
+  $userRow=mysql_fetch_array($res);*/
   ?>
 
 

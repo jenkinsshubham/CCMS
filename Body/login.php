@@ -1,4 +1,11 @@
-<?php require 'config.inc.php';?>
+<?php 
+session_start();
+ini_set('display_errors',1); 
+ error_reporting(E_ALL);
+ 
+require 'config.inc.php';
+echo file_get_contents(CONTROLLERS.'config/database.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
