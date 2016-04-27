@@ -1,25 +1,35 @@
 <?php
-session_start();
-require_once CONTROLLERS.'config/database.php';
+if (isset($_POST['submit'])) {
+	$id = $db->real_escape_string($_POST['id']);
+	$password = $db->real_escape_string($_POST['password']);
+	$frm =$db->real_escape_string($_POST['frm']);
+	// QUERYING
+	$sql="SELECT * ";
+	if ($frm=='s') 
+		$sql.="FROM log_s";
+	else 
+		$sql.=" FROM log_f";
+		$sql.=" WHERE username='$id'";
 
-if (isset($_POST['submit'])){
-	$id = mysql_real_escape_string($_POST['id']);
-	$password = mysql_real_escape_string($_POST['password']);
-	$res=mysql_query("SELECT * FROM register
-	if (isset($_POST['f'])){$res.=_f }
-	else{$res.=_s }
-	$res.=WHERE username='$id'");
-	$row=mysql_fetch_array($res);
-	if($row['password']==md5($password)){
-		$_SESSION['user'] = $_POST['id'];
-		header("Location: /index");
+	$result=$db->query($sql);
+
+	if (!$result) {
+		die('There was an error running the query ['.$db->error.']');
+	}
+
+	// FETCHING
+	$row=$result->fetch_array();	
+
+	if($row['password']==$password){
+		$_SESSION['id'] = $id;
+		$_COOKIE['frm'] = $frm;
+		header("Location: ".BASEPATH);
 	}
 	else{
 		?>
 		<script>alert('wrong details');</script>
 		<?php
 	}
+
 }
-
-
 ?>

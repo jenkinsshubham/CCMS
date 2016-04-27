@@ -1,12 +1,0 @@
-<?php
-
-$db['default'] = array(
-	'hostname' => 'localhost',
-	'uname' => 'sitn',
-	'passwd' => 'sitn',
-	'database' => 'sit',
-);
-
-if(!mysqli_connect($server = $db['hostname'], $username = $db['uname'], $password = $db['passwd'], $new_link = null, $client_flags = null);) {
-     die('Oops connection problem ! --> '.mysql_error());}if(!mysqli_select_db($db['database'])){     die('Opps! Database Connection failed.'.mysql_error());}
-?>

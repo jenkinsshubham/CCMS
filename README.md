@@ -12,6 +12,8 @@ It's just a first version, but we will continue development of this app to creat
 ## Features
 * Responsive layout
 * Bootstrap CSS Framework
+* PHP
+* MySQLi
 * Jquery
 * Jquery ui
 * etc

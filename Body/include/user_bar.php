@@ -1,9 +1,19 @@
 <?php
-session_start();
-include_once 'dbconnect.php';
+require('../Controllers/config/database.php');
+$id = $db->real_escape_string($_SESSION['id']);
+$frm =$db->real_escape_string($_COOKIE['frm']);
+$sql="SELECT * ";
+  if ($frm=='s') 
+    $sql.="FROM log_s";
+  else 
+    $sql.=" FROM log_f";
+    $sql.=" WHERE username='$id'";
+    $result=$db->query($sql);
 
-$res=mysql_query("SELECT * FROM login_info WHERE usn=".$_SESSION['user']);
-$userRow=mysql_fetch_array($res);
+if (!$result) {
+    die('There was an error running the query ['.$db->error.']');
+  }
+$userRow=$result->fetch_assoc();
 ?>
 
 <div class='panel panel-info' style='margin:12px'>

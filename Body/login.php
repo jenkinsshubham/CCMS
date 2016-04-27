@@ -3,8 +3,13 @@ session_start();
 ini_set('display_errors',1); 
  error_reporting(E_ALL);
  
-require 'config.inc.php';
-echo file_get_contents(CONTROLLERS.'config/database.php');
+require_once 'config.inc.php';
+require('../Controllers/config/database.php');
+require('../Controllers/functions/login.php');
+
+if (isset($_GET['f']))  $frm='f';
+else $frm="s"; 
+
 ?>
 
 <!DOCTYPE html>
@@ -35,19 +40,20 @@ echo file_get_contents(CONTROLLERS.'config/database.php');
                                 else echo "Student"; ?> login</div>
         <!-- Main Form -->
         <div class="login-form-1">
-            <form id="login-form" class="text-left">
+            <form id="login-form" class="text-left" method="post">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
                     <div class="login-group">
                         <div class="form-group">
                             <label for="lg_username" class="sr-only">Username</label>
                             <input type="text" class="form-control" id="lg_username" name="id" placeholder="username or <?php 
-                                if (isset($_GET['f']))  echo "FID";
+                                if (isset($_GET['f']))  printf("FID");
                                 else echo "USN"; ?>" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="lg_password" class="sr-only">Password</label>
                             <input type="password" class="form-control" name="password" placeholder="password"required>
+                            <input type="hidden" name="frm" value="<?php echo $frm ?>"/>
                         </div>
                     </div>
                     <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
@@ -75,6 +81,7 @@ if(isset($_GET['register'])) { ?>
                 <div class="main-login-form">
                     <div class="login-group">
                         <div class="form-group">
+                            <input type="hidden" name="frm" value="<?php echo $frm ?>"/>
                             <label for="reg_username" class="sr-only">Name</label>
                             <input type="text" class="form-control" id="reg_username" name="name" placeholder="Full Name" required autofocus>
                         </div>
@@ -135,6 +142,7 @@ if(isset($_GET['forgot'])) { ?>
                     <div class="login-group">
                         <div class="form-group">
                             <label for="fp_email" class="sr-only">Email address</label>
+                            <input type="hidden" name="frm" value="<?php echo $frm ?>"/>
                             <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
                         </div>
                     </div>
