@@ -24,7 +24,7 @@ $userRow=$result->fetch_assoc();
                   <li><a href='#'><span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Messages</a></li>
                   <li><a href='?assignments#assignments'>Assignments</a></li>
                   <li><a href='?attendence'>Attendence</a></li>
-                  <li><a href='?logout'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Logout</span></a></li>
+                  <li><a href='/logout'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Logout</span></a></li>
                 </ul>
                </div>
 </div>
