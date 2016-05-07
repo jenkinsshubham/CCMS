@@ -2,6 +2,11 @@
 session_start();
 ini_set('display_errors',1); 
  error_reporting(E_ALL);
+
+
+if (isset($_SESSION['id'])) {
+	header('LOCATION: /sitn');	
+}
  
 require_once 'config.inc.php';
 require('../Controllers/config/database.php');

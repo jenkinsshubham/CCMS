@@ -4,7 +4,9 @@ require 'include/header.html';
 ?>
 <div id='body'>
 <div class="main">
-<!-- SLIDER -->  <?php if(isset($_SESSION['id'])) {echo include('include/slider1.php');}?>
+<!-- status --> <?php if(isset($_SESSION['id'])) {echo include('include/status.php');} ?> 
+
+<!-- SLIDER -->  <?php /*if(isset($_SESSION['id']))*/ {echo include('include/slider1.php');}?>
 
 <!-- PROFILE EDITOR --> <?php if(isset($_SESSION['id'])) {if(isset($_GET['profile_edit']) || isset($_GET['register'])) {echo include('usr_end/edit_profile.php');}}?>
 <!-- PROFILE --> <?php if(isset($_SESSION['id'])) {if(isset($_GET['profile'])) {echo include('usr_end/profile.php');}}?>

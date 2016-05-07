@@ -1,7 +1,8 @@
 <?php
 require('../Controllers/config/database.php');
 $id = $db->real_escape_string($_SESSION['id']);
-$frm =$db->real_escape_string($_COOKIE['frm']);
+$frm=(!empty($_COOKIE['frm']) ? $user : "");
+$frm =$db->real_escape_string($frm);
 $sql="SELECT * ";
   if ($frm=='s') 
     $sql.="FROM log_s";
@@ -24,7 +25,7 @@ $userRow=$result->fetch_assoc();
                   <li><a href='#'><span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Messages</a></li>
                   <li><a href='?assignments#assignments'>Assignments</a></li>
                   <li><a href='?attendence'>Attendence</a></li>
-                  <li><a href='/logout'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Logout</span></a></li>
+                  <li><a href='logout'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Logout</span></a></li>
                 </ul>
                </div>
 </div>

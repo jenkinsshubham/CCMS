@@ -1,0 +1,29 @@
+<?php 
+require_once 'config.inc.php';
+require 'include/header.html';
+?>
+<div id='body'>
+<div class="main">
+<!-- SLIDER -->  <?php {echo include('include/slider1.php');}?>
+
+
+<big>WHAT ARE YOU DOING HERE!<br/>NOTHING HERE!!!</big>
+
+
+</div>
+<div class="sidebar-right">
+<!-- user bar --> <?php if(isset($_SESSION['id'])) {echo include('include/user_bar.php');} ?> 
+        <div class="panel panel-info" style="margin:12px">
+        <div class="panel-heading"> <h3 class="panel-title">Recent Updates</h3> </div>
+        <div class="panel-body" style="padding:12px;">
+          <!-- <iframe height="284" width="100%" src="include/feeds.php" scrolling="no" marginwidth="0" marginheight="0" vspace="0" hspace="0" frameborder="0"></iframe> -->
+         </div>
+       </div>
+
+</div>
+
+</div>
+
+<?php
+require 'include/footer.html';
+?>

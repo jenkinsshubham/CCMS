@@ -10,6 +10,7 @@ ErrorDocument 404 /sitn/Controllers/errors/404.php
 	RewriteRule register\/([[a-z]+)\/?$ Body/login.php?register&$1 [NC]
 	RewriteRule forgot\/([[a-z]+)\/?$ Body/login.php?forgot&$1 [NC]
 	RewriteRule faculty Body/login.php?f [NC]
+	RewriteRule logout Body/include/logout.php [NC]
 
 
 	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]

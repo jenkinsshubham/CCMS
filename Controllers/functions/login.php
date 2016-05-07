@@ -19,9 +19,12 @@ if (isset($_POST['submit'])) {
 
 	// FETCHING
 	$row=$result->fetch_array();	
+	if ($frm=='s')
+		$logid=$row['usn'];
+	else $logid=$row['tid'];
 
 	if($row['password']==$password){
-		$_SESSION['id'] = $id;
+		$_SESSION['id'] = $logid;
 		$_COOKIE['frm'] = $frm;
 		header("Location: ".BASEPATH);
 	}
