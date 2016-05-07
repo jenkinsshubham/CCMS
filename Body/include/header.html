@@ -22,14 +22,16 @@ session_start();
     <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/header.css" rel="stylesheet">
+    <link href="<?php echo STYLERS ?>css/bargraph.css" rel="stylesheet">
 
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
+    <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
 
     <script>
          $(document).ready(function(){ 
       // ----- popup when not logged in
-      var a= <?php if (!isset($_GET['1'])) {echo "1";} else echo "0"; ?>;
+      var a= <?php if (!isset($_GET['1'])&&!isset($_SESSION['id'])) {echo "1";} else echo "0"; ?>;
       if (a==1) {
         $('[data-popup="login"]').fadeIn(5550);
         $(".header-wrapper").fadeOut(4400);
@@ -54,15 +56,6 @@ session_start();
   </head>
 
   <body id="bdy">
-
-
-  <?php
- 
-  /*
-  $res=mysql_query("SELECT * FROM register_s WHERE usn=".$_SESSION['id']);
-  $userRow=mysql_fetch_array($res);*/
-  ?>
-
 
 
 

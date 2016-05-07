@@ -1,0 +1,320 @@
+
+.bar-chart {
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.bar-chart > .legend {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    margin-bottom: -45px;
+    border-top: 1px solid #000;
+}
+
+.bar-chart > .legend > .item {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 25%;
+}
+
+.bar-chart > .legend > .item:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 1px;
+    height: 8px;
+    background-color: #000;
+    margin-top: -8px;
+}
+
+.bar-chart > .legend > .item.text-right:before {
+    right: 0;
+    left: auto;
+}
+
+h2 {
+    color: #fff;
+}
+
+.bar-chart > .legend > .item h4 {
+    color: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bar-chart > .chart {
+    position: relative;
+    width: 100%;
+}
+
+.bar-chart > .chart > .item {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.bar-chart > .chart > .item > .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ff4081;
+    z-index: 5;
+}
+
+.bar-chart > .chart > .item > .bar > .percent {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40px;
+    line-height: 40px;
+    padding-right: 12px;
+    z-index: 15;
+}
+
+.bar-chart > .chart > .item > .bar > .item-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #3e50b4;
+    z-index: 10;
+}
+
+.bar-chart > .chart > .item > .bar > .item-progress > .title {
+    display: block;
+    position: absolute;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 12px;
+    letter-spacing: 2px;
+    z-index: 15;
+}
+
+
+.column-chart {
+  position: relative;
+  z-index: 20;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 320px;
+  margin-top: 40px;
+  margin-left: -50%;
+}
+
+@media (min-width: 568px) {
+  .column-chart {
+    width: 80%;
+    margin-left: -40%;
+  }
+}
+
+@media (min-width: 768px) {
+  .column-chart {
+    width: 60%;
+    margin-left: -30%;
+  }
+}
+
+@media (min-width: 992px) {
+  .column-chart {
+    width: 40%;
+    margin-left: -20%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .column-chart {
+    width: 36%;
+    margin-left: -18%;
+  }
+}
+
+.column-chart:before,
+.column-chart:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: calc(100% + 30px);
+  height: 25%;
+  margin-left: -15px;
+  border-top: 1px dashed #b4b4b5;
+  border-bottom: 1px dashed #b4b4b5;
+}
+
+.column-chart:after {
+  top: 50%;
+}
+
+.column-chart > .legend {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+
+.column-chart > .legend.legend-left {
+  left: 0;
+  width: 25px;
+  height: 75%;
+  margin-left: -55px;
+  border: 1px solid #b4b4b5;
+  border-right: none;
+}
+
+.column-chart > .legend.legend-left > .legend-title {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 65px;
+  height: 50px;
+  line-height: 50px;
+  margin-top: -25px;
+  margin-left: -60px;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+.column-chart > .legend.legend-right {
+  right: 0;
+  width: 100px;
+  height: 100%;
+  margin-right: -115px;
+}
+
+.column-chart > .legend.legend-right > .item {
+  position: relative;
+  width: 100%;
+  height: 25%;
+}
+
+.column-chart > .legend.legend-right > .item > h4 {
+  color: #fff;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: -20px;
+  font-size: 16px;
+  text-align: right;
+}
+
+.column-chart > .chart {
+  position: relative;
+  z-index: 20;
+  bottom: 0;
+  left: 50%;
+  width: 98%;
+  height: 100%;
+  margin-left: -49%;
+}
+
+.column-chart > .chart > .item {
+  position: relative;
+  float: left;
+  height: 100%;
+}
+
+.column-chart > .chart > .item:before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  height: calc(100% + 15px);
+  border-right: 1px dashed #b4b4b5;
+}
+
+.column-chart > .chart > .item > .bar {
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  width: 94%;
+  height: 100%;
+}
+
+.column-chart > .chart > .item > .bar > span.percent {
+  display: block;
+  position: absolute;
+  z-index: 25;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  color: #fff;
+  background-color: #3e50b4;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.column-chart > .chart > .item > .bar > .item-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  color: #fff;
+  background-color: #ff4081;
+}
+
+.column-chart > .chart > .item > .bar > .item-progress > .title {
+  position: absolute;
+  top: calc(50% - 13px);
+  left: 50%;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+
+@media (min-width: 360px) {
+  .column-chart > .chart > .item > .bar > .item-progress > .title {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 480px) {
+  .column-chart > .chart > .item > .bar > .item-progress > .title {
+    font-size: 18px;
+  }
+}
+
+
+#aa {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 35px;
+    background-color: #006064;
+    border: none;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    width: auto;
+}
+  
