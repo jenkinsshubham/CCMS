@@ -1,138 +1,61 @@
 <?php
-session_start();
-require_once 'include/dbconnect.php';
 
-if(isset($_POST['btn-submit']))
-{
-$usn = mysql_real_escape_string($_POST['usn']);
-$name = mysql_real_escape_string($_POST['name']);
-$sem = mysql_real_escape_string($_POST['sem']);
-$branch = mysql_real_escape_string($_POST['branch']);
-$section = mysql_real_escape_string($_POST['section']);
-$dob = mysql_real_escape_string($_POST['dob']);
-$pic = mysql_real_escape_string($_POST['pic']);
-$address = mysql_real_escape_string($_POST['address']);
+if (isset($_POST['go'])) {
+ 
+$usn = $db->real_escape_string($_POST['usn']);
+$name = $db->real_escape_string($_POST['name']);
+$sem = $db->real_escape_string($_POST['sem']);
+$br = $db->real_escape_string($_POST['br']);
+$sec = $db->real_escape_string($_POST['sec']);
+$email = $db->real_escape_string($_POST['email']);
+$pic = $db->real_escape_string($_POST['pic']);
+$address = $db->real_escape_string($_POST['address']);
 
-// FOR REGISTERING USERS
-if(isset($_GET['register']))	
-{
-$new = "INSERT INTO usn_info(usn,name,section,branch,dob,pic,address,sem) 
-            VALUES('$usn','$name','$section','$branch','$dob','$pic','$address','$sem')";
-	if(mysql_query($new)) {
-	 echo "<script>alert('Successfully Registered')</script>";
-    header("Location: index.php");
-	 }
- }
 
-// FOR LOGGED USER 
-if(isset($_GET['profile_edit']))
-{
- if(isset($_SESSION['user']))	
-{
-$update = "UPDATE sit_db.usn_info 
-	        SET name = '$name', dob = '$dob', address = '$address', section = '$section', img = '$img' , sem='$sem' 
-	        WHERE usn_info.usn = '$usn'";
-	if(mysql_query($update)) {?>
-		<script>alert("Profile Updated sucessfully") </script><?php ;
-   header("Location: ?profile");}
+$update = "UPDATE `log_s` 
+	        SET name = '$name', email = '$email', address = '$address', sec = '$sec', img = '$img' , sem='$sem' 
+	        WHERE username = '$username'";
+	if($db->query($update)) {?>
+		<script>alert("Profile Updated sucessfully") </script><?php
+   header("Location: /");}
 	 
  }
 
-}
-}
-
 
 ?>
-<?php if(!isset($_GET['profile_edit']))
-{
-	?>
 <form class='form-signin' method='post'>
         <h2 class='form-signin-heading' id="details">Details</h2><hr/>
         <label>Picture: <input type='file' name='pic'  class='form-control'></label>
-        <input type='hidden' name='usn'  class='form-control' value="<?php if(isset($_GET['register'])){echo $_COOKIE['usn'];};  ?>" placeholder='USN' required autofocus>
-        <input type='text' name='name'  class='form-control' placeholder='Full Name' required autofocus>
+        <input type='<?php if($sem>1) echo "hidden"; else echo "text";?>' name='usn'  class='form-control' placeholder='USN' value="<?php if($sem>1) echo $usn ?>">
+        <input type='text' name='name' value="<?php echo $name ?>" class='form-control' placeholder='Full Name' required autofocus>
            <div class='checkbox'>      
-        <input type='text' name='section'  class='form-control' placeholder='Current Section'>
+        <input type='text' name='sec' value="<?php echo $sec ?> " class='form-control' placeholder='Current Section'>
          <select name="sem">
-      		<option>Sem</option>         
-      		<option>I</option>         
-      		<option>II</option>         
-      		<option>III</option>         
-      		<option>IV</option>         
-      		<option>V</option>         
-      		<option>VI</option>         
-      		<option>VII</option>         
-      		<option>VIII</option>         
+      		<option value="">Sem</option>         
+      		<option value="1">I</option>         
+      		<option value="2">II</option>         
+      		<option value="3">III</option>         
+      		<option value="4">IV</option>         
+      		<option value="5">V</option>         
+      		<option value="6">VI</option>         
+      		<option value="7">VII</option>         
+      		<option value="8">VIII</option>         
          </select>
          &nbsp;
-         <select name="branch">
-      		<option>Select Branch</option>         
-      		<option>CS</option>         
-      		<option>MR</option>         
-      		<option>AE</option>         
-      		<option>ME</option>         
-      		<option>NA</option>         
-      		<option>EC</option>         
-      		<option>EE</option>         
+         <select name="br">
+      		<option value="">Select Branch</option>         
+      		<option value="">CS</option>         
+      		<option value="">MR</option>         
+      		<option value="">AE</option>         
+      		<option value="">ME</option>         
+      		<option value="">NA</option>         
+      		<option value="">EC</option>         
+      		<option value="">EE</option>         
          </select>
           </div>
-        <input type='date' name='dob'  class='form-control' placeholder='Date of Birth'>
-        <textarea name='address' class='form-control' placeholder='Address'></textarea>
+        <input type='email' name='email'  class='form-control' value="<?php echo $email ?>" placeholder='Email'>
+        <textarea name='address' class='form-control' placeholder='Address'><?php echo $address ?></textarea>
         
-        
-         
-        
-        <button class='btn btn-lg btn-primary btn-block' type='submit' name='btn-submit'>Submit</button>
+        <button class='btn btn-lg btn-primary btn-block' type='submit' name='go'>Submit</button>
 </form>
 <hr/>
-<?php } ;
-if(isset($_SESSION['user']))
-{
-	if(isset($_GET['profile_edit']))
-{
-	?>
-
-
-<form class='form-signin' method='post'>
-        <h2 class='form-signin-heading' id="details">Edit Profile</h2><hr/>
-        <label>Picture: <input type='file' name='pic'  class='form-control'></label>
-        <input type='hidden' name='usn'  class='form-control' value="<?php echo "{$_SESSION['user']}";  ?>"required>
-        <input type='text' name='name'  class='form-control' value="<?php echo $row['name'];?>" placeholder='Full Name' required autofocus>
-        <input type='text' name='section'  class='form-control' value="<?php echo $row['section'];?>" placeholder='Current Section'>
-        <select name="sem">
-      		<option>Sem</option>         
-      		<option>I</option>         
-      		<option>II</option>         
-      		<option>III</option>         
-      		<option>IV</option>         
-      		<option>V</option>         
-      		<option>VI</option>         
-      		<option>VII</option>         
-      		<option>VIII</option>         
-         </select>
-         &nbsp;
-         <select name="branch">
-      		<option>Select Branch</option>         
-      		<option>CS</option>         
-      		<option>MR</option>         
-      		<option>AE</option>         
-      		<option>ME</option>         
-      		<option>NA</option>         
-      		<option>EC</option>         
-      		<option>EE</option>         
-         </select>
-        
-        <input type='date' name='dob'  class='form-control' value="<?php echo $row['dob'];?>" placeholder='Date of Birth'>
-        <textarea name='address' class='form-control' placeholder='Address'><?php echo $row['address'];?></textarea>
-        
-        
-         
-        
-        <button class='btn btn-lg btn-primary btn-block' type='submit' name='btn-submit'>Update</button>
-</form>
-<hr/>
-
-<?php } } ?>	
-
-
-
