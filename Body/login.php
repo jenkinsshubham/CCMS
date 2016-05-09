@@ -74,7 +74,7 @@ else $frm="s";
         <!-- end:Main Form -->
     </div>
 <?php } 
-if(isset($_GET['register'])) { ?>
+if(isset($_GET['register'])) { require('../Controllers/functions/register.php'); ?>
 <!-- REGISTRATION FORM -->
     <div class="text-center" style="padding:50px 0">
         <div class="logo"> <?php if (isset($_GET['f']))  echo "Faculty";
@@ -129,7 +129,7 @@ if(isset($_GET['register'])) { ?>
                         </div>
 
                     </div>
-                    <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+                    <button name="register" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
                 <div class="etc-login-form">
                     <p>already have an account? <a href="<?php if (isset($_GET['f']))  echo    BASEPATH."/faculty";

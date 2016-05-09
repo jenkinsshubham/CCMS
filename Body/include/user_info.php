@@ -2,7 +2,7 @@
 
 if(isset($_SESSION['id']))
 {
-	$id = $db->real_escape_string($_SESSION['id']);
+	$username = $db->real_escape_string($_SESSION['id']);
 	$frm =$db->real_escape_string($_COOKIE['frm']);
 		
 	$sql="SELECT *";
@@ -10,10 +10,7 @@ if(isset($_SESSION['id']))
 		$sql.=" FROM log_s";
 	else 
 		$sql.=" FROM log_f";
-	if ($frm=='s') 
-		$sql.=" WHERE usn='$id'";
-	else
-		$sql.=" WHERE tid='$id'";
+	$sql.=" WHERE username='$username'";
 
 	$result=$db->query($sql);
 
@@ -44,6 +41,9 @@ if(isset($_SESSION['id']))
 		
 	}
 	
+	if ($frm=='s')
+		$id=$row['usn'];
+	else $id=$row['tid'];
 	$name=$row['name'];
 	$email=$row['email'];
 	$img=$row['img'];

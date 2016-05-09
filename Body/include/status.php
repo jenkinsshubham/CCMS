@@ -14,7 +14,7 @@ $exam='internal_1';
 
 	$status=$result->fetch_array();	
 
-echo "usn: ".$status['usn']."<br/>";
+echo "Welcome ".$name."<br/>";
 
 
 	
