@@ -81,45 +81,53 @@ if(isset($_GET['register'])) { ?>
                                 else echo "Student"; ?> register</div>
         <!-- Main Form -->
         <div class="login-form-1">
-            <form id="register-form" class="text-left">
+            <form id="register-form" class="text-left" method="post">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
                     <div class="login-group">
                         <div class="form-group">
                             <input type="hidden" name="frm" value="<?php echo $frm ?>"/>
-                            <label for="reg_username" class="sr-only">Name</label>
-                            <input type="text" class="form-control" id="reg_username" name="name" placeholder="Full Name" required autofocus>
+                            <label for="name" class="sr-only">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Full Name" required autofocus>
                         </div>
                         <div class="form-group">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <select name="cycle" required>
-                                <option value="Cycle">--Cycle--</option>
-                                <option value="physics">Physics</option>
-                                <option value="chemistry">Chemistry</option>
-                            </select>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <select name="section" required>
-                                <option value="a1">a1</option>
-                                <option value="a2">a2</option>
-                                <option value="a3">a3</option>
-                            </select>
+                            <label for="username" class="sr-only">Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Choose a username..." required>
                         </div>
                         <div class="form-group">
-                            <label for="reg_email" class="sr-only">roll no.</label>
-                            <input type="number" class="form-control" id="reg_roll" name="roll" placeholder="Roll no." required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg_email" class="sr-only">Email</label>
-                            <input type="email" class="form-control" id="reg_email" name="email" placeholder="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg_password" class="sr-only">Password</label>
-                            <input type="password" class="form-control" id="reg_password" name="password" placeholder="password"  required>
+                            <label for="username" class="sr-only">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Create a password..." required>
                         </div>
                         <div class="form-group">
                             <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-                            <input type="password" class="form-control" id="reg_password_confirm" name="password_confirm" placeholder="confirm password"  required>
+                            <input type="password" class="form-control" name="password_confirm" placeholder="confirm password"  required>
                         </div>
+                        <div class="form-group">
+                            <label for="username" class="sr-only">USN</label>
+                            <input type="text" class="form-control" name="usn" placeholder="USN (leave blank if you don't have)">
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="sr-only">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="abc@xyz.com">
+                        </div>
+                        <div class="form-group">
+                            <select name="sem" required>
+                                <option value="">Sem</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select> &nbsp;&nbsp;
+                            <select name="br">
+                                <option value="a1">Branch</option>
+                                <option value="a2">CS</option>
+                                <option value="a3">ME</option>
+                            </select> &nbsp;&nbsp;
+                            <select name="br" required>
+                                <option value="a1">Section</option>
+                                <option value="a2">A1</option>
+                                <option value="a3">A2</option>
+                            </select>
+                        </div>
+
                     </div>
                     <button name="submit" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
                 </div>
