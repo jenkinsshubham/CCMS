@@ -1,23 +1,24 @@
 <?php
-require_once('../Controllers/config/database.php');
-//ID
-$id = ($_SESSION['id']);
 
 $exam='internal_1';
 
-$sql=" SELECT *";
-$sql.=" FROM $exam";
-$sql.=" WHERE usn='$id'";
+	$sql=" SELECT *";
+	$sql.=" FROM $exam";
+	$sql.=" WHERE usn='$id'";
 
-$result=$db->query($sql);
+	$result=$db->query($sql);
 
-if (!$result) {
-	die('There was an error running the query ['.$db->error.']');
-}
+	if (!$result) {
+		die('There was an error running the query ['.$db->error.']');
+	}
 
-// FETCHING
-$status=$result->fetch_array();	
-echo "usn: ".$status['usn']."<br/>"
+	$status=$result->fetch_array();	
+
+echo "usn: ".$status['usn']."<br/>";
+
+
+	
+	
 
 
 ?>
@@ -40,17 +41,17 @@ echo "usn: ".$status['usn']."<br/>"
             <div class="bar-chart">
                 <div class="legend">
                     <div class="item">
-                        <h4>Poor</h4>
+                        <h4></h4>
                     </div>
                     <!-- //.item -->
                     
                     <div class="item">
-                        <h4>Average</h4>
+                        <h4>Shortage</h4>
                     </div>
                     <!-- //.item -->
                     
                     <div class="item text-right">
-                        <h4>Good</h4>
+                        <h4></h4>
                     </div>
                     <!-- //.item -->
             
@@ -62,57 +63,39 @@ echo "usn: ".$status['usn']."<br/>"
                 <!-- //.legend -->
                 
                 <div class="chart clearfix">
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">92%</span>
-            
-                            <div class="item-progress" data-percent="92">
-                                <span class="title">Maths</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
+
+	                <?php $sc=6; for($i=1; $i <= $sc; $i++) { 
+	                	$att=$i.'a';
+						$q="SELECT *";
+						if ($sem>2) 
+							$q.=" FROM `subjects`";
+						else 
+							$q.=" FROM `1yr_subjects`";
+						$q.=" WHERE branch='$br'";
+						$q.=" AND sem='$sem'";
+	                	$q.=" AND ref='$i'";
+	                	$sresult=$db->query($q);
+
+	                	$sub=$sresult->fetch_array();	
+
+	                	
+	                	?>
+	                	
+		                    <div class="item">
+		                        <div class="bar">
+		                            <span class="percent"><?php echo $status[$att] ?>%</span>
+		            
+		                            <div class="item-progress" data-percent="<?php echo $status[$att] ?>">
+		                                <span class="title"><?php echo $sub['sname'] ?></span>
+		                            </div>
+		                            <!-- //.item-progress -->
+		                        </div>
+		                        <!-- //.bar -->
+		                    </div>
+	                 	<?php } ?>
+	                    <!-- //.item -->
                     
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">71%</span>
-            
-                            <div class="item-progress" data-percent="71">
-                                <span class="title">Chemistry</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
                     
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">82%</span>
-            
-                            <div class="item-progress" data-percent="82">
-                                <span class="title">C Programming</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">67%</span>
-            
-                            <div class="item-progress" data-percent="67">
-                                <span class="title">EVS</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
                 </div>
                 <!-- //.chart -->
             </div>
@@ -125,7 +108,7 @@ echo "usn: ".$status['usn']."<br/>"
 <!-- //.container -->
 
 
-
+<!-- MARKS GRAPH -->
 
 <div id="aa">
 	<div class="row">
@@ -136,10 +119,6 @@ echo "usn: ".$status['usn']."<br/>"
             <!-- //.text-center -->
             
             <div class="column-chart">
-                <div class="legend legend-left hidden-xs">
-                    <h3 class="legend-title">ME</h3>
-                </div>
-                <!-- //.legend -->
             
                 <div class="legend legend-right hidden-xs">
                     <div class="item">
@@ -156,6 +135,10 @@ echo "usn: ".$status['usn']."<br/>"
                         <h4>Average</h4>
                     </div>
                     <!-- //.item -->
+                    <div class="item">
+                        <h4>BelowAverage</h4>
+                    </div>
+                    <!-- //.item -->
             
                     <div class="item">
                         <h4>Poor</h4>
@@ -165,70 +148,37 @@ echo "usn: ".$status['usn']."<br/>"
                 <!-- //.legend -->
             
                 <div class="chart clearfix">
+
+	                <?php $sc=6; for($i=1; $i <= $sc; $i++) { 
+	                	$mrk=$i.'m';
+						$q="SELECT *";
+						if ($sem>2) 
+							$q.=" FROM `subjects`";
+						else 
+							$q.=" FROM `1yr_subjects`";
+						$q.=" WHERE branch='$br'";
+						$q.=" AND sem='$sem'";
+	                	$q.=" AND ref='$i'";
+	                	$sresult=$db->query($q);
+
+	                	$sub=$sresult->fetch_array();	
+
+	                	
+	                	?>
                     <div class="item">
                         <div class="bar">
-                            <span class="percent">92%</span>
+                            <span class="percent"><?php echo $status[$mrk] ?></span>
             
-                            <div class="item-progress" data-percent="92">
-                                <span class="title">Maths</span>
+                            <div class="item-progress" data-percent="<?php echo $status[$mrk] ?>">
+                                <span class="title"><?php echo $sub['sname'] ?></span>
                             </div>
                             <!-- //.item-progress -->
                         </div>
                         <!-- //.bar -->
                     </div>
                     <!-- //.item -->
-            
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">61%</span>
-            
-                            <div class="item-progress" data-percent="71">
-                                <span class="title">Chemistry</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">98%</span>
-            
-                            <div class="item-progress" data-percent="82">
-                                <span class="title">C Programming</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">78%</span>
-            
-                            <div class="item-progress" data-percent="58">
-                                <span class="title">CAED</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <div class="bar">
-                            <span class="percent">67%</span>
-            
-                            <div class="item-progress" data-percent="67">
-                                <span class="title">EVS</span>
-                            </div>
-                            <!-- //.item-progress -->
-                        </div>
-                        <!-- //.bar -->
-                    </div>
-                    <!-- //.item -->
+            		<?php } ?>
+                    
                 </div>
                 <!-- //.chart -->
             </div>
@@ -248,37 +198,38 @@ echo "usn: ".$status['usn']."<br/>"
 
 
 <!-- //.container -->
-<script type="text/javascript">
-$(document).ready(function(){
-    barChart();
-    
-    $(window).resize(function(){
-        barChart();
-    });
-    
-    function barChart(){
-        $('.bar-chart').find('.item-progress').each(function(){
-            var itemProgress = $(this),
-            itemProgressWidth = $(this).parent().width() * ($(this).data('percent') / 100);
-            itemProgress.css('width', itemProgressWidth);
-        });
-    };
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-    columnChart();
-    
-    function columnChart(){
-        var item = $('.chart', '.column-chart').find('.item'),
-        itemWidth = 100 / item.length;
-        item.css('width', itemWidth + '%');
-        
-        $('.column-chart').find('.item-progress').each(function(){
-            var itemProgress = $(this),
-            itemProgressHeight = $(this).parent().height() * ($(this).data('percent') / 100);
-            itemProgress.css('height', itemProgressHeight);
-        });
-    };
-});
-</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    barChart();
+	    
+	    $(window).resize(function(){
+	        barChart();
+	    });
+	    
+	    function barChart(){
+	        $('.bar-chart').find('.item-progress').each(function(){
+	            var itemProgress = $(this),
+	            itemProgressWidth = $(this).parent().width() * ($(this).data('percent') / 100);
+	            itemProgress.css('width', itemProgressWidth);
+	            if(($(this).data('percent'))<85) {itemProgress.css('background-color', '#670000')};
+	        });
+	    };
+	});
+	</script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	    columnChart();
+	    
+	    function columnChart(){
+	        var item = $('.chart', '.column-chart').find('.item'),
+	        itemWidth = 100 / item.length;
+	        item.css('width', itemWidth + '%');
+	        
+	        $('.column-chart').find('.item-progress').each(function(){
+	            var itemProgress = $(this),
+	            itemProgressHeight = $(this).parent().height() * ($(this).data('percent') / 20);
+	            itemProgress.css('height', itemProgressHeight);
+	        });
+	    };
+	});
+	</script>

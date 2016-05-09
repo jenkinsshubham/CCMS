@@ -1,16 +1,19 @@
 <?php 
 require_once 'config.inc.php';
+require_once('../Controllers/config/database.php');
 require 'include/header.html';
+
+if(isset($_SESSION['id']))  require('include/user_info.php');
 ?>
 <div id='body'>
 <div class="main">
-<!-- status --> <?php if(isset($_SESSION['id'])) {echo include('include/status.php');} ?> 
+<!-- student status --> <?php if($frm='s'&&isset($id)) {echo include('include/status.php');} ?> 
 
-<!-- SLIDER -->  <?php /*if(isset($_SESSION['id']))*/ {echo include('include/slider1.php');}?>
+<!-- SLIDER -->  <?php if(!isset($id)) {echo include('include/slider1.php');}?>
 
-<!-- PROFILE EDITOR --> <?php if(isset($_SESSION['id'])) {if(isset($_GET['profile_edit']) || isset($_GET['register'])) {echo include('usr_end/edit_profile.php');}}?>
-<!-- PROFILE --> <?php if(isset($_SESSION['id'])) {if(isset($_GET['profile'])) {echo include('usr_end/profile.php');}}?>
-<!-- ASSIGNMENTS --> <?php if(isset($_SESSION['id'])) {if(isset($_GET['assignments'])) {echo include('usr_end/assignments.php');}}?>
+<!-- PROFILE EDITOR --> <?php if(isset($id)) {if(isset($_GET['profile_edit']) || isset($_GET['register'])) {echo include('usr_end/edit_profile.php');}}?>
+<!-- PROFILE --> <?php if(isset($id)) {if(isset($_GET['profile'])) {echo include('usr_end/profile.php');}}?>
+<!-- ASSIGNMENTS --> <?php if(isset($id)) {if(isset($_GET['assignments'])) {echo include('usr_end/assignments.php');}}?>
 <!-- ATTENDENCE --> <?php if(isset($_GET['attendence'])) {echo include('usr_end/attendence.php');}?>
 <!-- EVENTS --> <?php if(isset($_GET['events'])) {echo include('include/events.php');}?>
 <!-- ASSIGNMENT brwsr --> <?php if(isset($_GET['assignment_browser'])) {echo include('include/assignment_browser.php');}?>
@@ -44,7 +47,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </div>
 <div class="sidebar-right">
-<!-- user bar --> <?php if(isset($_SESSION['id'])) {echo include('include/user_bar.php');} ?> 
+<!-- user bar --> <?php if(isset($id)) {echo include('include/user_bar.php');} ?> 
 		<div class="panel panel-info" style="margin:12px">
 		<div class="panel-heading"> <h3 class="panel-title">Recent Updates</h3> </div>
 		<div class="panel-body" style="padding:12px;">

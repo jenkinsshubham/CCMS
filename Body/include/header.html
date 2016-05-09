@@ -3,7 +3,7 @@ ini_set('display_errors',1);
  error_reporting(E_ALL);
 
 require_once 'config.inc.php';
-echo file_get_contents(CONTROLLERS.'config/database.php');
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ session_start();
     <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/header.css" rel="stylesheet">
-    <link href="<?php echo STYLERS ?>css/bargraph.css" rel="stylesheet">
+    <link href="<?php echo STYLERS ?>css/graph.css" rel="stylesheet">
 
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
@@ -33,24 +33,13 @@ session_start();
       // ----- popup when not logged in
       var a= <?php if (!isset($_GET['1'])&&!isset($_SESSION['id'])) {echo "1";} else echo "0"; ?>;
       if (a==1) {
-        $('[data-popup="login"]').fadeIn(5550);
-        $(".header-wrapper").fadeOut(4400);
-        $("#body").fadeOut(4400);
-        $("#footer").fadeOut(4400);
+        $('[data-popup="login"]').fadeIn(1500);
+        $(".header-wrapper").fadeOut(800);
+        $("#body").fadeOut(900);
+        $("#footer").fadeOut(700);
         e.preventDefault();
-      };
-      //----- OPEN
-      $('[data-popup-open]').on('click', function(e)  {
-      var targeted_popup_class = jQuery(this).attr('data-popup-open');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
-        e.preventDefault();
-      });
-      //----- CLOSE
-      $('[data-popup-close]').on('click', function(e)  {
-        var targeted_popup_class = jQuery(this).attr('data-popup-close');
-        $('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
-        e.preventDefault();
-      });
+      }; 
+      
     });
 </script>
   </head>

@@ -1,7 +1,5 @@
 <?php
-require('../Controllers/config/database.php');
-$id = $db->real_escape_string($_SESSION['id']);
-$frm=(!empty($_COOKIE['frm']) ? $user : "");
+
 $frm =$db->real_escape_string($frm);
 $sql="SELECT * ";
   if ($frm=='s') 

@@ -25,7 +25,8 @@ if (isset($_POST['submit'])) {
 
 	if($row['password']==$password){
 		$_SESSION['id'] = $logid;
-		$_COOKIE['frm'] = $frm;
+		echo "<script>var a=0;</script>";
+		setcookie('frm', $frm, time() + (86400 * 30), "/"); // 86400 = 1 day
 		header("Location: ".BASEPATH);
 	}
 	else{
