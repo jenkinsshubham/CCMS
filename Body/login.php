@@ -103,30 +103,42 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
                             <input type="password" class="form-control" name="password_confirm" placeholder="confirm password"  required>
                         </div>
                         <div class="form-group">
-                            <label for="username" class="sr-only">USN</label>
-                            <input type="text" class="form-control" name="usn" placeholder="USN (leave blank if you don't have)">
-                        </div>
-                        <div class="form-group">
                             <label for="username" class="sr-only">Email</label>
                             <input type="email" class="form-control" name="email" placeholder="abc@xyz.com">
                         </div>
                         <div class="form-group">
-                            <select name="sem" required>
-                                <option value="">Sem</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select> &nbsp;&nbsp;
-                            <select name="br">
-                                <option value="a1">Branch</option>
-                                <option value="a2">CS</option>
-                                <option value="a3">ME</option>
-                            </select> &nbsp;&nbsp;
-                            <select name="br" required>
-                                <option value="a1">Section</option>
-                                <option value="a2">A1</option>
-                                <option value="a3">A2</option>
-                            </select>
+                            <label for="username" class="sr-only"><?php if (isset($_GET['f']))  echo "Faculty ID";
+                                else echo "USN"; ?></label>
+                            <input type="text" class="form-control" name="<?php if (isset($_GET['f']))  echo "fid";
+                                else echo "usn"; ?>" placeholder="<?php if (isset($_GET['f']))  echo "Faculty ID";
+                                else echo "USN  (leave blank if you don't have)"; ?>">
                         </div>
+                        <div class='form-group'>
+                        <?php if (isset($_GET['f'])) echo "
+                            <select name='department' required>
+                                <option value='a1'>Department</option>
+                                <option value='a2'>A1</option>
+                                <option value='a3'>A2</option>
+                            </select>
+                            ";
+                        else echo "
+                            <select name='sem' required>
+                                <option value=''>Sem</option>
+                                <option value='1'>1</option>
+                                <option value='2'>2</option>
+                            </select> &nbsp;&nbsp;
+                            <select name='br'>
+                                <option value='a1'>Branch</option>
+                                <option value='a2'>CS</option>
+                                <option value='a3'>ME</option>
+                            </select> &nbsp;&nbsp;
+                            <select name='sec' required>
+                                <option value='a1'>Section</option>
+                                <option value='a2'>A1</option>
+                                <option value='a3'>A2</option>
+                            </select>
+                        " ?>
+                         </div>
 
                     </div>
                     <button name="register" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>

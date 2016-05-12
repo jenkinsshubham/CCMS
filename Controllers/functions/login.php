@@ -9,11 +9,11 @@ if (isset($_POST['submit'])) {
 		$sql.="FROM log_s";
 	else 
 		$sql.=" FROM log_f";
-		$sql.=" WHERE username='$id' OR  usn='$id'";
+		$sql.=" WHERE username='$id' OR";
 	if ($frm=='s') 
 		$sql.=" usn='$id'";
 	else 
-		$sql.=" tid='$id'";
+		$sql.=" fid='$id'";
 
 	$result=$db->query($sql);
 

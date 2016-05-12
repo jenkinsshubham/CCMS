@@ -5,30 +5,38 @@ if (isset($_POST['register'])) {
 	$name = $db->real_escape_string($_POST['name']);
 	$username = $db->real_escape_string($_POST['username']);
 	$password =$db->real_escape_string($_POST['password']);
-	$usn =$db->real_escape_string($_POST['usn']);
 	$email =$db->real_escape_string($_POST['email']);
-	$br =$db->real_escape_string($_POST['br']);
-	$sem =$db->real_escape_string($_POST['sem']);
-	$sec =$db->real_escape_string($_POST['sec']);
-	
-	// QUERYING
-	$sql="INSERT INTO ";
+	if ($frm=='s'){
+		$br =$db->real_escape_string($_POST['br']);
+		$sem =$db->real_escape_string($_POST['sem']);
+		$sec =$db->real_escape_string($_POST['sec']);
+		$usn =$db->real_escape_string($_POST['usn']);
+	}
+	else {
+		$fid =$db->real_escape_string($_POST['fid']);
+		$department =$db->real_escape_string($_POST['department']);
+	}
+	// RESTERING
+	$sql="INSERT INTO log_";
+	if ($frm=='s') $sql.="s";
+	else $sql.="f";
+	$sql.="(name,username,password,email,";
 	if ($frm=='s') 
-		$sql.=" log_s(name,username,password,usn,email,br,sem,sec)";
+		$sql.="usn,br,sem,sec)";
 	else 
-		$sql.=" log_f(name,username,password,usn,email,br,sem,sec)";
-	$sql.=" VALUES(";
+		$sql.="fid,department)";
+	$sql.=" VALUES('$name','$username','$password','$email',";
 	if ($frm=='s') 
-		$sql.=" '$name','$username','$password','$usn','$email','$br','$sem','$sec'";
+		$sql.="'$usn','$br','$sem','$sec'";
 	else 
-		$sql.=" ";
+		$sql.="'$fid','$department'";
 	$sql.=")";
 	
 
 	$result=$db->query($sql);
 
 	if (!$result) {
-		die('There was an error running the query ['.$db->error.']');
+		echo('<big/>Registration ERROR!!</big> <br/> ['.$db->error.']');
 	}
 
 
@@ -40,12 +48,9 @@ if (isset($_POST['register'])) {
 
 	else{
 		?>
-		<script>alert('wrong details');</script>
+		<script>alert('Registration Failed!');</script>
 		<?php
 	}
 
 }
-?><?php
-
-
 ?>
