@@ -65,6 +65,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </div>
 
+
+<?php if(!isset($username)) { ?>
+<!-- LOGIN BUTTON  -->
+<div class="alogin-button">
+	<a href="<?php echo BASEPATH?>login">login</a>
+</div>
+
 <?php
+}
 require 'include/footer.html';
 ?>

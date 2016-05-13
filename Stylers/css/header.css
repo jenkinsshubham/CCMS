@@ -232,3 +232,20 @@ html,body{
   border-width: 0px;
   border-radius: 5px;
 }
+
+.alogin-button {
+  display: block;
+  position: fixed; bottom: 30px; right: 50px;
+  width: 80px;
+  height: 35px;
+  font: bold 0.9em/1.2em Arial, Helvetica, sans-serif; color: #bbb; text-transform: uppercase; text-decoration: none;
+  padding: 10px;
+  background-color:black;
+  border-radius: 5px;
+  box-shadow: 5px 5px 1px #333;
+  text-align:center;
+}
+.alogin-button>a {
+  color: #fff;
+}
+.login-button:hover { text-decoration: none; }
