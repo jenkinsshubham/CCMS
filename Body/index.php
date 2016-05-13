@@ -3,7 +3,7 @@ require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
 require 'include/header.html';
 
-if(isset($_SESSION['id']))  require('include/user_info.php');
+if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
 
 ?>

@@ -2,8 +2,8 @@
 
 if(isset($_SESSION['id']))
 {
-	$username = $db->real_escape_string($_SESSION['id']);
 	$frm =$db->real_escape_string($_COOKIE['frm']);
+	$username = $db->real_escape_string($_SESSION['id']);
 		
 	$sql="SELECT *";
 	if ($frm=='s') 
@@ -22,7 +22,17 @@ if(isset($_SESSION['id']))
 	$row=$result->fetch_array();
 
 
+
+
+// Assigning Variables
+
+	$name=$row['name'];
+	$email=$row['email'];
+	$img=$row['img'];
+	$mob=$row['mob'];
+
 	if ($frm=='s') {
+		$id=$row['usn'];
 		$usn=$row['usn'];
 		$sem=$row['sem'];
 		$br=$row['br'];
@@ -34,19 +44,14 @@ if(isset($_SESSION['id']))
 		
 
 	} else {
+		$id=$row['fid'];
 		$fid=$row['fid'];
 		$designation=$row['designation'];
 		$department=$row['department'];
-		$mob=$row['mob'];
+		
 		
 	}
 	
-	if ($frm=='s')
-		$id=$row['usn'];
-	else $id=$row['tid'];
-	$name=$row['name'];
-	$email=$row['email'];
-	$img=$row['img'];
 
 }
 
