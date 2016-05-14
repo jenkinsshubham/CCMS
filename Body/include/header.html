@@ -23,25 +23,12 @@ session_start();
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/header.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/graph.css" rel="stylesheet">
+    <link href="<?php echo STYLERS ?>css/feeds.css" rel='stylesheet'></script>
 
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
 
-    <script>
-         $(document).ready(function(){ 
-      // ----- popup when not logged in
-      var a= <?php if (!isset($_GET['1'])&&!isset($_SESSION['id'])) {echo "1";} else echo "0"; ?>;
-      if (a==1) {
-        $('[data-popup="login"]').fadeIn(1500);
-        $(".header-wrapper").fadeOut(800);
-        $("#body").fadeOut(900);
-        $("#footer").fadeOut(700);
-        e.preventDefault();
-      }; 
-      
-    });
-</script>
   </head>
 
   <body id="bdy">
@@ -93,17 +80,6 @@ session_start();
 
     </div>
   </div>
-</div>
-
-
-<!--############### login popup ###################3-->
-
-<!-- <a class="btn" data-popup-open="login" href="#">Open Popup #1</a> -->
-<div class="popup" data-popup="login">
-    <div class="popup-inner">
-        <iframe src="<?php echo BASEPATH?>login#login_form" id="iframe" scrolling="no"></iframe>
-        <a class="popup-close" data-popup-close="login" href="?1#">x</a>
-    </div>
 </div>
 
 

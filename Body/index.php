@@ -2,6 +2,7 @@
 require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
 require 'include/header.html';
+require_once('../Controllers/functions/feeds.php');
 
 if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
@@ -56,14 +57,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 <!-- user bar --> <?php if(isset($username)) {echo include('include/user_bar.php');} ?> 
 		<div class="panel panel-info" style="margin:12px">
 			<div class="panel-heading"> <h3 class="panel-title">Notice & Updates</h3> </div>
-			<div class="panel-body" style="padding:12px;">
-	          <iframe height="184" width="100%" src="<?php echo BASEPATH?>Body/include/feeds.php" scrolling="no" marginwidth="0" marginheight="0" vspace="0" hspace="0" frameborder="0"></iframe>
-		     </div>
+			<div class="panel-body" style="padding:12px;height: 300px;width: 100%;">
+	          <?php include("include/feeds.php") ?>
+		    </div>
 	   </div>
 
 </div>
 
-</div>
+</div> <!-- div body end -->
 
 
 <?php if(!isset($username)) { ?>

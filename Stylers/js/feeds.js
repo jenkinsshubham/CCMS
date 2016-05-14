@@ -321,7 +321,7 @@ function strToInt(str) {
 
 var autoscrollTimer;
 function init() {
-  var anchorTarget = '_blank';
+  
   var itemPodcast = 'off';
 
   var containerObj = document.getElementById('container');
@@ -375,9 +375,7 @@ function init() {
   contentObj.style.height = contentHeight + 'px';
 
   var aElem = document.getElementsByTagName('a');
-  for(var i=0; i < aElem.length; i++){
-    aElem[i].target = anchorTarget;
-  }
+  
         autoscrollOn();
     $("#container").hover(autoscrollOff, autoscrollOn);
   
