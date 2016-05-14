@@ -9,7 +9,6 @@
                     <div class="feed_item_description"><?php echo $notice['content'] ?></div>
                     <div class="feed_item_date"><?php echo $notice['time'] ?></div>
                 </div>
-                
                        <!-- POPUP NOTICE -->
                 <div class="popup" data-popup="popup-<?php echo $i ?>">
                     <div class="popup-inner">

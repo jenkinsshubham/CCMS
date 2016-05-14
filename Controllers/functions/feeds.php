@@ -1,6 +1,6 @@
 <?php
 
-$sql=" SELECT * FROM notice";
+$sql=" SELECT * FROM notice ORDER BY time DESC";
 
 $feeds=$db->query($sql);
 
