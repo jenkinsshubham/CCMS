@@ -1,6 +1,6 @@
 <?php
 
-$sql=" SELECT * FROM notice ORDER BY time DESC";
+$sql="SELECT *,date_format(`time`,'%e %M %h:%i %p') AS _time from `notice`";
 
 $feeds=$db->query($sql);
 

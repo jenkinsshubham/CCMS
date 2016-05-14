@@ -7,7 +7,7 @@
                         <a class="btn" data-popup-open="popup-<?php echo $i ?>" href="#"><b><?php echo $notice['title'] ?></b></a>
                     </div>
                     <div class="feed_item_description"><?php echo $notice['content'] ?></div>
-                    <div class="feed_item_date"><?php echo $notice['time'] ?></div>
+                    <div class="feed_item_date"><?php echo $notice['_time'] ?></div>
                 </div>
                        <!-- POPUP NOTICE -->
                 <div class="popup" data-popup="popup-<?php echo $i ?>">
@@ -18,7 +18,7 @@
 	                            <div class="panel-body"><h4><?php echo $notice['content'] ?></h4></div>
 	                            <hr/>
 	                            <p><i> Published by: <?php echo $notice['publisher'] ?></i></p>
-	                            <p><i> Time: <?php echo $notice['time'] ?></i></p>
+	                            <p><i> Time: <?php echo $notice['_time'] ?></i></p>
 	                        </div>
                         </div>
                         <a class="popup-close" data-popup-close="popup-<?php echo $i ?>" href="#">x</a>
