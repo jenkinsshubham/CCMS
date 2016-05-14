@@ -19,7 +19,7 @@ if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 <!-- ASSIGNMENT brwsr --> <?php if(isset($_GET['assignment_browser'])) {echo include('include/assignment_browser.php');}?>
 
 
-<!-- student status --> <?php if($frm='s'&&isset($username)) {echo include('include/status.php');} ?> 
+<!-- student status --> <?php if(isset($frm)){if($frm=='s'&&isset($username)) {echo include('include/status.php');}} ?> 
 
 <!-- SLIDER -->  <?php if(!isset($username)) {echo include('include/slider.php');}?>
 
@@ -54,9 +54,13 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </div>
 <div class="sidebar-right">
-<!-- user bar --> <?php if(isset($username)) {echo include('include/user_bar.php');} ?> 
+<!-- user bar --> 
+					<?php if(isset($username)) {
+							if($frm=='s') include('include/user_bar.php'); 
+							else if($frm=='f') include('include/Faculty/user_bar.php');
+					} ?> 
 		<div class="panel panel-info" style="margin:12px">
-			<div class="panel-heading"> <h3 class="panel-title">Notice & Updates</h3> </div>
+			<div class="panel-heading"> <h3 class="panel-title">Notice &amp; Updates</h3> </div>
 			<div class="panel-body" style="padding:12px;height: 300px;width: 100%;">
 	          <?php include("include/feeds.php") ?>
 		    </div>
@@ -77,5 +81,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <?php
 };
+ if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}};
 require 'include/footer.html';
 ?>
