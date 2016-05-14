@@ -327,15 +327,13 @@ function init() {
   var containerObj = document.getElementById('container');
   var headerObj = document.getElementById('header') ? document.getElementById('header') : "";
   var contentObj = document.getElementById('content');
-  var footerObj = document.getElementById('footer');
 
   var totalHeight = getObjectHeight(containerObj);
   var borderSize = 0 * 2;
   var headerHeight = headerObj ? getObjectHeight(headerObj) + strToInt(getElementStyle(headerObj,'marginTop','margin-top')) + strToInt(getElementStyle(headerObj,'marginBottom','margin-bottom')) : 0;
   var contentMargin = strToInt(getElementStyle(contentObj,'marginTop','margin-top')) + strToInt(getElementStyle(contentObj,'marginBottom','margin-bottom'))
   var contentPadding = strToInt(getElementStyle(contentObj,'paddingTop','padding-top')) + strToInt(getElementStyle(contentObj,'paddingBottom','padding-bottom'));
-  var footerHeight = getObjectHeight(footerObj) + strToInt(getElementStyle(footerObj,'marginTop','margin-top')) + strToInt(getElementStyle(footerObj,'marginBottom','margin-bottom'));
-  var contentHeight = totalHeight - borderSize - headerHeight - contentMargin - contentPadding - footerHeight;
+  var contentHeight = totalHeight - borderSize - headerHeight - contentMargin - contentPadding ;
   var tmpHeight = contentHeight - contentPadding;
 
   var divElem = document.getElementsByTagName('div');

@@ -1,7 +1,3 @@
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="<?php echo STYLERS ?>js/feeds.js"></script>
-
-
 <div id="container">
     <div id="content" class="scroll-pane">
         <div id="itemlist">
@@ -27,7 +23,6 @@
                     </div>
                 </div>
             <?php ; $i++; } ?>
-        </div><!--#itemlist-->
     </div><!--#content and #flexcroll-->
     <div id="footer"></div>
 </div><!--#container-->
