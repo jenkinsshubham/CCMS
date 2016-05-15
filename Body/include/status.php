@@ -126,33 +126,6 @@ echo "Welcome ".$name."<br/>";
             
             <div class="column-chart">
             
-                <div class="legend legend-right hidden-xs">
-                    <div class="item">
-                        <h4>Excellent</h4>
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <h4>Good</h4>
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <h4>Average</h4>
-                    </div>
-                    <!-- //.item -->
-                    <div class="item">
-                        <h4>BelowAverage</h4>
-                    </div>
-                    <!-- //.item -->
-            
-                    <div class="item">
-                        <h4>Poor</h4>
-                    </div>
-                    <!-- //.item -->
-                </div>
-                <!-- //.legend -->
-            
                 <div class="chart clearfix">
 
 	                <?php for($i=1; $i <= $q_sub; $i++) { 
@@ -224,18 +197,18 @@ echo "Welcome ".$name."<br/>";
 	</script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-	    columnChart();
-	    
-	    function columnChart(){
-	        var item = $('.chart', '.column-chart').find('.item'),
-	        itemWidth = 100 / item.length;
-	        item.css('width', itemWidth + '%');
-	        
-	        $('.column-chart').find('.item-progress').each(function(){
-	            var itemProgress = $(this),
-	            itemProgressHeight = $(this).parent().height() * ($(this).data('percent') / 20);
-	            itemProgress.css('height', itemProgressHeight);
-	        });
-	    };
-	});
+    columnChart();
+    
+    function columnChart(){
+        var item = $('.chart', '.column-chart').find('.item'),
+        itemWidth = 100 / item.length;
+        item.css('width', itemWidth + '%');
+        
+        $('.column-chart').find('.item-progress').each(function(){
+            var itemProgress = $(this),
+            itemProgressHeight = $(this).parent().height() * ($(this).data('percent') / 20);
+            itemProgress.css('height', itemProgressHeight);
+        });
+    };
+});
 	</script>
