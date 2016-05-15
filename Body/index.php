@@ -11,8 +11,8 @@ if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 <div id='body'>
 <div class="main">
 
-<!-- PROFILE --> <?php if(isset($username)&&isset($_GET['profile'])) {echo include('include/Student/profile.php');}?>
-<!-- PROFILE EDITOR --> <?php if(isset($username)&&isset($_GET['profile_edit'])) {echo include('include/Student/edit_profile.php');}?>
+<!-- PROFILE --> <?php if(isset($username)&&isset($_GET['profile'])) {echo include('include/profile.php');}?>
+<!-- PROFILE EDITOR --> <?php if(isset($username)&&isset($_GET['profile_edit'])) {echo include('include/edit_profile.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
 <!-- ATTENDENCE --> <?php if(isset($_GET['attendence'])) {echo include('include/Student/attendence.php');}?>
 <!-- EVENTS --> <?php if(isset($_GET['events'])) {echo include('include/events.php');}?>
