@@ -1,5 +1,8 @@
 <?php
 
+require '../Controllers/functions/subject_count.php';
+
+
 $exam='internal_1';
 
 	$sql=" SELECT *";
@@ -64,14 +67,17 @@ echo "Welcome ".$name."<br/>";
                 
                 <div class="chart clearfix">
 
-	                <?php $sc=6; for($i=1; $i <= $sc; $i++) { 
+	                <?php for($i=1; $i <= $q_sub; $i++) { 
 	                	$att=$i.'a';
 						$q="SELECT *";
 						if ($sem>2) 
 							$q.=" FROM `subjects`";
 						else 
 							$q.=" FROM `1yr_subjects`";
-						$q.=" WHERE branch='$br'";
+						$q.=" WHERE branch=";
+						if ($sem>2) 
+							$q.="'$br'";
+						else $q.="'$cycle'";
 						$q.=" AND sem='$sem'";
 	                	$q.=" AND ref='$i'";
 	                	$sresult=$db->query($q);
@@ -149,7 +155,7 @@ echo "Welcome ".$name."<br/>";
             
                 <div class="chart clearfix">
 
-	                <?php $sc=6; for($i=1; $i <= $sc; $i++) { 
+	                <?php for($i=1; $i <= $q_sub; $i++) { 
 	                	$mrk=$i.'m';
 						$q="SELECT *";
 						if ($sem>2) 
