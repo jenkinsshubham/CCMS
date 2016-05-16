@@ -17,7 +17,7 @@ $update = "UPDATE `log_s`
 	        WHERE username = '$username'";
 	if($db->query($update)) {?>
 		<script>alert("Profile Updated sucessfully") </script><?php
-   header("Location: /");}
+   header("Location: ".BASEPATH);}
 	 
  }
 
@@ -31,26 +31,23 @@ $update = "UPDATE `log_s`
            <div class='checkbox'>      
         <input type='text' name='sec' value="<?php echo $sec ?> " class='form-control' placeholder='Current Section'>
          <select name="sem">
-      		<option value="">Sem</option>         
-      		<option value="1">I</option>         
-      		<option value="2">II</option>         
-      		<option value="3">III</option>         
-      		<option value="4">IV</option>         
-      		<option value="5">V</option>         
-      		<option value="6">VI</option>         
-      		<option value="7">VII</option>         
-      		<option value="8">VIII</option>         
+      		<option <?= $sem == '' ? ' selected="selected"' : '';?> value="">Sem</option>         
+      		<option <?= $sem == '1' ? ' selected="selected"' : '';?> value="1">I</option>         
+      		<option <?= $sem == '2' ? ' selected="selected"' : '';?> value="2">II</option>         
+      		<option <?= $sem == '3' ? ' selected="selected"' : '';?> value="3">III</option>         
+      		<option <?= $sem == '4' ? ' selected="selected"' : '';?> value="4">IV</option>         
+      		<option <?= $sem == '5' ? ' selected="selected"' : '';?> value="5">V</option>         
+      		<option <?= $sem == '6' ? ' selected="selected"' : '';?> value="6">VI</option>         
+      		<option <?= $sem == '7' ? ' selected="selected"' : '';?> value="7">VII</option>         
+      		<option <?= $sem == '8' ? ' selected="selected"' : '';?> value="8">VIII</option>         
          </select>
          &nbsp;
          <select name="br">
-      		<option value="">Select Branch</option>         
-      		<option value="">CS</option>         
-      		<option value="">MR</option>         
-      		<option value="">AE</option>         
-      		<option value="">ME</option>         
-      		<option value="">NA</option>         
-      		<option value="">EC</option>         
-      		<option value="">EE</option>         
+      		<option <?= $br == '' ? ' selected="selected"' : '';?> value="">Select Branch</option>         
+      		 <?php for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
+            <option <?= $br == fetch_branches('code',$db,$i) ? ' selected="selected"' : '';?> value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
+            </option>
+           <?php } ?>   
          </select>
           </div>
         <input type='email' name='email'  class='form-control' value="<?php echo $email ?>" placeholder='Email'>

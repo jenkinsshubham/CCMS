@@ -3,6 +3,7 @@ require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
 require 'include/header.html';
 require_once('../Controllers/functions/feeds.php');
+require_once('../Controllers/functions/func.php');
 
 if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
