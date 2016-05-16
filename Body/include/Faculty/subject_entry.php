@@ -18,12 +18,14 @@
 			<div class="input-group">
 				<span class="input-group-addon">No. of Theory subjects</span>
 				<select name="noofsubjects" class="form-control" aria-describedby="basic-addon1">
+					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
 				</select>
 				<span class="input-group-addon">No. of Lab subjects</span>
 				<select name="nooflabs" class="form-control" aria-describedby="basic-addon1">
+					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>

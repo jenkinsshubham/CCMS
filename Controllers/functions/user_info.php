@@ -2,7 +2,7 @@
 
 if(isset($_SESSION['id']))
 {
-	$frm =$db->real_escape_string($_COOKIE['frm']);
+	$frm =$db->real_escape_string($_SESSION['frm']);
 	$username = $db->real_escape_string($_SESSION['id']);
 		
 	$sql="SELECT *";
