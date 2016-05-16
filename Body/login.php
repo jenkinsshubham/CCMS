@@ -3,14 +3,15 @@ session_start();
 ini_set('display_errors',1); 
  error_reporting(E_ALL);
 
+require_once 'config.inc.php';
 
 if (isset($_SESSION['id'])) {
-	header('LOCATION: /sitn');	
+    header('LOCATION: '.BASEPATH);  
 }
  
-require_once 'config.inc.php';
 require('../Controllers/config/database.php');
 require('../Controllers/functions/login.php');
+require('../Controllers/functions/func.php');
 
 if (isset($_GET['f']))  $frm='f';
 else $frm="s"; 
@@ -88,7 +89,7 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
                         <div class="form-group">
                             <input type="hidden" name="frm" value="<?php echo $frm ?>"/>
                             <label for="name" class="sr-only">Name</label>
-                            <input type="text" class="form-control" name="name" placeholder="Full Name" required autofocus>
+                            <input type="text" class="form-control" name="name" placeholder="What's your Full Name?" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="username" class="sr-only">Username</label>
@@ -114,31 +115,38 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
                                 else echo "USN  (leave blank if you don't have)"; ?>">
                         </div>
                         <div class='form-group'>
-                        <?php if (isset($_GET['f'])) echo "
-                            <select name='department' required>
-                                <option value='a1'>Department</option>
-                                <option value='a2'>A1</option>
-                                <option value='a3'>A2</option>
-                            </select>
-                            ";
-                        else echo "
-                            <select name='sem' required>
-                                <option value=''>Sem</option>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                            </select> &nbsp;&nbsp;
-                            <select name='br'>
-                                <option value='a1'>Branch</option>
-                                <option value='a2'>CS</option>
-                                <option value='a3'>ME</option>
-                            </select> &nbsp;&nbsp;
-                            <select name='sec' required>
-                                <option value='a1'>Section</option>
-                                <option value='a2'>A1</option>
-                                <option value='a3'>A2</option>
-                            </select>
-                        " ?>
+                         <select class="form-control" <?= isset($_GET['f']) ? ' name="department"' : 'name="br"';?> required>
+                            <option value="">Select <?= isset($_GET['f']) ? ' department' : 'branch';?>...</option>         
+                             <?php for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
+                            <option value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
+                            </option>
+                           <?php } ?>   
+                         </select>
                          </div>
+                        <?php if (isset($_GET['f'])) echo "
+                            
+                            ";
+                        else {?>
+                            <div class="form-group">
+                            <select class="form-control" name='sem' required>
+                                <option value=''>You are in which sem?</option>
+                                <?php for ($i=1; $i<9  ; $i++) { echo "
+                                    <option value='$i'>$i</option>
+                                  " ;} ?>
+                            </select> 
+                            </div>
+                            <div class="form-group">
+                            <select class="form-control" name='sec'>
+                                <option value='--'>Choose if you know your Section..</option>
+                                <?php for ($i=1; $i<7  ; $i++) { echo "
+                                <option value='a$i'>A$i</option>
+                                " ;} ?>
+                                <?php for ($i=1; $i<7  ; $i++) { echo "
+                                <option value='b$i'>B$i</option>
+                                " ;} ?>
+                            </select>
+                         </div>
+                        <?php ;}?>
 
                     </div>
                     <button name="register" type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
