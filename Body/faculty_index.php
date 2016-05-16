@@ -1,3 +1,10 @@
+<?php
+if (isset($_GET['subject_entry'])) {
+	include 'include/Faculty/subject_entry.php';
+}
+echo "Welcome ".$fid;
+?>
+
 
 <div class="popup" data-popup="add_notice">
     <div class="popup-inner">

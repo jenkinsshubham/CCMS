@@ -10,7 +10,7 @@ if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 ?>
 <div id='body'>
 <div class="main">
-
+<!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if(isset($username)&&isset($_GET['profile'])) {echo include('include/profile.php');}?>
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&isset($_GET['profile_edit'])) {echo include('include/edit_profile.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
@@ -81,6 +81,5 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <?php
 };
- if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}};
 require 'include/footer.html';
 ?>
