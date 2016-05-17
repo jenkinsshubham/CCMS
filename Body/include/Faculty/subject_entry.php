@@ -34,8 +34,7 @@
 			</div>
 			<br/>
 
-
-
+<!-- Theory SUbject LISTER -->
 
 <?php
 		
@@ -62,17 +61,17 @@
 		if($department == 'ME' || $department == 'AU' || $department == 'MR' || $department == 'AE')
 		{
 			$str = array('ME'=>'BE', 'AU'=>'BE', 'MR'=>'BE', 'AE'=>'BE', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
-			echo subjectListForSelection($db,$str);
+			echo subjectListForSelection($db,$str,'T');
 		}
 		else if($department == 'EC' || $department == 'EE')
 		{
 			$str = array('EC'=>'BE', 'EE'=>'BE', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
-			echo subjectListForSelection($db,$str);
+			echo subjectListForSelection($db,$str,'T');
 		}
 		else if($department == 'CS' || $department == 'IS')
 		{
 			$str = array('CS'=>'BE', 'MCA'=>'MCA', 'IS'=>'BE', 'SCS'=>'MTECH', 'SCN'=>'MTECH', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
-			echo subjectListForSelection($db,$str);
+			echo subjectListForSelection($db,$str,'T');
 		}
 		else if($department == 'NT')
 		{
@@ -140,17 +139,19 @@
 		$count++;
 	}
 	?>
-
+<!-- Lab subjects LISTER -->
 
 			<br/>
+<?php $i=1;
+		for ($i=1; $i <5 ; $i++) { ?>
 			<div class="input-group">
-				<span class="input-group-addon">Lab 1</span>
-				      <?php 
-		echo "<select class='form-control' name='lab1' id='lab1'>";
+<?php	echo "<span class='input-group-addon'>Lab $i</span>";
+	echo "<select class='form-control' name='lab$i'>";
 		echo "<option value=''>SELECT</option>";
 		
-		if($br == 'BA')
+		if($department == 'BA')
 		{
+			echo '<optgroup label="'.GetBranch($db,$department).'">';
 				$qr = "SELECT * FROM subjects WHERE branch = 'BA' and type='L'";
 							$qry1 = $db->query($qr);
 				
@@ -158,131 +159,68 @@
 							{
 								echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
 							}
+			echo "</optgroup>";
 		}
-		
-		if($br == 'EC' || $br == 'EE')
+		if($department == 'ME' || $department == 'AU' || $department == 'MR' || $department == 'AE')
 		{
-			$qr = "SELECT * FROM subjects WHERE (branch='EE' OR branch='EC') and type='L'";
-			$qry1 = $db->query($qr);
-
-		 	while($arr = $qry1->fetch_assoc())
-		 	{
-		 		echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
-		 	}
-		  	
-			$qr = "SELECT * FROM 1yr_subjects WHERE type='L'";
-		 	$qry1 = $db->query($qr)or die($db->error());
-			
-		 	while($arr = $qry1->fetch_assoc())
-		 	{
-		 		echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
-		 	}
+			$str = array('ME'=>'BE', 'AU'=>'BE', 'MR'=>'BE', 'AE'=>'BE', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
+			echo subjectListForSelection($db,$str,'L');
 		}
-		else if($br == 'ME' || $br == 'AU' || $br == 'AE' || $br == 'MR')
+		else if($department == 'EC' || $department == 'EE')
 		{
-			$qr = "SELECT * FROM subjects WHERE type='L' and ( branch='ME' OR branch = 'AU' OR branch = 'MR' OR branch = 'AE')";
-		    $qry1 = $db->query($qr);
-
-		 	while($arr = $qry1->fetch_assoc())
-		 	{
-		 		echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
-		 	}
-			
-		  	$qr = "SELECT * FROM 1yr_subjects WHERE type='L'";
-		 	$qry1 = $db->query($qr)or die($db->error());
-		 	
-			while($arr = $qry1->fetch_assoc())
-		 	{
-		 		echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
-		 	}
+			$str = array('EC'=>'BE', 'EE'=>'BE', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
+			echo subjectListForSelection($db,$str,'L');
 		}
-		else if($br == 'CS' || $br == 'IS')
+		else if($department == 'CS' || $department == 'IS')
 		{
-		    $qr = "SELECT * FROM subjects WHERE (branch='CS' OR branch='MCA' OR branch='IS') and type='L'";
-			$qry1 = $db->query($qr);
-				
-			while($arr = $qry1->fetch_assoc())
-			{
-				echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
-			}
-			
-			$qr = "SELECT * FROM 1yr_subjects WHERE type='L'";
-			$qry1 = $db->query($qr)or die($db->error());
-			
-			while($arr = $qry1->fetch_assoc())
-			{
-				echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
-			}
+			$str = array('CS'=>'BE', 'MCA'=>'MCA', 'IS'=>'BE', 'SCS'=>'MTECH', 'SCN'=>'MTECH', 'LDE'=>'MTECH', 'MTP'=>'MTECH', 'MAR'=>'MTECH', 'LVS'=>'MTECH');
+			echo subjectListForSelection($db,$str,'L');
 		}
-		else if($br == 'NT')
+		else if($department == 'NT')
 		{
+			echo '<optgroup label="'.GetBranch($db,$department).'">';
 				$qr = "SELECT * FROM subjects WHERE branch='NT' and type='L'";
-							 $qry1 = $db->query($qr);
+				$qry1 = $db->query($qr);
 				
-							 while($arr = $qry1->fetch_assoc())
-							 {
-								echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
-							 }
-							
+				while($arr = $qry1->fetch_assoc())
+				{
+					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+				}	
+			echo '</optgroup>';		
 		}
 		else
 		{
-			   if($br == 'MCA')
-			   {
-				 $qr = "SELECT * FROM subjects WHERE type='L' and branch='MCA'";
-				 $qry1 = $db->query($qr);
-				 while($arr = $qry1->fetch_assoc())
-				 {
+			if($department == 'MBA'){
+				echo '<optgroup label="'.GetBranch($db,$department).'">';
+				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MBA'";
+				$qry1 = $db->query($qr)or die($db->error());
+				while($arr = $qry1->fetch_assoc()){
 					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
-				 }
-			   }
-			  else  if(($br == 'C')||($br == 'MATH'))
-			  {
-				 $qr = "SELECT * FROM 1yr_subjects WHERE type='L' and cycle='C'";
-				 $qry1 = $db->query($qr);
-				 while($arr = $qry1->fetch_assoc())
-				 {
-					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
-				 }
-			  }
-			   else  if(($br == 'P')||($br == 'MATH'))
-			  {
-				 
-				 $qr = "SELECT * FROM 1yr_subjects WHERE type='L' and cycle='P'";
-				 $qry1 = $db->query($qr);
-				 while($arr = $qry1->fetch_assoc())
-				 {
-					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
-				 }
-			  }
-	  }
-		echo "</select>";
-	?>
-			</div>
-			<div class="input-group">
-				<span class="input-group-addon">Lab 2</span>
-				<select name="lab2" class="form-control" aria-describedby="basic-addon1">
-					<option>Subject 1</option>
-					<option>Subject 2</option>
-					<option>Subject 3</option>
-				</select>
-			</div>
-			<div class="input-group">
-				<span class="input-group-addon">Lab 3</span>
-				<select name="lab3" class="form-control" aria-describedby="basic-addon1">
-					<option>Subject 1</option>
-					<option>Subject 2</option>
-					<option>Subject 3</option>
-				</select>
-			</div>
-			<div class="input-group">
-				<span class="input-group-addon">Lab 4</span>
-				<select name="lab4" class="form-control" aria-describedby="basic-addon1">
-					<option>Subject 1</option>
-					<option>Subject 2</option>
-					<option>Subject 3</option>
-				</select>
-			</div>
+				}
+				echo '</optgroup>';	
+			}
+			else if($department == 'MCA'){
+				echo '<optgroup label="'.GetBranch($db,$department).'">';
+				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MCA'";
+				$qry1 = $db->query($qr);
+				while($arr = $qry1->fetch_assoc()){
+					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+				}
+				echo '</optgroup>';	
+			}
+			else  if(($department == 'C')||($department == 'MATH')){
+				echo firstYearProgramPC($db);
+				
+				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MBA' and sem=1";
+				$qry1 = $db->query($qr);
+				while($arr = $qry1->fetch_assoc()){
+					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+				}
+			}
+		}
+		echo "</select></div>";
+	} ?>
+			
 			<br/>
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
 		</form>

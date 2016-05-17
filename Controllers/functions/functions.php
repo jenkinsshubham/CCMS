@@ -785,14 +785,14 @@ function getSems($db,$cat){
 			return $mtech;
 }
 
-function subjectListForSelection($db,$str){
+function subjectListForSelection($db,$str,$type){
 	$HTMLlist="";
 	foreach($str as $branch=>$cat){
 				$HTMLlist .='<optgroup label="'.GetBranch($db,$branch).'">';
 				$sem = getSems($db,$cat);
 				foreach($sem as $sm){
 					$HTMLlist .='<optgroup label="'.$sm.' sem">';
-							 $qr = "SELECT * FROM subjects WHERE branch='".$branch."' and sem=".$sm." and type='T'";
+							 $qr = "SELECT * FROM subjects WHERE branch='".$branch."' and sem=".$sm." and type='$type'";
 							 $qry1 = $db->query($qr);
 				
 							 while($arr = $qry1->fetch_assoc())
@@ -809,7 +809,7 @@ function subjectListForSelection($db,$str){
 				$sem = array(1,2);
 				foreach($sem as $sm){
 					$HTMLlist .='<optgroup label="'.$sm.' sem">';
-							 $qr = "SELECT * FROM 1yr_subjects WHERE branch='".$s."' and sem=$sm and type='T'";
+							 $qr = "SELECT * FROM 1yr_subjects WHERE branch='".$s."' and sem=$sm and type='$type'";
 							 $qry1 = $db->query($qr);
 				
 							 while($arr = $qry1->fetch_assoc())
@@ -831,7 +831,7 @@ function firstYearProgramPC($db){
 		$sem = array(1,2);
 		foreach($sem as $sm){
 			$HTMLlist .='<optgroup label="'.$sm.' sem">';
-			$qr = "SELECT * FROM 1yr_subjects WHERE branch='".$s."' AND sem=$sm AND type='T'";
+			$qr = "SELECT * FROM 1yr_subjects WHERE branch='".$s."' AND sem=$sm AND type='$type'";
 			$qry1 = $db->query($qr);
 			while($arr = $qry1->fetch_assoc()){
 				$HTMLlist .="<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
