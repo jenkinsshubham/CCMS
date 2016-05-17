@@ -4,6 +4,7 @@ require_once('../Controllers/config/database.php');
 require 'include/header.html';
 require_once('../Controllers/functions/feeds.php');
 require_once('../Controllers/functions/func.php');
+require_once('../Controllers/functions/functions.php');
 
 if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
