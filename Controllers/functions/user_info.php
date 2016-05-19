@@ -29,6 +29,8 @@ if(isset($_SESSION['id']))
 	$name=$row['name'];
 	$email=$row['email'];
 	$img=$row['img'];
+	$_sex=$row['sex'];
+	$sex = ($_sex=='M') ? "Male" : "Female" ;
 	$mob=$row['mob'];
 
 	if ($frm=='s') {
@@ -37,6 +39,7 @@ if(isset($_SESSION['id']))
 		$sem=$row['sem'];
 		$br=$row['br'];
 		$sec=$row['sec'];
+		$dob=$row['dob'];
 		$cycle=$row['cycle'];
 		$address=$row['address'];
 		$f_name=$row['f_name'];
@@ -49,10 +52,19 @@ if(isset($_SESSION['id']))
 		$designation=$row['designation'];
 		$department=$row['department'];
 		$branch=$row['department'];
+		$br=$row['department'];
 		
 		
 	}
-	
+
+
+	// AVATAR
+	$avatar = STYLERS.'images/avatars/';
+	if ($frm=='s') {
+		$avatar .= ($_sex=='M') ? 'sm' : 'sf' ;
+	}
+	else $avatar .= ($_sex=='M') ? 'fm' : 'ff' ;
+	$avatar.='.png';
 
 }
 
