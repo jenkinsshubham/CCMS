@@ -1,8 +1,9 @@
+<?php require_once 'config.inc.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=windows-1252">
-<title>404 Not Found!  -- SIT</title>
+<title>404 Not Found!  -- <?php echo SHORTNAME ?></title>
 <style type="text/css">
   /* reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
@@ -30,7 +31,6 @@ img{max-width:100%;}
 /*end reset*
  */
 body{
-  background: url(../images/bg1.png);
   font-family: "Century Gothic",Arial, Helvetica, sans-serif;
   }
 .content p{
@@ -164,19 +164,20 @@ body{
 }
 
 </style>
+
 </head>
 <div class="wrap">
 <div class="header">
 <div class="logo">
-<h1><a href="/sitn">Srinivas Institute Of Technology</a></h1>
+<h1><a href="<?php echo BASEPATH ?>"><?php echo SITENAME ?></a></h1>
 </div>
 </div>
 <div class="content">
-<img src="http://js/sitn/img.png" title="error">
+<img src="<?php echo BASEPATH ?>img.png" title="error">
 <p><span><label>O</label>hh.....</span>You Requested the page that is no longer here.</p>
-<a href="/sitn">Back To Home</a>
+<a href="<?php echo BASEPATH ?>">Back To Home</a>
 <div class="copy-right">
-<p>© 2016 SIT. All Rights Reserved
+<p>© <?php echo date(Y) ?> | <?php echo SHORTNAME ?>. <small>All Rights Reserved</small>
 </div>
 </div>
 </div>

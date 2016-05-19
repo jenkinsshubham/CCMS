@@ -1,7 +1,7 @@
 Options All -Indexes
 ErrorDocument 403 "Sorry can't allow you access today"
 ErrorDocument 500 "INTERNAL SERVER ERROR"
-ErrorDocument 404 /sitn/Controllers/errors/404.php
+ErrorDocument 404 /sitn/Body/404.php
 <IfModule mod_rewrite.c>
 
 	RewriteEngine on
@@ -15,6 +15,7 @@ ErrorDocument 404 /sitn/Controllers/errors/404.php
 
 	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]
 
+	RewriteRule admin\/([[a-z]+)\/?$ Body/admin_login.php?level=$1 [NC]
 
 	
 	

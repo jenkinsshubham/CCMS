@@ -2,6 +2,10 @@
 require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
 require 'include/header.html';
+
+if(isset($_SESSION['level'])) include "include/Admin/index.php"; 
+else {
+
 require_once('../Controllers/functions/feeds.php');
 require_once('../Controllers/functions/func.php');
 require_once('../Controllers/functions/functions.php');
@@ -55,6 +59,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
 </div>
+
 <div class="sidebar-right">
 <!-- user bar --> 
 					<?php if(isset($username)) {
@@ -83,5 +88,6 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <?php
 };
+}
 require 'include/footer.html';
 ?>
