@@ -27,4 +27,31 @@ function fetch_subjects($demand,$db,$br)
 	if($demand=='code')return $row['scode'];
 }
 
+ function my_subjects($db,$fid) {
+	$html="<option value=''>Select Subject</option>";
+	$sql="SELECT * FROM subject_entry WHERE fid='$fid'";
+	$qry1 = $db->query($sql);
+	$arr = $qry1->fetch_row();	
+	// for($i=3;$i<=11;$i++){
+	// 	if($arr[$i]!='---'){
+	// 		$q = $db->query("SELECT scode, sname FROM subjects WHERE scode='$arr[$i]'");
+	// 		$a = $q->num_rows();
+	// 		if($a){
+	// 			$a = $q->fetch_rows();
+	// 			$html.= "<option value='$a[0]'>$a[1]</option>";
+	// 		}
+	// 		else{
+	// 			$q = $db->query("SELECT code, name FROM 1yr_subjects WHERE code='$arr[$i]'");
+	// 			$a = $q->num_rows;
+	// 			if($a){
+	// 				$a = $q->fetch_rows();
+	// 				$html.= "<option value='$a[0]'>$a[1]</option>";
+	// 			}
+	// 		}
+	// 	}
+
+	// }
+	return $html;
+}
+
 ?>

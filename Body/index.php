@@ -10,7 +10,7 @@ if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
 
 ?>
-<div id='body'>
+<div id='body' onload="hideSecOnload()">
 <div class="main">
 <!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if(isset($username)&&isset($_GET['profile'])) {echo include('include/profile.php');}?>

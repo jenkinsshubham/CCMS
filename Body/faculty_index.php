@@ -2,7 +2,14 @@
 if (isset($_GET['subject_entry'])) {
 	include 'include/Faculty/subject_entry.php';
 }
-echo "Welcome ".$fid;
+if (isset($_GET['create_report'])) {?>
+	<script src="<?php echo STYLERS ?>js/hide_sec.js"></script>
+<?php
+	include 'include/Faculty/create_report.php';
+}
+
+
+
 ?>
 
 
