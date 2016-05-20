@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
 		if($u==$username){
 			if($p==$password){
 				$_SESSION['id'] = $username;
+				$_SESSION['frm'] = 'admin';
 				$_SESSION['level'] = $level;
 				header("Location: ".BASEPATH);
 			}

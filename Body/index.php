@@ -3,6 +3,7 @@ require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
 require 'include/header.html';
 
+if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 if(isset($_SESSION['level'])) include "include/Admin/index.php"; 
 else {
 
@@ -10,7 +11,6 @@ require_once('../Controllers/functions/feeds.php');
 require_once('../Controllers/functions/func.php');
 require_once('../Controllers/functions/functions.php');
 
-if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
 
 
 ?>

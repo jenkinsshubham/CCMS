@@ -23,7 +23,11 @@ session_start();
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/header.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/graph.css" rel="stylesheet">
-    <link href="<?php echo STYLERS ?>css/feeds.css" rel='stylesheet'></script>
+    <link href="<?php echo STYLERS ?>css/feeds.css" rel='stylesheet'>
+    <?php if(isset($_SESSION['level'])){?>
+    <link href="<?php echo STYLERS ?>css/admin.css" rel='stylesheet'>
+
+    <?php }?>
 
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>

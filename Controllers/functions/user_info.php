@@ -6,7 +6,9 @@ if(isset($_SESSION['id']))
 	$username = $db->real_escape_string($_SESSION['id']);
 		
 	$sql="SELECT *";
-	if ($frm=='s') 
+	if ($frm=='admin') 
+		$sql.=" FROM log_admin";
+	elseif ($frm=='s') 
 		$sql.=" FROM log_s";
 	else 
 		$sql.=" FROM log_f";
@@ -28,6 +30,7 @@ if(isset($_SESSION['id']))
 
 	$name=$row['name'];
 	$email=$row['email'];
+	$br=$row['br'];
 	$img=$row['img'];
 	$_sex=$row['sex'];
 	$sex = ($_sex=='M') ? "Male" : "Female" ;
@@ -37,7 +40,6 @@ if(isset($_SESSION['id']))
 		$id=$row['usn'];
 		$usn=$row['usn'];
 		$sem=$row['sem'];
-		$br=$row['br'];
 		$sec=$row['sec'];
 		$dob=$row['dob'];
 		$cycle=$row['cycle'];
@@ -46,15 +48,16 @@ if(isset($_SESSION['id']))
 		$f_mob=$row['f_mob'];
 		
 
-	} else {
+	} 
+	elseif ($frm=='admin') {
+		$level=$row['level'];
+	}
+	else {
 		$id=$row['fid'];
 		$fid=$row['fid'];
 		$designation=$row['designation'];
 		$department=$row['department'];
-		$branch=$row['department'];
-		$br=$row['department'];
-		
-		
+		$branch=$br;
 	}
 
 
