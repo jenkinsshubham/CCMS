@@ -13,7 +13,7 @@ ErrorDocument 404 /sitn/Body/404.php
 	RewriteRule logout Body/include/logout.php [NC]
 
 
-	RewriteRule ^([a-z]+)\/?$ Body/index.php?$1 [NC]
+	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]
 
 	RewriteRule admin\/([[a-z]+)\/?$ Body/admin_login.php?level=$1 [NC]
 
