@@ -70,7 +70,7 @@ function check($db,$branch, $int){
   }
 }
 
-function redirect($db,$url,$permanent = false)
+function redirect($url,$permanent = false)
 {
 	if($permanent)
 	{

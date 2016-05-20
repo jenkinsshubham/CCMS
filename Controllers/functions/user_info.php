@@ -56,7 +56,7 @@ if(isset($_SESSION['id']))
 		$id=$row['fid'];
 		$fid=$row['fid'];
 		$designation=$row['designation'];
-		$department=$row['department'];
+		$department=$row['br'];
 		$branch=$br;
 	}
 

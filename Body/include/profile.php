@@ -8,7 +8,10 @@
    
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title"><?php echo $name;?></h3>
+              <h3 class="panel-title"><?php echo $name;?>
+              <?php if($frm=='f'){ ?>
+              <span class="pull-right">(<?php echo $designation;?>)</span><?php }?>
+              </h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -24,6 +27,18 @@
                         <td><?php echo $a = ($frm=='s') ? "Branch" : "Department" ;?></td>
                         <td><?php echo $br;?></td>
                       </tr>
+                      <?php if($frm=='s'){ ?>
+                      <tr>
+                        <td>Semester</td>
+                        <td>
+                          <?php echo $sem;?>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Section</td>
+                        <td><?php echo $sec;?></td>
+                      </tr>
+                      <?php }?>
                       <tr>
                         <td>Gender</td>
                         <td><?php echo $sex;?></td>
