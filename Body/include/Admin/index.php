@@ -43,7 +43,7 @@
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav" style="padding-left: 10px">
-						<li class="active">
+						<li <?php if(!isset($_GET[''])){ ?>class="active"<?php }?>>
 							<a href="<?php echo BASEPATH;?>">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
@@ -73,7 +73,7 @@
 	                    		<small><b>FACULTY</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li>
-								<a href="#">
+								<a href="?approve">
 								Registrations <span class="label label-danger">12</span></a>
 							</li>
 							<li>
@@ -87,7 +87,7 @@
 	                    		<small><b>STUDENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li>
-								<a href="#">
+								<a href="?approve">
 								Registrations <span class="label label-danger">165</span></a>
 							</li>
 							<li>
@@ -124,7 +124,14 @@
 		<br/>
 		<div class="col-md-9">
             <div class="profile-content">
-			   Some user related content goes here...
+			  <?php
+			  if (isset($_GET['approve'])) {
+			  	include 'include/Admin/approve_users.php';
+			  }
+
+			  ?>
+
+
             </div>
 		</div>
 	</div>
