@@ -17,13 +17,6 @@ $exam='internal_1';
 
 	$status=$result->fetch_array();	
 
-echo "Welcome ".$name."<br/>";
-
-
-	
-	
-
-
 ?>
 
 
@@ -70,14 +63,9 @@ echo "Welcome ".$name."<br/>";
 	                <?php for($i=1; $i <= $q_sub; $i++) { 
 	                	$att=$i.'a';
 						$q="SELECT *";
-						if ($sem>2) 
-							$q.=" FROM `subjects`";
-						else 
-							$q.=" FROM `1yr_subjects`";
-						$q.=" WHERE branch=";
-						if ($sem>2) 
-							$q.="'$br'";
-						else $q.="'$cycle'";
+						$q.= ($sem>2)?" FROM `subjects`":" FROM `1yr_subjects`";
+						$q.=" WHERE br=";
+						$q.="'$br'";
 						$q.=" AND sem='$sem'";
 	                	$q.=" AND ref='$i'";
 	                	$sresult=$db->query($q);
@@ -131,11 +119,8 @@ echo "Welcome ".$name."<br/>";
 	                <?php for($i=1; $i <= $q_sub; $i++) { 
 	                	$mrk=$i.'m';
 						$q="SELECT *";
-						if ($sem>2) 
-							$q.=" FROM `subjects`";
-						else 
-							$q.=" FROM `1yr_subjects`";
-						$q.=" WHERE branch='$br'";
+						$q.= ($sem>2) ?" FROM `subjects`":" FROM `1yr_subjects`";
+						$q.=" WHERE br='$br'";
 						$q.=" AND sem='$sem'";
 	                	$q.=" AND ref='$i'";
 	                	$sresult=$db->query($q);

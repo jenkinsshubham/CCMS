@@ -28,10 +28,13 @@
                         <td>
                           <select class="form-control" name="br">
                             <option <?= $br == '' ? ' selected="selected"' : '';?> value="">Select Branch</option>         
-                             <?php for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
-                              <option <?= $br == fetch_branches('code',$db,$i) ? ' selected="selected"' : '';?> value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
-                              </option>
-                             <?php } ?>   
+                            <?php if($sem<3){?>
+                            <option <?= $br == 'P' ? ' selected="selected"' : '';?> value="P">Physics Cycle</option>         
+                            <option <?= $br == 'C' ? ' selected="selected"' : '';?> value="C">Chemistry Cycle</option>
+                            <?php } else { for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
+                            <option <?= $br == fetch_branches('code',$db,$i) ? ' selected="selected"' : '';?> value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
+                            </option>
+                             <?php }} ?>   
                           </select>
                         </td>
                       </tr>

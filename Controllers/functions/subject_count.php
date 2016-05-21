@@ -5,7 +5,7 @@ if ($sem>2)
 	$q.=" FROM `subjects`";
 else 
 	$q.=" FROM `1yr_subjects`";
-$q.=" WHERE branch=";
+$q.=" WHERE br=";
 if ($sem>2) 
 	$q.="'$br'";
 else $q.="'$cycle'";
