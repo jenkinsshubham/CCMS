@@ -16,6 +16,8 @@ ErrorDocument 404 /sitn/Body/404.php
 	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]
 
 	RewriteRule admin\/([[a-z]+)\/?$ Body/admin_login.php?level=$1 [NC]
+	
+	RewriteRule ^page\/([[a-z]+)\/?$ Body/index.php?page=$1 [NC]
 
 	
 

@@ -1,5 +1,5 @@
 <?php
-
+$selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 
 ?>
 
@@ -43,13 +43,13 @@
 				<!-- SIDEBAR MENU -->
 				<div class="profile-usermenu">
 					<ul class="nav" style="padding-left: 10px">
-						<li <?php if(!isset($_GET[''])){ ?>class="active"<?php }?>>
+						<li <?php if(!isset($_GET['page'])){ echo "class='active'"; }?>>
 							<a href="<?php echo BASEPATH;?>">
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
 						</li>
-						<li>
-							<a href="#">
+						<li <?php if($selected=='report'){ echo "class='active'"; }?>>
+							<a href="<?php echo BASEPATH ?>page/report">
 							<i class="glyphicon glyphicon-stats"></i>
 							Report </a>
 						</li>
@@ -57,12 +57,12 @@
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>NOTICE</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li>
-								<a href="#">
+							<li <?php if($selected=='writeNotice'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/writeNotice">
 								Write <i class="glyphicon glyphicon-edit"></i> </a>
 							</li>
-							<li>
-								<a href="#">
+							<li <?php if($selected=='viewNotice'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/viewNotice">
 								View Notices</a>
 							</li>
 							</ul>
@@ -72,12 +72,12 @@
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>FACULTY</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li>
-								<a href="?approve">
+							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/approve">
 								Registrations <span class="label label-danger">12</span></a>
 							</li>
-							<li>
-								<a href="#">
+							<li <?php if($selected=='allFaculties'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/allFaculties">
 								All Faculties</a>
 							</li>
 							</ul>
@@ -86,12 +86,12 @@
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>STUDENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li>
-								<a href="?approve">
+							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/approve">
 								Registrations <span class="label label-danger">165</span></a>
 							</li>
-							<li>
-								<a href="#">
+							<li <?php if($selected=='allStudents'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/allStudents">
 								All Students</a>
 							</li>
 							</ul>
@@ -100,19 +100,19 @@
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>DEPARTMENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li>
-								<a href="#">
+							<li <?php if($selected=='addSubject'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/addSubject">
 								Add Subject</a>
 							</li>
-							<li>
-								<a href="#">
+							<li <?php if($selected=='viewSubjects'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/viewSubjects">
 								View Subjects</a>
 							</li>
 							</ul>
 						</li>
 						<?php }?>
-						<li>
-							<a href="#">
+						<li <?php if($selected=='help'){ echo "class='active'"; }?>>
+							<a href="<?php echo BASEPATH ?>page/help">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
@@ -125,7 +125,7 @@
 		<div class="col-md-9">
             <div class="profile-content">
 			  <?php
-			  if (isset($_GET['approve'])) {
+			  if ($selected=='approve') {
 			  	include 'include/Admin/approve_users.php';
 			  }
 
