@@ -1,5 +1,6 @@
 <?php
 $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
+require CONTROLLERS.'functions/approve_users.php';
 
 ?>
 
@@ -72,9 +73,9 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>FACULTY</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/approve#approve">
-								Registrations <span class="label label-danger">12</span></a>
+							<li <?php if($selected=='approveF'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/approveF#approve">
+								Registrations <span class="label label-danger"><?php echo $nf ;?></span></a>
 							</li>
 							<li <?php if($selected=='allFaculties'){ echo "class='active'"; }?>>
 								<a href="<?php echo BASEPATH ?>page/allFaculties#aF">
@@ -86,9 +87,9 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 							<i class="glyphicon glyphicon-user"> </i>
 	                    		<small><b>STUDENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
-							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/approve#approve">
-								Registrations <span class="label label-danger">165</span></a>
+							<li <?php if($selected=='approveS'){ echo "class='active'"; }?>>
+								<a href="<?php echo BASEPATH ?>page/approveS#approve">
+								Registrations <span class="label label-danger"><?php echo $ns ;?></span></a>
 							</li>
 							<li <?php if($selected=='allStudents'){ echo "class='active'"; }?>>
 								<a href="<?php echo BASEPATH ?>page/allStudents#aF">
@@ -131,7 +132,7 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 				if ($selected=='viewNotice') {
 					include 'include/all_notice.php#vN';
 				}
-				if ($selected=='approve') {
+				if (($selected=='approveS')||($selected=='approveF')) {
 					include 'include/Admin/approve_users.php';
 				}
 
