@@ -58,11 +58,11 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 	                    		<small><b>NOTICE</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li <?php if($selected=='writeNotice'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/writeNotice">
+								<a href="<?php echo BASEPATH ?>page/writeNotice#aN">
 								Write <i class="glyphicon glyphicon-edit"></i> </a>
 							</li>
 							<li <?php if($selected=='viewNotice'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/viewNotice">
+								<a href="<?php echo BASEPATH ?>page/viewNotice#vN">
 								View Notices</a>
 							</li>
 							</ul>
@@ -73,11 +73,11 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 	                    		<small><b>FACULTY</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/approve">
+								<a href="<?php echo BASEPATH ?>page/approve#approve">
 								Registrations <span class="label label-danger">12</span></a>
 							</li>
 							<li <?php if($selected=='allFaculties'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/allFaculties">
+								<a href="<?php echo BASEPATH ?>page/allFaculties#aF">
 								All Faculties</a>
 							</li>
 							</ul>
@@ -87,11 +87,11 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 	                    		<small><b>STUDENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li <?php if($selected=='approve'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/approve">
+								<a href="<?php echo BASEPATH ?>page/approve#approve">
 								Registrations <span class="label label-danger">165</span></a>
 							</li>
 							<li <?php if($selected=='allStudents'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/allStudents">
+								<a href="<?php echo BASEPATH ?>page/allStudents#aF">
 								All Students</a>
 							</li>
 							</ul>
@@ -101,18 +101,18 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 	                    		<small><b>DEPARTMENT</b></small>
 	               			<ul class="nav nav-pills nav-stacked">
 							<li <?php if($selected=='addSubject'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/addSubject">
+								<a href="<?php echo BASEPATH ?>page/addSubject#aS">
 								Add Subject</a>
 							</li>
 							<li <?php if($selected=='viewSubjects'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/viewSubjects">
+								<a href="<?php echo BASEPATH ?>page/viewSubjects#vS">
 								View Subjects</a>
 							</li>
 							</ul>
 						</li>
 						<?php }?>
 						<li <?php if($selected=='help'){ echo "class='active'"; }?>>
-							<a href="<?php echo BASEPATH ?>page/help">
+							<a href="<?php echo BASEPATH ?>page/help#help">
 							<i class="glyphicon glyphicon-flag"></i>
 							Help </a>
 						</li>
@@ -125,9 +125,15 @@ $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 		<div class="col-md-9">
             <div class="profile-content">
 			  <?php
-			  if ($selected=='approve') {
-			  	include 'include/Admin/approve_users.php';
-			  }
+				if ($selected=='writeNotice') {
+					include 'include/Admin/add_notice.php';
+				}
+				if ($selected=='viewNotice') {
+					include 'include/all_notice.php#vN';
+				}
+				if ($selected=='approve') {
+					include 'include/Admin/approve_users.php';
+				}
 
 			  ?>
 

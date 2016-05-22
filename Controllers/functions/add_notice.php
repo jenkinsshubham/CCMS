@@ -2,7 +2,8 @@
 if(isset($_POST['submit'])){
 	$title=$db->real_escape_string($_POST['title']);
 	$content=$db->real_escape_string($_POST['content']);
-	$publisher=$name.' ['.$fid.']';
+	$publisher=$name;
+	$publisher .= (isset($level)) ? ' ['.strtoupper($br.$level).']' : ' ['.$fid.']';
 
 	$sql="INSERT INTO `notice` ";
 	$sql.="(title,content,publisher,time) ";
