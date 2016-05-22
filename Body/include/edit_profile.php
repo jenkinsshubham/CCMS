@@ -28,7 +28,7 @@
                         <td>
                           <select class="form-control" name="br">
                             <option <?= $br == '' ? ' selected="selected"' : '';?> value="">Select Branch</option>         
-                            <?php if($sem<3){?>
+                            <?php if($frm!='f'&&$sem<3){?>
                             <option <?= $br == 'P' ? ' selected="selected"' : '';?> value="P">Physics Cycle</option>         
                             <option <?= $br == 'C' ? ' selected="selected"' : '';?> value="C">Chemistry Cycle</option>
                             <?php } else { for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
