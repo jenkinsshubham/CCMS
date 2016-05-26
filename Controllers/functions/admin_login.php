@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
 	$sql="SELECT username,password";
 	$sql.=" FROM log_admin";
 	$sql.=" WHERE level='$level'";
+	$sql.=" AND username='$username'";
 
 	$result=$db->query($sql);
 
@@ -15,7 +16,7 @@ if (isset($_POST['submit'])) {
 		die('There was an error while logging in!');
 	}
 	if($result->num_rows==0) {
-		echo "<script>alert('You are trying to login from wrong page!')</script>";
+		echo "<script>alert('wrong username!');</script>";
 	}
 	else {
 
@@ -32,11 +33,6 @@ if (isset($_POST['submit'])) {
 				header("Location: ".BASEPATH);
 			}
 			else echo "<script>alert('wrong password for $u')</script>";
-		}
-		else{
-			?>
-			<script>alert('wrong username!');</script>
-			<?php
 		}
 	}
 
