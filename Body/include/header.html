@@ -5,7 +5,11 @@ ini_set('display_errors',1);
 
 require_once 'config.inc.php';
 require_once('../Controllers/config/database.php');
-if(isset($_SESSION['id']))  require('../Controllers/functions/user_info.php');
+if(isset($_SESSION['id']))  {
+  require('../Controllers/functions/user_info.php');
+  require_once('../Controllers/functions/func.php');
+  require_once('../Controllers/functions/functions.php');
+}
   else $frm=null;
 
 ?>

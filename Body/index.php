@@ -1,15 +1,12 @@
 <?php 
 
 require 'include/header.html';
+echo "<br/><br/>";
 
 if(isset($_SESSION['level'])) include "include/Admin/index.php"; 
 else {
 
 require_once('../Controllers/functions/feeds.php');
-require_once('../Controllers/functions/func.php');
-require_once('../Controllers/functions/functions.php');
-
-
 
 ?>
 <div id='body' onload="hideSecOnload()">
