@@ -1,8 +1,8 @@
 <?php
 
+$frm =$db->real_escape_string($_SESSION['frm']);
 if(isset($_SESSION['id']))
 {
-	$frm =$db->real_escape_string($_SESSION['frm']);
 	$username = $db->real_escape_string($_SESSION['id']);
 		
 	$sql="SELECT *";
