@@ -12,8 +12,8 @@ require_once('../Controllers/functions/feeds.php');
 <div id='body' onload="hideSecOnload()">
 <div class="main">
 <!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}}; ?>
-<!-- PROFILE --> <?php if(isset($username)&&isset($_GET['profile'])) {echo include('include/profile.php');}?>
-<!-- PROFILE EDITOR --> <?php if(isset($username)&&isset($_GET['profile_edit'])) {echo include('include/edit_profile.php');}?>
+<!-- PROFILE --> <?php if($selected=='profile') {echo include('include/profile.php');}?>
+<!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
 <!-- ATTENDENCE --> <?php if(isset($_GET['attendence'])) {echo include('include/Student/attendence.php');}?>
 <!-- EVENTS --> <?php if(isset($_GET['events'])) {echo include('include/events.php');}?>

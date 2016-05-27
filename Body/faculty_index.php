@@ -1,11 +1,13 @@
 <?php
-if (isset($_GET['subject_entry'])) {
+
+if ($selected=='subjectEntry') {
 	include 'include/Faculty/subject_entry.php';
 }
-if (isset($_GET['create_report'])) {?>
-	<script src="<?php echo STYLERS ?>js/hide_sec.js"></script>
-<?php
+if ($selected=='createReport') {
 	include 'include/Faculty/create_report.php';
+}
+if ($selected=='writeNotice') {
+    include 'include/add_notice.php';
 }
 
 

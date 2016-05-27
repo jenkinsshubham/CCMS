@@ -11,4 +11,9 @@ define('BASEPATH', 'http://js/sitn/');
 define('STYLERS', BASEPATH.'Stylers/');
 define('CONTROLLERS', '../Controllers/');
 define('BODY', BASEPATH.'Body/');
+//SWITCHES
+$_facReg='1';
+$_facNotice='1';
+$_stuReg='0';
+$_stuEditProfile='0';
 ?>

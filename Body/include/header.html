@@ -5,6 +5,7 @@ ini_set('display_errors',1);
 
 include 'config.inc.php';
 require_once(CONTROLLERS.'/config/database.php');
+$selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
 if(isset($_SESSION['id']))  {
   require(CONTROLLERS.'/functions/user_info.php');
   require_once(CONTROLLERS.'/functions/func.php');

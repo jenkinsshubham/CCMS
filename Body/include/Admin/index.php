@@ -14,7 +14,7 @@ require CONTROLLERS.'functions/approve_users.php';
             <div class="profile-content">
 			  <?php
 				if ($selected=='writeNotice') {
-					include 'include/Admin/add_notice.php';
+					include 'include/add_notice.php';
 				}
 				if ($selected=='settings') {
 					include 'include/Admin/Settings.php';
