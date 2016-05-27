@@ -4,11 +4,11 @@ ini_set('display_errors',1);
  error_reporting(E_ALL);
 
 include 'config.inc.php';
-require_once('../Controllers/config/database.php');
+require_once(CONTROLLERS.'/config/database.php');
 if(isset($_SESSION['id']))  {
-  require('../Controllers/functions/user_info.php');
-  require_once('../Controllers/functions/func.php');
-  require_once('../Controllers/functions/functions.php');
+  require(CONTROLLERS.'/functions/user_info.php');
+  require_once(CONTROLLERS.'/functions/func.php');
+  require_once(CONTROLLERS.'/functions/functions.php');
 }
   else $frm=null;
 
