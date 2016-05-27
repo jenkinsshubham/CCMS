@@ -67,14 +67,17 @@ else $frm="s";
                 <div class="etc-login-form">
                     <p>forgot your password? <a href="forgot<?php if (isset($_GET['f']))  echo "/f";
                                 else echo "/student"; ?>#forgot-form">click here</a></p>
+                    <?php if(($frm=='f'&&$_facReg)||($frm=='s'&&$_stuReg)){?>
                     <p>new user? <a href="register<?php if (isset($_GET['f']))  echo "/f";
                                 else echo "/student"; ?>#register-form">create new account</a></p>
+                    <?php }?>
                 </div>
             </form>
         </div>
         <!-- end:Main Form -->
     </div>
 <?php } 
+if(($frm=='f'&&$_facReg)||($frm=='s'&&$_stuReg)){
 if(isset($_GET['register'])) { require('../Controllers/functions/register.php'); ?>
 <!-- REGISTRATION FORM -->
     <div class="text-center" style="padding:50px 0">
@@ -159,7 +162,7 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
         </div>
         <!-- end:Main Form -->
     </div>
-<?php } 
+<?php } }
 if(isset($_GET['forgot'])) { ?>
 <!-- FORGOT PASSWORD FORM -->
     <div class="text-center" style="padding:50px 0">
