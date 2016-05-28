@@ -11,7 +11,7 @@ require_once('../Controllers/functions/feeds.php');
 ?>
 <div id='body' onload="hideSecOnload()">
 <div class="main">
-<?php include CONTROLLERS.'errors/msg.php';?>
+<!--  ERROR MESSAGES  --> <?php echo "<br/>"; include CONTROLLERS.'errors/msg.php';?>
 <!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if($selected=='profile') {echo include('include/profile.php');}?>
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>

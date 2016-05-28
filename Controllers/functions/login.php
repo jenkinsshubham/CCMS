@@ -35,10 +35,10 @@ if (isset($_POST['submit'])) {
 			else{ 
 				// echo "<script>alert('Account not approved!')</script>";
 				$_SESSION['_m']="Account not approved!";
-				$_SESSION['_t']='w';}
+				$_SESSION['_t']='i';}
 		}
 		else{
-			$_SESSION['_m']="Invalid Password!";
+			$_SESSION['_m']="Incorrect Password!";
 			$_SESSION['_t']='d';
 		}
 	}

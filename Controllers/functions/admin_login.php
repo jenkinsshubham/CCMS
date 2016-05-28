@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 	}
 	if($result->num_rows==0) {
 		$_SESSION['_m']="Invalid username!";
-		$_SESSION['_t']="d";
+		$_SESSION['_t']="w";
 	}
 	else {
 

@@ -24,7 +24,7 @@ if (isset($_POST['register'])) {
 	if ($frm=='s') 
 		$sql.="usn,br,sem,sec)";
 	else 
-		$sql.="fid,department)";
+		$sql.="fid,br)";
 	$sql.=" VALUES('$name','$username','$password','$email',";
 	if ($frm=='s') 
 		$sql.="'$usn','$br','$sem','$sec'";
@@ -36,20 +36,24 @@ if (isset($_POST['register'])) {
 	$result=$db->query($sql);
 
 	if (!$result) {
-		echo('<big/>Registration ERROR!!</big> <br/> ['.$db->error.']');
+		// echo('<big/>Registration ERROR!!</big> <br/> ['.$db->error.']');
+		$_SESSION['_m']="Registration ERROR!!";
+		$_SESSION['_t']='d';
 	}
 
 
 	if($result){
-		$_SESSION['id'] = $username;
-		setcookie('frm', $frm, time() + (86400 * 30), "/"); // 86400 = 1 day
-		header("Location: ".BASEPATH);
+		// $_SESSION['id'] = $username;
+		// setcookie('frm', $frm, time() + (86400 * 30), "/"); // 86400 = 1 day
+		$_SESSION['_m']="Registered Successfully.";
+		$_SESSION['_mb']="You can login after approval.<br/>Check your email for more details.";
+		$_SESSION['_t']='s';
+		echo "<script>window.location.assign(window.location.href);</script>";
 	}
 
 	else{
-		?>
-		<script>alert('Registration Failed!');</script>
-		<?php
+		$_SESSION['_m']="Registration Failed!";
+		$_SESSION['_t']='d';
 	}
 
 }

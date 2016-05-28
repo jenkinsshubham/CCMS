@@ -30,6 +30,9 @@ else $frm="s";
     <link href='<?php echo STYLERS ?>css/varela.css' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link href="<?php echo STYLERS ?>css/login.css" rel="stylesheet" type="text/css">
+
+    <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
+    <script src="<?php echo STYLERS ?>js/bootstrap.min.js"></script>
 </head>
 <body>
     <center>
@@ -37,7 +40,6 @@ else $frm="s";
     <p> <?php echo SITENAME ?></p>
     <br/> <br/>
     </center> 
-<center><?php include CONTROLLERS.'errors/msg.php';?></center>
 <!-- Where all the magic happens -->
 <?php if(!isset($_GET['register'])&&!isset($_GET['forgot'])) { ?>
 <!-- LOGIN FORM -->
@@ -46,6 +48,7 @@ else $frm="s";
                                 else echo "Student"; ?> login</div>
         <!-- Main Form -->
         <div class="login-form-1">
+        	<center><?php include CONTROLLERS.'errors/msg.php';?></center>
             <form id="login-form" class="text-left" method="post">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
@@ -85,6 +88,7 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
                                 else echo "Student"; ?> register</div>
         <!-- Main Form -->
         <div class="login-form-1">
+        	<center><?php include CONTROLLERS.'errors/msg.php';?></center>
             <form id="register-form" class="text-left" method="post">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
@@ -169,6 +173,7 @@ if(isset($_GET['forgot'])) { ?>
         <div class="logo">forgot password</div>
         <!-- Main Form -->
         <div class="login-form-1">
+        	<center><?php include CONTROLLERS.'errors/msg.php';?></center>
             <form id="forgot-form" class="text-left">
                 <div class="etc-login-form">
                     <p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
