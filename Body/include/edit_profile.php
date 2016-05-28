@@ -28,10 +28,10 @@
                         <td>
                           <select class="form-control" name="br">
                             <option <?= $br == '' ? ' selected="selected"' : '';?> value="">Select Branch</option>         
-                            <?php if($frm!='f'&&$sem<3){?>
+                            <?php if($frm!='f'){?>
                             <option <?= $br == 'P' ? ' selected="selected"' : '';?> value="P">Physics Cycle</option>         
                             <option <?= $br == 'C' ? ' selected="selected"' : '';?> value="C">Chemistry Cycle</option>
-                            <?php } else { for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
+                            <?php  for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
                             <option <?= $br == fetch_branches('code',$db,$i) ? ' selected="selected"' : '';?> value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
                             </option>
                              <?php }} ?>   
@@ -44,14 +44,17 @@
                         <td>
                           <select class="form-control" name="sem">
                             <option <?= $sem == '' ? ' selected="selected"' : '';?> value="">Sem</option>         
+                            <?php if($br=='C'||$br=='P'){?>
                             <option <?= $sem == '1' ? ' selected="selected"' : '';?> value="1">I</option>         
-                            <option <?= $sem == '2' ? ' selected="selected"' : '';?> value="2">II</option>         
+                            <option <?= $sem == '2' ? ' selected="selected"' : '';?> value="2">II</option>
+                            <?php } else{?>         
                             <option <?= $sem == '3' ? ' selected="selected"' : '';?> value="3">III</option>         
                             <option <?= $sem == '4' ? ' selected="selected"' : '';?> value="4">IV</option>         
                             <option <?= $sem == '5' ? ' selected="selected"' : '';?> value="5">V</option>         
                             <option <?= $sem == '6' ? ' selected="selected"' : '';?> value="6">VI</option>         
                             <option <?= $sem == '7' ? ' selected="selected"' : '';?> value="7">VII</option>         
-                            <option <?= $sem == '8' ? ' selected="selected"' : '';?> value="8">VIII</option>         
+                            <option <?= $sem == '8' ? ' selected="selected"' : '';?> value="8">VIII</option> 
+                            <?php }?>       
                            </select>
                         </td>
                       </tr>

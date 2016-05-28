@@ -1,23 +1,19 @@
 <?php
 
 $q="SELECT COUNT(*)";
-if ($sem>2) 
-	$q.=" FROM `subjects`";
-else 
-	$q.=" FROM `1yr_subjects`";
-$q.=" WHERE br=";
-if ($sem>2) 
-	$q.="'$br'";
-else $q.="'$cycle'";
+$q.=($sem>2)?" FROM `subjects`":" FROM `1yr_subjects`";
+$q.=" WHERE br='$br'";
 $q.=" AND sem='$sem'";
-
-$t=$q." AND type='t'";
-$l=$q." AND type='l'";
+$t=$q." AND type='T'";
+$l=$q." AND type='L'";
 
 $return_q=$db->query($q);
 $return_l=$db->query($l);
 $return_t=$db->query($t);
-
+if(!$return_q||!$return_t||!$return_l) {
+	$_SESSION['_m']="Error in Query!!";
+	$_SESSION['_t']='d';
+}
 
 $q_sub=$return_q->fetch_array();
 $q_sub=$q_sub['COUNT(*)'];
