@@ -187,8 +187,10 @@ if(isset($_GET['forgot'])) { ?>
                 <div class="etc-login-form">
                     <p>already have an account? <a href="<?php if (isset($_GET['f']))  echo    BASEPATH."/faculty";
                                 else echo BASEPATH."login"; ?>">login here</a></p>
+                    <?php if(($frm=='f'&&$_facReg)||($frm=='s'&&$_stuReg)){?>
                     <p>new user? <a href="register<?php if (isset($_GET['f']))  echo "/f";
                                 else echo "/student"; ?>#register-form">create new account</a></p>
+                    <?php ;}?>
                 </div>
             </form>
         </div>
