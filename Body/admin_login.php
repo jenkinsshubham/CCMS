@@ -43,6 +43,7 @@ if (isset($_SESSION['level'])) {
         <div class="card card-container">
             <h2><?php echo strtoupper($level) ?> LOGIN</h2>
             <p id="profile-name" class="profile-name-card"></p>
+            <?php include CONTROLLERS.'errors/msg.php';?>
             <form class="form-signin" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" id="inputEmail" class="form-control" placeholder="username" name="username" required autofocus>

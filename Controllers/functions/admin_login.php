@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
 		die('There was an error while logging in!');
 	}
 	if($result->num_rows==0) {
-		echo "<script>alert('wrong username!');</script>";
+		$_SESSION['_m']="Invalid username!";
+		$_SESSION['_t']="d";
 	}
 	else {
 
@@ -32,7 +33,11 @@ if (isset($_POST['submit'])) {
 				$_SESSION['level'] = $level;
 				header("Location: ".BASEPATH);
 			}
-			else echo "<script>alert('wrong password for $u')</script>";
+			else{ 
+				// echo "<script>alert('wrong password for $u')</script>";
+				$_SESSION['_m']="Wrong password for $u";
+				$_SESSION['_t']='d';
+			}
 		}
 	}
 

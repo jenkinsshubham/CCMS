@@ -12,6 +12,9 @@ require CONTROLLERS.'functions/approve_users.php';
 		<br/>
 		<div class="col-md-9">
             <div class="profile-content">
+            <!-- Error Message -->
+            <?php include CONTROLLERS.'errors/msg.php';?>
+            
 			  <?php
 				if ($selected=='writeNotice') {
 					include 'include/add_notice.php';

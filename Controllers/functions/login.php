@@ -15,7 +15,9 @@ if (isset($_POST['submit'])) {
 		die('There was an error running the query ['.$db->error.']');
 	}
 	if($result->num_rows==0) {
-		echo "<script>alert('User not registered!')</script>";
+		// echo "<script>alert('User not registered!')</script>";
+		$_SESSION['_m']="User not registered!";
+		$_SESSION['_t']='w';
 	}
 	else {
 
@@ -30,12 +32,14 @@ if (isset($_POST['submit'])) {
 				$_SESSION['frm'] = $frm;
 				header("Location: ".BASEPATH);
 			}
-			else echo "<script>alert('Account not approved!')</script>";
+			else{ 
+				// echo "<script>alert('Account not approved!')</script>";
+				$_SESSION['_m']="Account not approved!";
+				$_SESSION['_t']='w';}
 		}
 		else{
-			?>
-			<script>alert('Invalid Password!');</script>
-			<?php
+			$_SESSION['_m']="Invalid Password!";
+			$_SESSION['_t']='d';
 		}
 	}
 

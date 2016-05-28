@@ -37,7 +37,7 @@ else $frm="s";
     <p> <?php echo SITENAME ?></p>
     <br/> <br/>
     </center> 
-
+<center><?php include CONTROLLERS.'errors/msg.php';?></center>
 <!-- Where all the magic happens -->
 <?php if(!isset($_GET['register'])&&!isset($_GET['forgot'])) { ?>
 <!-- LOGIN FORM -->
