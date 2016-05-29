@@ -3,6 +3,8 @@
 if(isset($_POST['submit'])){
 
 	if($level=='admin'){
+		$_s_=$db->real_escape_string($_POST['_s_']);	
+
 		$sfn=$db->real_escape_string($_POST['sfn']);	
 		$ssn=$db->real_escape_string($_POST['ssn']);	
 		$tl=$db->real_escape_string($_POST['tl']);	
@@ -11,6 +13,8 @@ if(isset($_POST['submit'])){
 
 		$facReg=(isset($_POST['facReg']))?$db->real_escape_string($_POST['facReg']):0;	
 		$facNotice=(isset($_POST['facNotice']))?$db->real_escape_string($_POST['facNotice']):0;	
+		$facEditProfile=(isset($_POST['facEditProfile']))?$db->real_escape_string($_POST['facEditProfile']):0;	
+		
 		$stuReg=(isset($_POST['stuReg']))?$db->real_escape_string($_POST['stuReg']):0;	
 		$stuEditProfile=(isset($_POST['stuEditProfile']))?$db->real_escape_string($_POST['stuEditProfile']):0;	
 	
@@ -30,8 +34,11 @@ if(isset($_POST['submit'])){
 		$txt.="define('BODY', BASEPATH.'Body/');\n";
 
 		$txt.="//SWITCHES\n";
+
 		$txt.="\$_facReg='$facReg';\n";
 		$txt.="\$_facNotice='$facNotice';\n";
+		$txt.="\$_facEditProfile='$facEditProfile';\n";
+
 		$txt.="\$_stuReg='$stuReg';\n";
 		$txt.="\$_stuEditProfile='$stuEditProfile';\n";
 	
@@ -39,7 +46,9 @@ if(isset($_POST['submit'])){
 	
 		fwrite($fp, $txt);
 		fclose($fp);
-		echo "<script>alert('Successfully SAVED!!');window.location.assign(window.location.href);</script>";
+		echo "<script>window.location.assign(window.location.href);</script>";
+		$_SESSION['_m']="SAVED Successfully!!";
+		$_SESSION['_t']='s';
 	}
 }
 

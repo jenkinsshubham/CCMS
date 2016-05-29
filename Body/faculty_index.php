@@ -7,7 +7,13 @@ if ($selected=='createReport') {
 	include 'include/Faculty/create_report.php';
 }
 if ($selected=='writeNotice') {
-    include 'include/add_notice.php';
+
+    if($_facNotice) include 'include/add_notice.php';
+    else{
+    	$_SESSION['_m']="Permission Denied";
+    	$_SESSION['_mb']="Posting Notice is switched off by admin!";
+    	$_SESSION['_t']='w';
+    }
 }
 
 

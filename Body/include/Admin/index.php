@@ -1,5 +1,5 @@
 <?php
-$selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
+$settings = (isset($_GET['settings'])) ? urlencode($_GET['settings']) : null ;
 require CONTROLLERS.'functions/approve_users.php';
 
 ?>
@@ -16,6 +16,7 @@ require CONTROLLERS.'functions/approve_users.php';
             <?php include CONTROLLERS.'errors/msg.php';?>
             
 			  <?php
+				// PAGES
 				if ($selected=='writeNotice') {
 					include 'include/add_notice.php';
 				}
@@ -27,6 +28,19 @@ require CONTROLLERS.'functions/approve_users.php';
 				}
 				if (($selected=='approveS')||($selected=='approveF')) {
 					include 'include/Admin/approve_users.php';
+				}
+			  // SETTINGS
+				if ($settings=='site') {
+					include 'include/Admin/Settings>site.php';
+				}
+				if ($settings=='url') {
+					include 'include/Admin/Settings>facP.php';
+				}
+				if ($settings=='facultyP') {
+					include 'include/Admin/Settings>facP.php';
+				}
+				if ($settings=='studentP') {
+					include 'include/Admin/Settings>stuP.php';
 				}
 
 			  ?>

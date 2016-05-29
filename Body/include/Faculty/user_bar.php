@@ -6,10 +6,12 @@
         <a href='<?php echo BASEPATH ?>page/profile'>
           <span class='glyphicon glyphicon-user' aria-hidden='true'></span>My Profile</a>
       </li>
+      <?php if($_facNotice){?>
       <li>
         <a href='<?php echo BASEPATH ?>page/writeNotice'>
           <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>Add notice</a>
       </li>
+      <?php }?>
       <li>
         <a href="#">Add Assignments</a>
       </li>

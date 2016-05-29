@@ -11,7 +11,7 @@ ErrorDocument 404 /sitn/Body/404.php
 	RewriteRule forgot\/([[a-z]+)\/?$ Body/login.php?forgot&$1 [NC]
 	RewriteRule logout Body/include/logout.php [NC]
 	
-	RewriteRule faculty Body/login.php?f [NC]
+	RewriteRule ^faculty Body/login.php?f [NC]
 	RewriteRule ^hod Body/admin_login.php?level=hod  [NC]
 	RewriteRule ^principal Body/admin_login.php?level=principal  [NC]
 	RewriteRule ^admin Body/admin_login.php?level=admin  [NC]
@@ -20,6 +20,7 @@ ErrorDocument 404 /sitn/Body/404.php
 	RewriteRule ^([a-z]+)\/?$ Body/$1.php [NC]
 
 	RewriteRule ^page\/([[a-z]+)\/?$ Body/index.php?page=$1 [NC]
+	RewriteRule settings\/([[a-z]+)\/?$ Body/index.php?page=settings&settings=$1 [NC]
 
 	
 
