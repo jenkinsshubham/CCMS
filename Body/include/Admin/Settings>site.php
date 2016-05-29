@@ -29,12 +29,6 @@
             <div class="pull-right">
                 <input type="text" name="em" class="form-control" value="<?php echo EMAIL ?>" />
             </div>
-        </li>
-        <li class="list-group-item">
-            Basepath
-            <div class="pull-right">
-                <input type="text" name="bp" class="form-control" value="<?php echo BASEPATH ?>" />
-            </div>
         </li><br/>
         <input type="hidden" name="_s_" value="ss">
         <div class="pull-right"><input class="btn btn-primary" type="submit" name="submit" value="Save"></div>
