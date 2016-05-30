@@ -1,4 +1,5 @@
 <?php
+if(($frm=='f'&&$_facEditProfile)||($frm=='s'&&$_stuEditProfile)){
   require CONTROLLERS.'functions/edit_profile.php';
 ?>
 
@@ -106,3 +107,10 @@
       </div>
     </div>
 </form>
+<?php ;}
+else {
+  $_SESSION['_m']="PERMISSION DENIED!!";
+    $_SESSION['_t']='d';
+    echo "<script>window.location.assign('".BASEPATH."');</script>";
+}
+?>

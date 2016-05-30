@@ -74,7 +74,7 @@
                  <div class="panel-footer">
                         <a href="mailto:<?php echo $email;?>" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <?php  
-                        if(($frm=='f'&&$_facReg)||($frm=='s'&&$_stuReg)){?>
+                        if(($frm=='f'&&$_facEditProfile)||($frm=='s'&&$_stuEditProfile)){?>
                         <span class="pull-right">
                             <a href="<?php echo BASEPATH?>page/editProfile" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                             <!-- <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a> -->
