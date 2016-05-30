@@ -6,10 +6,7 @@
          		?>
         <div class="row user-row">
             <div class="col-xs-3 col-sm-2 col-md-1">
-                <img class="img-circle"
-                     src="<?php echo $avatar;?>"
-                     style="width: 48px;height: 48px"
-                     alt="User Pic">
+                <span class="glyphicon glyphicon-user"></span>
             </div>
             <div class="col-xs-8 col-sm-9 col-md-10">
 				<div class="navbar-right">
@@ -40,7 +37,7 @@
                         <div class="row">
                             <div class="col-xs-2 col-sm-2 col-md-3">
                                 <img class="img-circle"
-                                	 src="<?php echo $avatar;?>"
+                                	 src="<?php echo STYLERS.'images/avatars/user.png'?>"
                     				 style="width: 48px;height: 48px"
                                      alt="User Pic">
                             </div>
