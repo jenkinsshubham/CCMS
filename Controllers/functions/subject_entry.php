@@ -20,7 +20,9 @@ if(isset($_POST['submit'])){
 			 ('$fid', $no1, $no2, '$sub1', '$sub2','$sub3', '$lab1', '$lab2','$lab3', '$lab4');"; 
 		$result=$db->query($qr);
 		if ($result) {
-		echo "<script>alert('Success Added!');</script>";
+			$_SESSION['_m']="Subjects Added Successfully.";
+			$_SESSION['_t']='s';
+			echo "<script>window.location.assign(window.location.href);</script>";
 		}
 		}
 		else
@@ -38,7 +40,9 @@ if(isset($_POST['submit'])){
 					WHERE `subject_entry`.`fid` = '$fid' ";
 				$result=$db->query($qr1);
 				if ($result) {
-				echo "<script>alert('Successfully Updated!');</script>";
+					$_SESSION['_m']="Subjects Updated Successfully.";
+					$_SESSION['_t']='s';
+					echo "<script>window.location.assign(window.location.href);</script>";
 				}
 		}   
 	$db->close();
