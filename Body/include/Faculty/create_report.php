@@ -12,33 +12,15 @@
 		<form method="post" class="form-horizontal" role="form">
 			<div class="input-group">
 				<span class="input-group-addon">Choose Exam</span>
-				<select name="" class="form-control" aria-describedby="basic-addon1">
+				<select name="exam" class="form-control" aria-describedby="basic-addon1">
 					<option value="---">---</option>
 					<option value="1">Internal 1</option>
 					<option value="2">Internal 2</option>
 					<option value="3">Internal 3</option>
 					<option value="4">Preparatory</option>
 				</select>
-				<span class="input-group-addon">Branch</span>
-				<select name="branch" id="branch" onChange="hideSec()" class="form-control" aria-describedby="basic-addon1">
-					<option value="0">Select Branch</option>
-					<option value="P">Basic science(Physics)</option>
-					<option value="C">Basic science(Chemistry)</option>         
-					<?php for ($i=1; $i <= fetch_branches('count',$db,$i) ; $i++) { ?>
-					<option value="<?php echo fetch_branches('code',$db,$i)?>">    <?php echo fetch_branches('name',$db,$i)?>
-					</option>
-					<?php } ?>  
-				</select>
 				</div><br/>
 				<div class="input-group">
-				<span class="input-group-addon">Semester</span>
-				<select  id="sem" onchange="hideSec()" class="form-control" aria-describedby="basic-addon1">
-					<option value="---">---</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-				</select>
 				<span class="input-group-addon">Section</span>
 				<select class="form-control" name="section" id="section">
 	          		<option value="">Select</option>
@@ -64,11 +46,10 @@
 			  		<option id="b5" value="E">B5</option>
 				  	<option id="b6" value="F">B6</option>
         		</select>
-				</div><br/>
-				<div class="input-group">
 				<span class="input-group-addon">Subject</span>
 				<select name="subjectcode" class="form-control" aria-describedby="basic-addon1">
-					<?php echo my_subjects($db,$fid) ;?>
+					<option>--select--</option>
+					<?php echo list_fac_sub_select($db,$fid) ;?>
 				</select>
 				</div><br/>
 				<input type="submit" name="submit" value="Submit" class="btn btn-primary" />
