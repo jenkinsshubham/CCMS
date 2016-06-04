@@ -3,7 +3,7 @@
 if ($selected=='subjectEntry') {
     include 'include/Faculty/subject_entry.php';
 }
-if ($selected=='mySubjects') {
+if ($selected=='mySubjects'||$selected==null) {
 	include 'include/Faculty/my_subjects.php';
 }
 if ($selected=='createReport') {

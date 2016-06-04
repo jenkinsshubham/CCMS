@@ -1,4 +1,7 @@
+<?php require '../Controllers/functions/my_subjects.php';?>
+
 <div id="aa">
+<?php if($selected!=null) echo "<a href=\"".BASEPATH."page/subjectEntry\"><div class=\"btn btn-primary\">Edit</div></a>";?>
     <div class="row">
         <div class="col-md-12">
             <div class="text-center text-uppercase">
@@ -10,22 +13,7 @@
 		<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 		    <div class="bar-chart">
 		        <div class="chart clearfix">
-		            <div class="item">
-		                <div class="bar">
-		                    <span class="percent"><?php echo 'T' ?></span>
-		                    <div class="item-progress" data-percent="91">
-		                        <span class="title"><?php echo "Mathematics" ?></span>
-		                    </div>
-		                </div>
-		               </div>
-		               <div class="item">
-		                <div class="bar">
-		                    <span class="percent"><?php echo 'L' ?></span>
-		                    <div class="item-progress" data-percent="91">
-		                        <span class="title"><?php echo "Physics Lab" ?></span>
-		                    </div>
-		                </div>
-		            </div>
+	               <?php echo list_fac_sub($db,$fid);?>
 		        </div>
 		    </div>
 		</div>

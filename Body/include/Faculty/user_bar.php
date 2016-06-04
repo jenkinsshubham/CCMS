@@ -4,28 +4,29 @@
     <ul class='nav navbar-nav'>
       <li>
         <a href='<?php echo BASEPATH ?>page/profile'>
-          <span class='glyphicon glyphicon-user' aria-hidden='true'></span>My Profile</a>
+          <span class='glyphicon glyphicon-user' aria-hidden='true'></span> My Profile</a>
       </li>
       <?php if($_facNotice){?>
       <li>
         <a href='<?php echo BASEPATH ?>page/writeNotice'>
-          <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>Add notice</a>
+          <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span> Add notice</a>
       </li>
       <?php }?>
       <li>
-        <a href="#">Add Assignments</a>
+        <a href="#">
+        <span class='glyphicon glyphicon-list-alt' aria-hidden='true'></span> Add Assignments</a>
       </li>
       <li>
-        <a href="<?php echo BASEPATH ?>page/subjectEntry">
-          Subject Entry</a>
+        <a href="<?php echo BASEPATH ?>page/mySubjects">
+          <span class='glyphicon glyphicon-book' aria-hidden='true'></span> My Subjects</a>
       </li>
       <li>
         <a href='<?php echo BASEPATH ?>page/createReport'>
-          Create Report</a>
+          <span class='glyphicon glyphicon-copy' aria-hidden='true'></span> Create Report</a>
       </li>
       <li>
         <a href='logout'>
-          <span class='glyphicon glyphicon-remove' aria-hidden='true'></span> Logout</span></a>
+          <span class='glyphicon glyphicon-share' aria-hidden='true'></span> Logout</span></a>
       </li>
     </ul>
 </div>
