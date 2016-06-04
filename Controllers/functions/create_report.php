@@ -23,5 +23,9 @@ function list_fac_sub_select($db,$fid){
         }
 }
 
+if (isset($_POST['submit1'])) {
+	echo "string";
+}
+
 
 ?>
