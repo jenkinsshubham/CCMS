@@ -1,7 +1,10 @@
 <?php
 
 if ($selected=='subjectEntry') {
-	include 'include/Faculty/subject_entry.php';
+    include 'include/Faculty/subject_entry.php';
+}
+if ($selected=='mySubjects') {
+	include 'include/Faculty/my_subjects.php';
 }
 if ($selected=='createReport') {
 	include 'include/Faculty/create_report.php';

@@ -12,7 +12,7 @@ require_once('../Controllers/functions/feeds.php');
 <div id='body' onload="hideSecOnload()">
 <div class="main">
 <!--  ERROR MESSAGES  --> <?php echo "<br/>"; include CONTROLLERS.'errors/msg.php';?>
-<!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'faculty_index.php';}}; ?>
+<!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'include/Faculty/faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if($selected=='profile') {echo include('include/profile.php');}?>
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
