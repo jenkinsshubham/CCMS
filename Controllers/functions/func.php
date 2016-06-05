@@ -27,31 +27,27 @@ function fetch_subjects($demand,$db,$br)
 	if($demand=='code')return $row['scode'];
 }
 
- function my_subjects($db,$fid) {
-	$html="<option value=''>Select Subject</option>";
-	$sql="SELECT * FROM subject_entry WHERE fid='$fid'";
-	$qry1 = $db->query($sql);
-	$arr = $qry1->fetch_row();	
-	// for($i=3;$i<=11;$i++){
-	// 	if($arr[$i]!='---'){
-	// 		$q = $db->query("SELECT scode, sname FROM subjects WHERE scode='$arr[$i]'");
-	// 		$a = $q->num_rows();
-	// 		if($a){
-	// 			$a = $q->fetch_rows();
-	// 			$html.= "<option value='$a[0]'>$a[1]</option>";
-	// 		}
-	// 		else{
-	// 			$q = $db->query("SELECT code, name FROM 1yr_subjects WHERE code='$arr[$i]'");
-	// 			$a = $q->num_rows;
-	// 			if($a){
-	// 				$a = $q->fetch_rows();
-	// 				$html.= "<option value='$a[0]'>$a[1]</option>";
-	// 			}
-	// 		}
-	// 	}
+function list_fac_sub_select($db,$fid){
+		$sql="SELECT * FROM subject_entry ";
+		$sql.="WHERE fid='$fid'";
+		$res=$db->query($sql);
+		if(!$res) echo "SOme Error!";
 
-	// }
-	return $html;
+		$opt="";
+
+		while ($r=$res->fetch_array()) {
+			$opt.="<optgroup label='Theory'>";
+			for($i=1;$i<=$r['noofsubjects'];$i++){
+				$sub="subject".$i;
+	            $opt.="<option>$r[$sub]</option>";
+        	}
+	        $opt.="</optgroup>";$opt.="<optgroup label='Lab'>";
+			for($i=1;$i<=$r['nooflabs'];$i++){
+				$sub="lab".$i;
+	            $opt.="<option>$r[$sub]</option>";
+	    	}
+        return $opt;
+        }
 }
 
 ?>

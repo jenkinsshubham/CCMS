@@ -4,7 +4,7 @@
 </div>
     <div class="input-group">
         <span class="input-group-addon">Choose Exam</span>
-        <select name="exam" class="form-control" aria-describedby="basic-addon1">
+        <select name="exam" class="form-control exam" aria-describedby="basic-addon1">
             <option value="---">---</option>
             <option value="1">Internal 1</option>
             <option value="2">Internal 2</option>
@@ -14,7 +14,7 @@
         </div><br/>
         <div class="input-group">
             <span class="input-group-addon">Section</span>
-            <select class="form-control" name="section" id="section">
+            <select class="form-control sec" name="section" id="section">
                 <option value="">Select</option>
                 <option id="a" value="A">A</option>
                 <option id="b" value="B">B</option>
@@ -39,7 +39,7 @@
                 <option id="b6" value="F">B6</option>
             </select>
             <span class="input-group-addon">Subject</span>
-            <select name="subjectcode" class="form-control" aria-describedby="basic-addon1">
+            <select name="subjectcode" class="form-control sub" aria-describedby="basic-addon1">
                 <option>--select--</option>
                 <?php echo list_fac_sub_select($db,$fid) ;?>
             </select>
