@@ -23,13 +23,13 @@
             </div>
         </div>
     </div>
-    <form role="form">
+    <form role="form" method="post">
         <div class="row setup-content" id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">
                     <!-- STEP ONE -->
                             <?php include 'include/Faculty/cr_1.php'; ?>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" name="s1" >Next</button>
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 <div class="col-md-12">
                     <!-- STEP TWO -->
                             <?php include 'include/Faculty/cr_2.php'; ?>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" name="s2" >Next</button>
                 </div>
             </div>
         </div>
