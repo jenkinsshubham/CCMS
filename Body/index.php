@@ -56,7 +56,7 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 </div>
 
-<div class="sidebar-right" <?php if($selected=='createReport'){?>style="display: none"<?php }?>>
+<div class="sidebar-right">
 <!-- user bar --> 
 					<?php if(isset($username)) {
 							if($frm=='s') include('include/user_bar.php'); 
