@@ -82,7 +82,7 @@ function redirect($url,$permanent = false)
 
 function findOutSubject($db,$sc, $sm){
 	$a = array();
-	$qr = $db->query("SELECT cycle FROM subjects WHERE sem = $sm AND scode = '$sc'" )or die($db->error());	
+	$qr = $db->query("SELECT cycle FROM subjects WHERE sem = $sm AND code = '$sc'" )or die($db->error());	
 	$i=0;
 	if($qr->num_rows() > 1){
 		while($new1 = $qr->fetch_row()){
@@ -99,7 +99,7 @@ function findOutSubject($db,$sc, $sm){
 
 function findOutName($db,$sc){
 
-	$qr = $db->query("SELECT sname FROM subjects WHERE scode = '$sc'" )or die($db->error());	
+	$qr = $db->query("SELECT name FROM subjects WHERE code = '$sc'" )or die($db->error());	
 	$name = $qr->fetch_row();
 	$count = $qr->num_rows();
 	if($count>0)
@@ -111,7 +111,7 @@ function findOutName($db,$sc){
 
 function findOutNameOfFirstYear($db,$sc){
 
-	$qr = $db->query("SELECT name FROM 1yr_subjects WHERE code = '$sc'" )or die($db->error());	
+	$qr = $db->query("SELECT name FROM subjects WHERE code = '$sc'" )or die($db->error());	
 	$name = $qr->fetch_row();
 	return $name[0];
 
@@ -125,16 +125,16 @@ function getSubject($db,$sem, $branch, $cycle){
 
 	if(($sem > 2) && ($branch != 'MBA') && ($branch != 'MCA') && ($branch != 'SCS') && ($branch != 'SCN')  && ($branch != 'LDE') && ($branch != 'MTP')  && ($branch != 'MAR') && ($branch != 'LVS')){
 	
-		$qr = $db->query("SELECT scode,sname,elective,ref FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref")or die($db->error());	
+		$qr = $db->query("SELECT code,name,elective,ref FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref")or die($db->error());	
 		while($name=$qr->fetch_assoc()){
 		if($name['elective']==1){
 			$ele_c++;
-			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['scode']).")--- ".$name['sname']."</span> (Elective)<br />";
-			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['scode'])."', $ele_c )";
+			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).")--- ".$name['name']."</span> (Elective)<br />";
+			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['code'])."', $ele_c )";
 			$res1=$db->query($q)or die($db->error());
 		}
 		else{
-		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 		}
 		}
 		
@@ -145,9 +145,9 @@ function getSubject($db,$sem, $branch, $cycle){
 		
 		$subject_str='';
 			$qr = $db->query("SELECT * 
-								FROM 1yr_subjects 
+								FROM subjects 
 								WHERE sem = $sem 
-								AND cycle='$cycle' order by ref");	
+								AND branch='$br' order by ref");	
 		while($name=$qr->fetch_assoc()){
 		
 		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
@@ -159,7 +159,7 @@ function getSubject($db,$sem, $branch, $cycle){
 	else if($branch == 'MCA'){
 		
 		$q =$db->query("DELETE FROM elective_status")or die($db->error());
-		$qr = $db->query("SELECT scode,sname,elective,ref 
+		$qr = $db->query("SELECT code,name,elective,ref 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -167,12 +167,12 @@ function getSubject($db,$sem, $branch, $cycle){
 		while($name=$qr->fetch_assoc()){
 		if($name['elective']==1){	
 			$ele_c++;
-			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['scode']).") --- ".$name['sname']."</span> (Elective) <br />";
-			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['scode'])."', $ele_c )";
+			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).") --- ".$name['name']."</span> (Elective) <br />";
+			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['code'])."', $ele_c )";
 			$res1=$db->query($q)or die($db->error());
 		}
 		else{
-		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 		}
 		}
 		return $subject_str;
@@ -184,7 +184,7 @@ function getSubject($db,$sem, $branch, $cycle){
 		$qr = $db->query("SELECT * FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref")or die($db->error());	
 		while($name=$qr->fetch_assoc()){
 				if($name['elective'] !=1 ){
-					$subject_str.= "(".$name['ref'].") ---- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+					$subject_str.= "(".$name['ref'].") ---- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 				}
 		}
 		if($sem > 2 && $branch == 'MBA'){
@@ -198,7 +198,7 @@ function getSubject($db,$sem, $branch, $cycle){
 	else if(($branch == 'SCS') || ($branch == 'SCN') ||  ($branch == 'LDE') || ($branch == 'MTP') || ($branch == 'MAR') || ($branch == 'LVS')) 
 	{
 		$q =$db->query("DELETE FROM elective_status")or die($db->error());
-		$qr = $db->query("SELECT scode,sname,elective,ref 
+		$qr = $db->query("SELECT code,name,elective,ref 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -206,12 +206,12 @@ function getSubject($db,$sem, $branch, $cycle){
 		while($name=$qr->fetch_assoc()){
 		if($name['elective']==1){	
 			$ele_c++;
-			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['scode']).") --- ".$name['sname']."</span> (Elective) <br />";
-			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['scode'])."', $ele_c )";
+			$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).") --- ".$name['name']."</span> (Elective) <br />";
+			$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['code'])."', $ele_c )";
 			$res1=$db->query($q)or die($db->error());
 		}
 		else{
-		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 		}
 		}
 		return $subject_str;
@@ -288,7 +288,7 @@ function getSubjectForInternalReport12($db,$sem, $branch, $ref){
 	$str = "";
 	if($branch == 'MBA' || $branch == 'MCA'){
 		
-		$qr = $db->query(" SELECT sname, scode 
+		$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -313,7 +313,7 @@ function getSubjectForInternalReportBE12($db,$cycle, $sem, $branch, $ref){
 	$str = "";
 		
 		$qr = $db->query(" SELECT name, code 
-							FROM 1yr_subjects 
+							FROM subjects 
 							WHERE sem = $sem 
 							AND ref = $ref
 							AND cycle = '$cycle'")or die($db->error());
@@ -327,7 +327,7 @@ function getSubjectForInternalReportBE12($db,$cycle, $sem, $branch, $ref){
 
 function getSubjectForInternalReportBE345($db,$sem, $branch, $i){
 		$str = "";
-		$qr = $db->query(" SELECT sname, scode 
+		$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -344,7 +344,7 @@ function getSubjectForInternalReportMBA($db,$sem, $branch, $ref, $cycle){
 	$str = "";
 	
 	if($ref < 3){
-		$qr = $db->query(" SELECT sname, scode 
+		$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -352,7 +352,7 @@ function getSubjectForInternalReportMBA($db,$sem, $branch, $ref, $cycle){
 		
 	}
 	else{
-		$qr = $db->query(" SELECT sname, scode 
+		$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -376,7 +376,7 @@ function getSubjectForInternalReportMCA45($db,$sem, $branch, $ref, $usn){
 	if($sem == 4){
 			
 			if($ref < 5 || $ref > 5){
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -389,9 +389,9 @@ function getSubjectForInternalReportMCA45($db,$sem, $branch, $ref, $usn){
 									WHERE usn = '$usn'")or die($db->error());
 				$arr1 = $qr1->fetch_row();
 				
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 									FROM subjects 
-									WHERE scode = '$arr1[0]'
+									WHERE code = '$arr1[0]'
 									AND ref = $ref")or die($db->error());
 			}
 	}
@@ -399,7 +399,7 @@ function getSubjectForInternalReportMCA45($db,$sem, $branch, $ref, $usn){
 			
 			if($ref < 4 || $ref > 5){
 			
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -413,10 +413,10 @@ function getSubjectForInternalReportMCA45($db,$sem, $branch, $ref, $usn){
 									WHERE usn = '$usn'")or die($db->error());
 				$arr1 = $qr1->fetch_row();
 				
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 									FROM subjects 
-									WHERE (scode = '$arr1[0]' 
-									OR scode = '$arr1[1]')
+									WHERE (code = '$arr1[0]' 
+									OR code = '$arr1[1]')
 									AND ref = $ref")or die($db->error());
 			}
 	}	
@@ -436,7 +436,7 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 	if($sem == 6){
 			
 			if($ref < 6 || $ref > 6){
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -449,9 +449,9 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 									WHERE usn = '$usn'")or die($db->error());
 				$arr1 = $qr1->fetch_row();
 				
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 									FROM subjects 
-									WHERE scode = '$arr1[0]'
+									WHERE code = '$arr1[0]'
 									AND ref = $ref")or die($db->error());
 			}
 	}
@@ -459,7 +459,7 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 			
 			if($ref < 5 || $ref > 6){
 			
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -473,10 +473,10 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 									WHERE usn = '$usn'")or die($db->error());
 				$arr1 = $qr1->fetch_row();
 				
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 									FROM subjects 
-									WHERE (scode = '$arr1[0]' 
-									OR scode = '$arr1[1]')
+									WHERE (code = '$arr1[0]' 
+									OR code = '$arr1[1]')
 									AND ref = $ref")or die($db->error());
 			}
 	}	
@@ -484,7 +484,7 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 			
 			if($ref < 3 || $ref > 4){
 			
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -498,10 +498,10 @@ function getSubjectForInternalReportBE678($db,$sem, $branch, $ref, $usn){
 									WHERE usn = '$usn'")or die($db->error());
 				$arr1 = $qr1->fetch_row();
 				
-				$qr = $db->query(" SELECT sname, scode 
+				$qr = $db->query(" SELECT name, code 
 									FROM subjects 
-									WHERE (scode = '$arr1[0]' 
-									OR scode = '$arr1[1]')
+									WHERE (code = '$arr1[0]' 
+									OR code = '$arr1[1]')
 									AND ref = $ref")or die($db->error());
 			}
 	}	
@@ -530,7 +530,7 @@ function getSubject345($db,$sem, $branch, $sec){
 
 	if(($branch == 'BA' || $sem > 2) && ($branch != 'MBA') && ($branch != 'MCA')){
 	
-		$qr = $db->query(" SELECT scode,sname,elective,ref , cycle
+		$qr = $db->query(" SELECT code,name,elective,ref , cycle
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' AND cycle='$sec' 
@@ -539,29 +539,29 @@ function getSubject345($db,$sem, $branch, $sec){
 		while($name=$qr->fetch_assoc()){
 			if($name['elective']==1){
 				$ele_c++;
-				$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['scode']).")--- ".$name['sname']."</span> (Elective)<br />";
-				$q="INSERT INTO elective_status VALUES(".$name['ref'].", '".strtoupper($name['scode'])."' , $ele_c )";
+				$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).")--- ".$name['name']."</span> (Elective)<br />";
+				$q="INSERT INTO elective_status VALUES(".$name['ref'].", '".strtoupper($name['code'])."' , $ele_c )";
 				$res1=$db->query($q)or die($db->error());
 			}
 			else{
 				//AE
 				if($branch == 'AE' || $branch == 'AU'){
-					$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";	
+					$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";	
 				}
 				else{
 					if($sec != '-'){//Second shift A and B Issue solved
-					   if(($name['scode'][strlen($name['scode'])-1] == 'A') && $name['cycle']=='A2')
-					   		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";	
-					   else if($name['scode'][strlen($name['scode'])-1] != 'B' && $name['scode'][strlen($name['scode'])-1] != 'A')
-							$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+					   if(($name['code'][strlen($name['code'])-1] == 'A') && $name['cycle']=='A2')
+					   		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";	
+					   else if($name['code'][strlen($name['code'])-1] != 'B' && $name['code'][strlen($name['code'])-1] != 'A')
+							$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 					}
 					else if($sec == '-'){
-					   if(($name['scode'][strlen($name['scode'])-1] == 'B') && $name['cycle']=='-')
-					   		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";	
-					   else if($name['scode'][strlen($name['scode'])-1] != 'B' && $name['scode'][strlen($name['scode'])-1] != 'A')
-							$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+					   if(($name['code'][strlen($name['code'])-1] == 'B') && $name['cycle']=='-')
+					   		$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";	
+					   else if($name['code'][strlen($name['code'])-1] != 'B' && $name['code'][strlen($name['code'])-1] != 'A')
+							$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 					}
-					//	$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+					//	$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 				}
 			}
 		}
@@ -569,26 +569,26 @@ function getSubject345($db,$sem, $branch, $sec){
 		return $subject_str;
 	
 	}
-	else if(($sem < 3) && ($branch != 'MBA') && ($branch != 'MCA')){
+	// else if(($sem < 3) && ($branch != 'MBA') && ($branch != 'MCA')){
 		
-		$subject_str='';
-			$qr = $db->query("SELECT * 
-								FROM 1yr_subjects 
-								WHERE sem = $sem 
-								AND cycle='$cycle' order by ref");	
-		while($name=$qr->fetch_assoc()){
+	// 	$subject_str='';
+	// 		$qr = $db->query("SELECT * 
+	// 							FROM subjects 
+	// 							WHERE sem = $sem 
+	// 							AND cycle='$cycle' order by ref");	
+	// 	while($name=$qr->fetch_assoc()){
 		
-		$subject_str.= "(".$name['ref'].") --- (".$name['code'].") --- ".$name['name']."<br />";
+	// 	$subject_str.= "(".$name['ref'].") --- (".$name['code'].") --- ".$name['name']."<br />";
 		
-		}
-		return $subject_str;
+	// 	}
+	// 	return $subject_str;
 		
-	}
+	// }
 	else if($branch == 'MCA'){
 		
 		$q =$db->query("DELETE 
 						FROM elective_status")or die($db->error());
-		$qr = $db->query("SELECT scode,sname,elective,ref 
+		$qr = $db->query("SELECT code,name,elective,ref 
 							FROM subjects 
 							WHERE sem = $sem 
 							AND branch = '$branch' 
@@ -596,12 +596,12 @@ function getSubject345($db,$sem, $branch, $sec){
 		while($name=$qr->fetch_assoc()){
 			if($name['elective']==1){	
 				$ele_c++;
-				$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['scode']).") --- ".$name['sname']."</span> (Elective) <br />";
-				$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['scode'])."', $ele_c )";
+				$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).") --- ".$name['name']."</span> (Elective) <br />";
+				$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['code'])."', $ele_c )";
 				$res1=$db->query($q)or die($db->error());
 			}
 			else{
-				$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+				$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 			}
 		}
 		return $subject_str;
@@ -613,7 +613,7 @@ function getSubject345($db,$sem, $branch, $sec){
 		$qr = $db->query("SELECT * FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref")or die($db->error());	
 		while($name=$qr->fetch_assoc()){
 				if($name['elective'] !=1 ){
-					$subject_str.= "(".$name['ref'].") ---- (".strtoupper($name['scode']).") --- ".$name['sname']."<br />";
+					$subject_str.= "(".$name['ref'].") ---- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
 				}
 		}
 		if($sem > 2 && $branch == 'MBA'){
@@ -628,13 +628,13 @@ function getSubject345($db,$sem, $branch, $sec){
 
 function getTypeSubject($db,$sc){
 	$t = "T";
-	$q_c = $db->query("SELECT type FROM `1yr_subjects` WHERE `code` = '$sc' and type='L'")or die($db->error());
+	$q_c = $db->query("SELECT type FROM `subjects` WHERE `code` = '$sc' and type='L'")or die($db->error());
 		$subject = $q_c->num_rows();
 		if($subject != 0){
 			$t = 'L';
 		}
 		else{
-			$q_c = $db->query("SELECT type FROM `subjects` WHERE `scode` = '$sc' and type='L'")or die($db->error());		
+			$q_c = $db->query("SELECT type FROM `subjects` WHERE `code` = '$sc' and type='L'")or die($db->error());		
 			$subject = $q_c->num_rows();
 			if($subject != 0){
 				$t = "L";
@@ -697,7 +697,7 @@ function getSec($db,$sec, $cycle){
 }
 
 function getSubjectName($db,$c){
-	$q = $db->query("SELECT sname FROM subjects WHERE scode = '$c'")or die($db->error());
+	$q = $db->query("SELECT name FROM subjects WHERE code = '$c'")or die($db->error());
 	$count = $q->num_rows();
 		
 		if($count)
@@ -707,7 +707,7 @@ function getSubjectName($db,$c){
 		else
 		{
 			//echo $c;
-			$q = $db->query("SELECT name FROM 1yr_subjects WHERE code = '$c'")or die($db->error());
+			$q = $db->query("SELECT name FROM subjects WHERE code = '$c'")or die($db->error());
 			$r = $q->fetch_row();
 		}
 	return $r[0];
@@ -797,7 +797,7 @@ function subjectListForSelection($db,$str,$type){
 				
 							 while($arr = $qry1->fetch_assoc())
 							 {
-								$HTMLlist .="<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+								$HTMLlist .="<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 							 }
 					$HTMLlist .='</optgroup>';
 				}
@@ -809,7 +809,7 @@ function subjectListForSelection($db,$str,$type){
 				$sem = array(1,2);
 				foreach($sem as $sm){
 					$HTMLlist .='<optgroup label="'.$sm.' sem">';
-							 $qr = "SELECT * FROM 1yr_subjects WHERE br='".$s."' and sem=$sm and type='$type'";
+							 $qr = "SELECT * FROM subjects WHERE branch='".$s."' and sem=$sm and type='$type'";
 							 $qry1 = $db->query($qr);
 				
 							 while($arr = $qry1->fetch_assoc())
@@ -823,7 +823,7 @@ function subjectListForSelection($db,$str,$type){
 		return $HTMLlist;
 }
 
-function firstYearProgramPC($db){
+function firstYearProgramPC($db,$type){
 	$str = array('P', 'C');
 	$HTMLlist="";
 	foreach($str as $s){
@@ -831,7 +831,7 @@ function firstYearProgramPC($db){
 		$sem = array(1,2);
 		foreach($sem as $sm){
 			$HTMLlist .='<optgroup label="'.$sm.' sem">';
-			$qr = "SELECT * FROM 1yr_subjects WHERE br='".$s."' AND sem=$sm AND type='$type'";
+			$qr = "SELECT * FROM subjects WHERE branch='$s' AND sem='$sm' AND type='$type'";
 			$qry1 = $db->query($qr);
 			while($arr = $qry1->fetch_assoc()){
 				$HTMLlist .="<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";

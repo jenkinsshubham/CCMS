@@ -53,7 +53,7 @@
 			$qr = "SELECT * FROM subjects WHERE branch = 'BA' and type='T'";
 			$qry1 = $db->query($qr);
 			while($arr = $qry1->fetch_assoc()){
-				echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+				echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 			}
 			echo '</optgroup>';
 		}
@@ -81,7 +81,7 @@
 				
 				while($arr = $qry1->fetch_assoc())
 				{
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}	
 			echo '</optgroup>';		
 		}
@@ -92,7 +92,7 @@
 				$qr = "SELECT * FROM subjects WHERE type='T' and branch='MBA'";
 				$qry1 = $db->query($qr)or die($db->error());
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 				echo '</optgroup>';	
 			}
@@ -101,17 +101,17 @@
 				$qr = "SELECT * FROM subjects WHERE type='T' and branch='MCA'";
 				$qry1 = $db->query($qr);
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 				echo '</optgroup>';	
 			}
 			else  if(($department == 'C')||($department == 'MATH')){
-				echo firstYearProgramPC($db);
+				echo firstYearProgramPC($db,'T');
 				
 				$qr = "SELECT * FROM subjects WHERE type='T' and branch='MBA' and sem=1";
 				$qry1 = $db->query($qr);
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 				echo "<option value='13MCA12'>(13MCA12)Discrete Mathematical Structure</option>";
 				echo "<option value='10MAT31'>(10MAT31)Engineering Mathamatics - III</option>";	
@@ -122,7 +122,7 @@
 			}	
 			else  if(($department == 'P')||($department == 'MATH'))
 			{
-				echo firstYearProgramPC($db);
+				echo firstYearProgramPC($db,'T');
 				echo "<option value='13MCA12'>(13MCA12)Discrete Mathematical Structure</option>";
 				echo "<option value='10MAT31'>(10MAT31)Engineering Mathamatics - III</option>";	
 				echo "<option value='10CS34'>(10CS34)Discrete Mathematical Structures</option>";
@@ -157,7 +157,7 @@
 				
 							while($arr = $qry1->fetch_assoc())
 							{
-								echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+								echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 							}
 			echo "</optgroup>";
 		}
@@ -184,7 +184,7 @@
 				
 				while($arr = $qry1->fetch_assoc())
 				{
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}	
 			echo '</optgroup>';		
 		}
@@ -195,7 +195,7 @@
 				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MBA'";
 				$qry1 = $db->query($qr)or die($db->error());
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 				echo '</optgroup>';	
 			}
@@ -204,17 +204,17 @@
 				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MCA'";
 				$qry1 = $db->query($qr);
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 				echo '</optgroup>';	
 			}
 			else  if(($department == 'C')||($department == 'MATH')){
-				echo firstYearProgramPC($db);
+				echo firstYearProgramPC($db,'L');
 				
 				$qr = "SELECT * FROM subjects WHERE type='L' and branch='MBA' and sem=1";
 				$qry1 = $db->query($qr);
 				while($arr = $qry1->fetch_assoc()){
-					echo "<option value='".$arr['scode']."'>(".$arr['scode'].")".$arr['sname']."</option>";
+					echo "<option value='".$arr['code']."'>(".$arr['code'].")".$arr['name']."</option>";
 				}
 			}
 		}

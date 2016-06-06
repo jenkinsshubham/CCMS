@@ -11,21 +11,6 @@
             <span class="input-group-addon">Marks</span>
             <span class="input-group-addon">Attendence</span>
         </div>
-        <div class="input-group">
-            <span class="input-group-addon">4SN15CS087</span>
-            <span class="input-group-addon">Shubham Raj</span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">4SN15CS087</span>
-            <span class="input-group-addon">Shubham Raj</span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">4SN15CS087</span>
-            <span class="input-group-addon">Shubham Raj</span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
-            <span class="input-group-addon"><input type="text" class="form-control" name="<?php echo $i ;?>"></span>
+        <div id='step2'>
+            Please Complete Step one!
         </div>

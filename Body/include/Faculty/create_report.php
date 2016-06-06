@@ -33,9 +33,6 @@
             <div class="col-xs-12">
                 <div class="col-md-12">
                     <!-- STEP TWO -->
-                    <div id="response">
-                        <pre></pre>
-                    </div>
                             <?php include 'include/Faculty/cr_2.php'; ?>
                     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" name="s2" >Next</button>
                 </div>
@@ -105,8 +102,9 @@ $(document).ready(function(){
         var exam = $(".exam").val();
         var sec = $(".sec").val();
         var sub = $(".sub").val();
-        $.post("../Controllers/functions/create_report.php", {exam: exam,sec: sec, sub: sub},function(data){
-                    $('#response pre').html( data );
+        var br = $(".br").val();
+        $.post("../Controllers/functions/create_report.php", {exam: exam,sec: sec, sub: sub,br:br,step1:1},function(data){
+                    $('#step2').html( data );
                 });
     });
 });
