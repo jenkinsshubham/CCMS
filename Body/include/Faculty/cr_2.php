@@ -1,16 +1,35 @@
 <?php $i=0;?>
 <br/>
-	    <div class="alert alert-success" role="alert">
+
+	    <div class="alert alert-warning" role="alert">
 	      <span class="glyphicon glyphicon-bell" aria-hidden="true"></span>
-	         Please choose the options carefully.
+	         Please fill values carefully.
 	    </div>
 
-        <div class="input-group">
-            <span class="input-group-addon">USN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="input-group-addon">Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span class="input-group-addon">Marks</span>
-            <span class="input-group-addon">Attendence</span>
-        </div>
-        <div id='step2'>
-            Please Complete Step one!
-        </div>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <table class="table table-bordered table-hover" id="tab_logic">
+            <thead>
+                <tr >
+                    <th class="text-center">
+                        #
+                    </th>
+                    <th class="text-center">
+                        USN
+                    </th>
+                    <th class="text-center">
+                        Name
+                    </th>
+                    <th class="text-center">
+                        Marks
+                    </th>
+                    <th class="text-center">
+                        Attendence
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+</div>
