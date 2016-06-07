@@ -40,7 +40,6 @@ $message = array("
 					
 
 function check($db,$branch, $int){
-  if(($branch != 'MBA') && ($branch != 'MCA')){ 
 	$q_c = $db->query("SELECT * FROM `internal` WHERE `internal_number`=$int AND `valid`=1");
 	$v = $q_c->num_rows();
 	$v=(int)$v;
@@ -49,26 +48,6 @@ function check($db,$branch, $int){
 		redirect('internal_marks_page.php?msg=14&e=1'); 
 	}
   }
-  else if($branch == 'MBA')
-  { 
-	$q_c = $db->query("SELECT * FROM `internal_mba` WHERE `internal_number`=$int AND `valid`=1");
-	$v = $q_c->num_rows();
-	$v=(int)$v;
-	if($v < 1)
-	{
-		redirect('internal_marks_page.php?msg=14&e=1');
-	}
-  }
-  else if($branch == 'MCA'){ 
-	$q_c = $db->query("SELECT * FROM `internal_mca` WHERE `internal_number`=$int AND `valid`=1");
-	$v = $q_c->num_rows();
-	$v=(int)$v;
-	if($v < 1)
-	{
-		redirect('internal_marks_page.php?msg=14&e=1');
-	}
-  }
-}
 
 function redirect($url,$permanent = false)
 {

@@ -13,13 +13,9 @@
                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
                 <p>Step 2</p>
             </div>
-            <div class="stepwizard-step">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                <p>Step 3</p>
-            </div>
         </div>
     </div>
-    <form role="form" method="post" id="myForm">
+    <form role="form" method="post" id="myForm" action="../Controllers/functions/create_report.php">
         <div class="row setup-content" id="step-1">
             <div class="col-xs-12">
                 <div class="col-md-12">
@@ -34,19 +30,7 @@
                 <div class="col-md-12">
                     <!-- STEP TWO -->
                             <?php include 'include/Faculty/cr_2.php'; ?>
-                    <button class="btn btn-primary nextBtn stp3 btn-lg pull-right" type="button" name="s2" >Next</button>
-                </div>
-            </div>
-        </div>
-        <div class="row setup-content" id="step-3">
-            <div class="col-xs-12">
-                <div class="col-md-12">
-                    <!-- STEP THREE -->
-                    <div class="alert-message alert-message-success">
-                        <div id="step3"></div>
-                    </div>
-                            <?php include 'include/Faculty/cr_3.php'; ?>
-                    <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+                    <button class="btn btn-success btn-lg pull-right" name="submit" type="submit">Finish!</button>
                 </div>
             </div>
         </div>
@@ -108,17 +92,6 @@ $(document).ready(function(){
         var br = $(".br").val();
         $.post("../Controllers/functions/create_report.php", {exam: exam,sec: sec, sub: sub,br:br,step2:1},function(data){
                     $('#tbody').html( data );
-                });
-    });
-});
-$(document).ready(function(){
-    $(".stp3").click(function(){
-        var exam = $(".exam").val();
-        var sec = $(".sec").val();
-        var sub = $(".sub").val();
-        var br = $(".br").val();
-        $.post("../Controllers/functions/create_report.php", {exam: exam,sec: sec, sub: sub,br:br,step3:1},function(data){
-                    $('#step3').html( data );
                 });
     });
 });
