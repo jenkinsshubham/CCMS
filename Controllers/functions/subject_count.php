@@ -1,8 +1,8 @@
 <?php
 
 $q="SELECT COUNT(*)";
-$q.=($sem>2)?" FROM `subjects`":" FROM `1yr_subjects`";
-$q.=" WHERE br='$br'";
+$q.=" FROM `subjects`";
+$q.=" WHERE branch='$br'";
 $q.=" AND sem='$sem'";
 $t=$q." AND type='T'";
 $l=$q." AND type='L'";
