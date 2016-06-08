@@ -17,8 +17,9 @@ if(isset($_POST['submit'])){
 	
 			$stuReg=(isset($_POST['stuReg']))?$db->real_escape_string($_POST['stuReg']):(($_s_!='sp')?$_stuReg:0);	
 			$stuEditProfile=(isset($_POST['stuEditProfile']))?$db->real_escape_string($_POST['stuEditProfile']):(($_s_!='sp')?$_stuEditProfile:0);
-	
+		$file1=CONTROLLERS."config/config.inc.php";
 		$fp = fopen("config.inc.php", "w") or die("Unable to open file!");
+		$fp1 = fopen($file1, "w") or die("Unable to open file!");
 		$txt ="";
 		$txt .= "<?php\n";
 		$txt.="//Generated From admin settings.\n";
@@ -47,6 +48,8 @@ if(isset($_POST['submit'])){
 	
 		fwrite($fp, $txt);
 		fclose($fp);
+		fwrite($fp1, $txt);
+		fclose($fp1);
 		$path=BASEPATH.'page/settings';
 		echo "<script>window.location.assign('".$path."');</script>";
 		$_SESSION['_m']="SAVED Successfully!!";
