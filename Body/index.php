@@ -15,6 +15,7 @@ require_once('../Controllers/functions/feeds.php');
 <!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'include/Faculty/faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if($selected=='profile') {echo include('include/profile.php');}?>
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>
+<!-- PIC UPLOAD --> <?php if(isset($username)&&$selected=='uploadPic') {echo include('include/upload_pic.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
 <!-- ATTENDENCE --> <?php if(isset($_GET['attendence'])) {echo include('include/Student/attendence.php');}?>
 <!-- EVENTS --> <?php if(isset($_GET['events'])) {echo include('include/events.php');}?>
