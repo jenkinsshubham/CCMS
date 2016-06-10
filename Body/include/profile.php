@@ -17,6 +17,9 @@
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<?php echo $avatar;?>" class="img-circle img-responsive"> </div>
                 <div class=" col-md-9 col-lg-9 "> 
+                <a href="<?php echo BASEPATH ;?>page/uploadPic">
+                  <button class="btn-sm btn-default pull-right btn">change pic</button>
+                </a>
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
