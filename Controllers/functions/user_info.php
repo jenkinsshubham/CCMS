@@ -62,12 +62,16 @@ if(isset($_SESSION['id']))
 
 
 	// AVATAR
-	$avatar = STYLERS.'images/avatars/';
-	if ($frm=='s') {
-		$avatar .= ($_sex=='M') ? 'sm' : 'sf' ;
-	}
-	else $avatar .= ($_sex=='M') ? 'fm' : 'ff' ;
-	$avatar.='.png';
+	if(empty($img)){
+		$avatar = STYLERS.'images/avatars/';
+			if ($frm=='s') {
+				$avatar .= ($_sex=='M') ? 'sm' : 'sf' ;
+			}
+			else $avatar .= ($_sex=='M') ? 'fm' : 'ff' ;
+			$avatar.='.png';
+		
+		}
+	else {if(!empty($img)) $avatar="../User_Uploads/profile/".$img;}
 
 }
 

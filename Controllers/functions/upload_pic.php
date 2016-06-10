@@ -11,13 +11,28 @@ if(isset($_FILES["file"]["type"])){
 			$_SESSION['_t']='d';
 		}
 		else{
+			$up_img=$username."-".$frm;
 			$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-			$targetPath = "../User_Uploads/profile/".$username."-".$frm; // Target path where file is to be stored
+			$targetPath = "../User_Uploads/profile/".$up_img; // Target path where file is to be stored
 			if(move_uploaded_file($sourcePath,$targetPath)) { // Moving Uploaded file
+				// UPLOADING [SUCCESS]
+				$sql="UPDATE ";
+				$sql.="log_";
+				$sql.= ($frm=='s')?"s":"f";
+				$sql.=" SET `img` = '".$up_img."'";
+				$sql.=" WHERE username='$username'";
+				$result=$db->query($sql);
 				chmod($targetPath, 0766);
-				$_SESSION['_m']="Uploaded Successfully!";
-				$_SESSION['_t']='s';
-				echo "<script>window.location.assign('".BASEPATH."')</script>";
+				if($result){
+					$_SESSION['_m']="Uploaded Successfully!";
+					$_SESSION['_t']='s';
+					echo "<script>window.location.assign('".BASEPATH."page/profile')</script>";
+				}
+				else{
+					$_SESSION['_m']="Uploaded but, Error in saving to database.";
+					$_SESSION['_t']='w';
+					echo "<script>window.location.assign(window.location.href)</script>";
+				}
 			}
 			else{
 				$_SESSION['_m']="Failed to upload picture.";
