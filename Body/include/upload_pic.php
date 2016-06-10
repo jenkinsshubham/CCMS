@@ -1,13 +1,14 @@
 <?php include CONTROLLERS.'functions/upload_pic.php';?>
-<script src="<?php echo STYLERS ;?>js/upload_pic.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo STYLERS ;?>css/upload_pic.css"/>
 	<div class="panel panel-body">
-		<h4 id='loading' >loading..</h4>
-		<div id="message"></div>
 		<h1 id="pp">Update Profile Picture</h1><br/>
 		<hr>
 		<form id="uploadimage" method="post" enctype="multipart/form-data" action="">
-			<div id="image_preview"><img id="previewing" src="<?php echo STYLERS?>/img/noimage.png" /></div>
+			<div id="image_preview">
+				<img id="previewing" 
+					src="<?php echo "../User_Uploads/profile/".$username."-".$frm; ?>" 
+					height='200' width='200' alter='Preview'/>
+			</div>
 			<hr>
 			<div id="selectImage">
 				<label>Select Your Image</label><br/>

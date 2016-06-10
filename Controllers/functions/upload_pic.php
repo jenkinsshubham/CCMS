@@ -4,26 +4,32 @@ if(isset($_FILES["file"]["type"])){
 	$temporary = explode(".", $_FILES["file"]["name"]);
 	$file_extension = end($temporary);
 	if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")
-	) && ($_FILES["file"]["size"] < 9999999)//Approx. 9.5MB files can be uploaded.
-	&& in_array($file_extension, $validextensions)) {
+	) && in_array($file_extension, $validextensions)) {
 		if ($_FILES["file"]["error"] > 0){
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
+			$_SESSION['_m']= "Return Code: ";
+			$_SESSION['_mb']= $_FILES["file"]["error"];
+			$_SESSION['_t']='d';
 		}
 		else{
 			$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-			$targetPath = "../User_Uploads/profile/".$username; // Target path where file is to be stored
+			$targetPath = "../User_Uploads/profile/".$username."-".$frm; // Target path where file is to be stored
 			if(move_uploaded_file($sourcePath,$targetPath)) { // Moving Uploaded file
-				echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
-				echo "<br/><b>File Name:</b> " . $_FILES["file"]["name"] . "<br>";
-				echo "<b>Type:</b> " . $_FILES["file"]["type"] . "<br>";
-				echo "<b>Size:</b> " . ($_FILES["file"]["size"] / 1024*1024) . " MB<br>";
-				echo "<b>Temp file:</b> " . $_FILES["file"]["tmp_name"] . "<br>";
+				$_SESSION['_m']="Uploaded Successfully!";
+				$_SESSION['_t']='s';
+				echo "<script>window.location.assign('".BASEPATH."')</script>";
 			}
-			else echo "<span id='invalid'>***upload failed!***<span>";
+			else{
+				$_SESSION['_m']="Failed to upload picture.";
+				$_SESSION['_t']='d';
+				echo "<script>window.location.assign(window.location.href)</script>";
+			}
 		}
 	}
 	else{
-		echo "<span id='invalid'>***Invalid file Size or Type***<span>";
+		$_SESSION['_m']="Invalid file.";
+		$_SESSION['_mb']="Please Choose an image.";
+		$_SESSION['_t']='d';
+		echo "<script>window.location.assign(window.location.href)</script>";
 	}
 }
 ?>
