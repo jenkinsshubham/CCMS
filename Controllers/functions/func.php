@@ -3,7 +3,7 @@
 function fetch_branches($demand,$db,$id)
 {
 	$sqlc="SELECT COUNT(*) FROM branches";
-	$sql="SELECT * FROM branches WHERE id='$id'";
+	$sql="SELECT * FROM branches WHERE id='$id' or code='$id'";
 	$resultc=$db->query($sqlc);
 	$result=$db->query($sql);
 	$row=$result->fetch_array();
@@ -13,7 +13,7 @@ function fetch_branches($demand,$db,$id)
 	if($demand=='code')return $row['code'];
 }
 
-function fetch_subjects($demand,$db,$br)
+function fetch_subjects($db,$demand,$br)
 {
 	$sqlc="SELECT COUNT(*) FROM subjects";
 	$sql="SELECT * FROM subjects";
