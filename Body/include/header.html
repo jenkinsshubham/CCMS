@@ -6,10 +6,10 @@ ini_set('display_errors',1);
 include 'config.inc.php';
 require_once(CONTROLLERS.'/config/database.php');
 $selected = (isset($_GET['page'])) ? urlencode($_GET['page']) : null ;
+require_once(CONTROLLERS.'/functions/func.php');
+require_once(CONTROLLERS.'/functions/functions.php');
 if(isset($_SESSION['id']))  {
   require(CONTROLLERS.'/functions/user_info.php');
-  require_once(CONTROLLERS.'/functions/func.php');
-  require_once(CONTROLLERS.'/functions/functions.php');
 }
   else $frm=null;
 
@@ -84,7 +84,7 @@ if(isset($_SESSION['id']))  {
             <ul class="nav navbar-nav navbar-right">
             <li><a href="?events#events"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Events</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Departments</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Results</a></li>
+            <li><a href="<?php echo BASEPATH?>page/report"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Reports</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-console" aria-hidden="true"></span> Help</a></li>
             </ul>
             <form class="navbar-form navbar-right" action="?search">

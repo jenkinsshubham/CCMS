@@ -17,6 +17,7 @@ require_once('../Controllers/functions/feeds.php');
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>
 <!-- PIC UPLOAD --> <?php if(isset($username)&&$selected=='uploadPic') {echo include('include/upload_pic.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
+<!-- REPORT --> <?php if($selected=='report') {echo include('include/fetch_report.php');}?>
 <!-- ATTENDENCE --> <?php if(isset($_GET['attendence'])) {echo include('include/Student/attendence.php');}?>
 <!-- EVENTS --> <?php if(isset($_GET['events'])) {echo include('include/events.php');}?>
 <!-- ASSIGNMENT brwsr --> <?php if(isset($_GET['assignment_browser'])) {echo include('include/assignment_browser.php');}?>
@@ -24,7 +25,7 @@ require_once('../Controllers/functions/feeds.php');
 
 <!-- student status --> <?php if(isset($frm)){if($frm=='s'&&isset($username)&&$selected==null) {echo include('include/status.php');}} ?> 
 
-<!-- SLIDER -->  <?php if(!isset($username)) {echo include('include/slider.php');}?>
+<!-- SLIDER -->  <?php if(!isset($username)&&empty($selected)) {echo include('include/slider.php');}?>
 
 
 <br/>

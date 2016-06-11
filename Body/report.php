@@ -5,27 +5,23 @@ require_once(CONTROLLERS.'/config/database.php');
 require_once(CONTROLLERS.'/functions/functions.php');
 require_once(CONTROLLERS.'/functions/func.php');
 
-$run1=0;
-$run2=0;
-$run3=0;
-
 $sem="0";
 $sec="0";
 $internal="0";
 $br_="";
 
-if(isset($_GET['sem']))
-	$sem_=$db->real_escape_string($_GET['sem']);
+if(isset($_POST['sem']))
+	$sem_=$db->real_escape_string($_POST['sem']);
 	
-if(isset($_GET['in'])){
+if(isset($_POST['in'])){
 	$internal="internal_";
-	$internal.=$db->real_escape_string($_GET['in']);
+	$internal.=$db->real_escape_string($_POST['in']);
 	}
-if(isset($_GET['br']))
-	$br_=$db->real_escape_string($_GET['br']);
+if(isset($_POST['br']))
+	$br_=$db->real_escape_string($_POST['br']);
 	
-if(isset($_GET['sec']))
-	$sec_=$db->real_escape_string($_GET['sec']);
+if(isset($_POST['sec']))
+	$sec_=$db->real_escape_string($_POST['sec']);
 
 //echo $sem." ". $sec." ". $internal." ". $branch;
 ?> 
@@ -78,6 +74,7 @@ if(isset($_GET['sec']))
 		<a onclick="printpage()" "><img class="noPrint" src="<?php echo STYLERS?>images/print_icon.jpg" width="60" height="60"/></a>
 	</td>
 	<td width="5%" valign="top">
+		<a href="<?php echo BASEPATH?>page/report">back</a>
 	</td>
   </tr>
 </table>
