@@ -17,7 +17,7 @@ require CONTROLLERS.'functions/approve_users.php';
             
 			  <?php
 				// PAGES
-			  	if($selected=='report') { 
+			  	if($selected=='fetchReport') { 
 			  	 	include('include/fetch_report.php');
 			  	}
 				if ($selected=='writeNotice') {

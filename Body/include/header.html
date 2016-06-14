@@ -82,12 +82,23 @@ if(isset($_SESSION['id']))  {
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-            <li><a href="?events#events"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Events</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Departments</a></li>
-            <li><a href="<?php echo BASEPATH?>page/report"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span> Reports</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-console" aria-hidden="true"></span> Help</a></li>
+              <li>
+                <a href="<?php echo BASEPATH?>page/allEvents"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Events</a>
+              </li>
+              <li>
+                <a href="<?php echo BASEPATH?>page/notifications">
+                  <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Notifications</a>
+              </li>
+              <li>
+                <a href="<?php echo BASEPATH?>page/fetchReport">
+                  <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Reports</a>
+              </li>
+              <li>
+                <a href="<?php echo BASEPATH?>page/help">
+                  <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Help</a>
+              </li>
             </ul>
-            <form class="navbar-form navbar-right" action="?search">
+            <form class="navbar-form navbar-right" action="/page/search">
               <input type="text" class="form-control" name="q" placeholder="Search...">
             </form>
           </div>
