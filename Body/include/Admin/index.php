@@ -29,6 +29,9 @@ require CONTROLLERS.'functions/approve_users.php';
 				if ($selected=='viewNotice') {
 					include 'include/all_notice.php#vN';
 				}
+				if ($selected=='addSubject') {
+					include 'include/Admin/add_subject.php';
+				}
 				if (($selected=='approveS')||($selected=='approveF')) {
 					include 'include/Admin/approve_users.php';
 				}
@@ -37,7 +40,7 @@ require CONTROLLERS.'functions/approve_users.php';
 					include 'include/Admin/Settings>site.php';
 				}
 				if ($settings=='url') {
-					include 'include/Admin/Settings>facP.php';
+					include 'include/Admin/Settings>url.php';
 				}
 				if ($settings=='facultyP') {
 					include 'include/Admin/Settings>facP.php';
