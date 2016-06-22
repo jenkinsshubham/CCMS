@@ -15,6 +15,7 @@ require_once('../Controllers/functions/feeds.php');
 <!-- FACULTY INDEX --> <?php if(isset($frm)){ if($frm=='f') {require 'include/Faculty/faculty_index.php';}}; ?>
 <!-- PROFILE --> <?php if($selected=='profile') {echo include('include/profile.php');}?>
 <!-- PROFILE EDITOR --> <?php if(isset($username)&&$selected=='editProfile') {echo include('include/edit_profile.php');}?>
+<!-- PASS CHANGER --> <?php if(isset($username)&&$selected=='changePassword') {echo include('include/change_password.php');}?>
 <!-- PIC UPLOAD --> <?php if(isset($username)&&$selected=='uploadPic') {echo include('include/upload_pic.php');}?>
 <!-- ASSIGNMENTS --> <?php if(isset($username)&&isset($_GET['assignments'])) {echo include('include/Student/assignments.php');}?>
 <!-- REPORT --> <?php if($selected=='fetchReport') {echo include('include/fetch_report.php');}?>
