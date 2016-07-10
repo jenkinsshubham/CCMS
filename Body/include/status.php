@@ -1,4 +1,4 @@
-<?php
++<?php
 
 require '../Controllers/functions/subject_count.php';
 
@@ -34,6 +34,10 @@ $exam='internal_1';
     
     <div class="row">
         <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+            <?php if($result->num_rows==0){ 
+                         echo "<span style=\"color:#de0000;font-style:italic\">Attendence not yet uploaded for $exam<br/><a href='#'>Check Previous</a></span>"
+                            ;}
+            else{?>
             <div class="bar-chart">
                 <div class="legend">
                     <div class="item">
@@ -94,6 +98,7 @@ $exam='internal_1';
                 <!-- //.chart -->
             </div>
             <!-- //.bar-chart -->
+            <?php ;}?>
         </div>
         <!-- //.col-md-4 -->
     </div>
@@ -112,6 +117,11 @@ $exam='internal_1';
             </div>
             <!-- //.text-center -->
             
+    <?php
+        if($result->num_rows==0){ 
+                         echo "<span style=\"color:#de0000;font-style:italic\">Attendence not yet uploaded for $exam<br/><a href='#'>Check Previous</a></span>"
+                            ;}
+                            else{?>
             <div class="column-chart">
             
                 <div class="chart clearfix">
@@ -127,7 +137,7 @@ $exam='internal_1';
 
 	                	$sub=$sresult->fetch_array();	
 
-	                	
+
 	                	?>
                     <div class="item">
                         <div class="bar">
@@ -147,6 +157,7 @@ $exam='internal_1';
                 <!-- //.chart -->
             </div>
             <!-- //.column-chart -->
+        <?php }?>
         </div>
         <!-- //.col-md-6 -->
     </div>

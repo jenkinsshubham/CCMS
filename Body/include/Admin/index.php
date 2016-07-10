@@ -17,7 +17,10 @@ require CONTROLLERS.'functions/approve_users.php';
             
 			  <?php
 				// PAGES
-			  	if($selected=='fetchReport') { 
+			  	if($selected==null) { 
+			  	 	include('include/Admin/overview.php');
+			  	}
+			  	if($selected=='fetchReport'||$selected=='report') { 
 			  	 	include('include/fetch_report.php');
 			  	}
 				if ($selected=='writeNotice') {

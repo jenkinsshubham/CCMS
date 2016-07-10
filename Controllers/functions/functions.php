@@ -1,44 +1,5 @@
 <?php
 
-$message = array("
-					Please select proper Semester and Subject...",	//0
-				 	"Marks and attendance updated...",					//1
-					"Attendance should be number...",				//2
-					"You have successfully selected the subject....",//3
-					"Dont change others password..",				//4
-					"Password changed...",							//5
-					"DB error..",								//6
-					"Wrong id or password..",
-					"Password entered is not same..",
-					"Login to view the faculty profile",
-					"Wrong username or password.",	//10
-					"Subjects not changed..",
-					"Not found this id or email in database",//12
-					"Password will be sent to entered Email address. It may take some time.", //13
-					"You can't enter marks for this internal... Because time is expired (You have to enter within given time). Time will be displayed in notice. Please contact admin..",
-					"Attendance and marks value should be in the range",
-					"Registration successful..",
-					"Sucessfully entered..",			//17
-					"Existing student.. Student entry failed..",
-					"Select atleast one student...",
-					"Students are removed",     //20
-					"Exists in database",
-					"Select atleast one subject", //22
-					"Subject name changed..",
-					"Subject is removed..",
-					"Branch and semister not matching. The semister you have entered doesnt have elective subject", //25
-					"Student detail not found..",
-					"Faculty is removed",
-					"Faculty Confirmed.", //28
-					"Please select atleast one faculty.", //29
-					"Password recovery process is failed.. Contact admin..",
-					"Select atleast one faculty to delete",
-					"Fill all the fields",//32
-					"Data successfully updated",
-					"Password and username sent to your mail id.."
-					);									
-					
-
 function check($db,$branch, $int){
 	$q_c = $db->query("SELECT * FROM `internal` WHERE `internal_number`=$int AND `valid`=1");
 	$v = $q_c->num_rows();
@@ -49,15 +10,6 @@ function check($db,$branch, $int){
 	}
   }
 
-function redirect($url,$permanent = false)
-{
-	if($permanent)
-	{
-		header('HTTP/1.1 301 Moved Permanently');
-	}
-	header('Location: '.$url);
-	exit();
-}
 
 function findOutSubject($db,$sc, $sm){
 	$a = array();
@@ -101,13 +53,11 @@ function getSubject($db,$sem,$branch){
 	$ele="";
 	$ele_c=0;
 
-		$qr = $db->query("SELECT code,name,elective,ref FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref");	
-		while($name=$qr->fetch_assoc()){
+		$qr = $db->query("SELECT * FROM subjects WHERE sem = $sem AND branch = '$branch' order by ref");	
+		while($name=$qr->fetch_array()){
 			if($name['elective']==1){
 				$ele_c++;
 				$subject_str.="<span style='color:#FF0000'>(".$name['ref'].")->".$ele_c.") --- (".strtoupper($name['code']).")--- ".$name['name']."</span> (Elective)<br />";
-				$q="INSERT INTO elective_status VALUES(".$name['ref'].",'".strtoupper($name['code'])."', $ele_c )";
-				$res1=$db->query($q);
 			}
 			else{
 				$subject_str.= "(".$name['ref'].") --- (".strtoupper($name['code']).") --- ".$name['name']."<br />";
@@ -116,7 +66,7 @@ function getSubject($db,$sem,$branch){
 		
 		return $subject_str;
 	
-	}
+}
 
 function getCycle($db,$cycle){
 
