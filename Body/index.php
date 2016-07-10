@@ -62,8 +62,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 <div class="sidebar-right">
 <!-- user bar --> 
 					<?php if(isset($username)) {
-							if($frm=='s') include('include/user_bar.php'); 
-							else if($frm=='f') include('include/Faculty/user_bar.php');
+							include('include/user_bar.php'); 
+							// else if($frm=='f') include('include/Faculty/user_bar.php');
 					} ?> 
 		<div class="panel panel-info" style="margin:12px">
 			<div class="panel-heading"> <h3 class="panel-title">Notice &amp; Updates</h3> </div>
