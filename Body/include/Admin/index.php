@@ -30,7 +30,10 @@ require CONTROLLERS.'functions/approve_users.php';
 					include 'include/Admin/Settings.php';
 				}
 				if ($selected=='allFaculties') {
-					include 'include/Admin/all_faculties.php';
+					include 'include/Admin/all_users.php';
+				}
+				if ($selected=='allStudents') {
+					include 'include/Admin/all_users.php';
 				}
 				if ($selected=='addSubject') {
 					include 'include/Admin/add_subject.php';
