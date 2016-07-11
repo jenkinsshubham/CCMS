@@ -38,6 +38,9 @@ require CONTROLLERS.'functions/approve_users.php';
 				if ($selected=='addSubject') {
 					include 'include/Admin/add_subject.php';
 				}
+				if ($selected=='viewSubjects') {
+					include 'include/Admin/view_subject.php';
+				}
 				if (($selected=='approveS')||($selected=='approveF')) {
 					include 'include/Admin/approve_users.php';
 				}
