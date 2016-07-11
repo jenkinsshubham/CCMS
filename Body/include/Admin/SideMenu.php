@@ -59,19 +59,9 @@
 							Report </a>
 						</li>
 						<?php }?>
-						<li>
-							<i class="glyphicon glyphicon-user"> </i>
-	                    		<small><b>NOTICE</b></small>
-	               			<ul class="nav nav-pills nav-stacked">
-							<li <?php if($selected=='writeNotice'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/writeNotice#aN">
-								Write <i class="glyphicon glyphicon-edit"></i> </a>
-							</li>
-							<li <?php if($selected=='viewNotice'){ echo "class='active'"; }?>>
-								<a href="<?php echo BASEPATH ?>page/viewNotice#vN">
-								View Notices</a>
-							</li>
-							</ul>
+						<li <?php if($selected=='writeNotice'){ echo "class='active'"; }?>>
+							<a href="<?php echo BASEPATH ?>page/writeNotice#aN">
+							<i class="glyphicon glyphicon-edit"></i> Write Notice </a>
 						</li>
 						<?php if($level=='hod'){?>
 						<li>
