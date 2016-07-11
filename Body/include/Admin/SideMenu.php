@@ -1,9 +1,8 @@
 			<div class="profile-sidebar">
-				<!-- SIDEBAR USERPIC -->
+				<?php if($selected==null){?>
 				<div class="profile-userpic">
 					<img src="<?php echo $avatar;?>" class="img-responsive" alt="">
 				</div>
-				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				<div class="profile-usertitle">
 					<div class="profile-usertitle-name">
@@ -25,6 +24,7 @@
 					  </ul>
 					</div>
 				</div>
+				<?php }?>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<!-- <div class="profile-userbuttons">
