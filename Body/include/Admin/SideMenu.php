@@ -1,5 +1,5 @@
 			<div class="profile-sidebar">
-				<?php if($selected==null){?>
+				<?php if($selected==null||$level=='admin'){?>
 				<div class="profile-userpic">
 					<img src="<?php echo $avatar;?>" class="img-responsive" alt="">
 				</div>
@@ -18,7 +18,7 @@
 					  </a>
 					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 					    <li><a href="#">Edit profile</a></li>
-					    <li><a href="#">Settings</a></li>
+					    <li><a href="<?php echo BASEPATH ?>page/changePassword">change password</a></li>
 					    <li role="separator" class="divider"></li>
 					    <li><a href="logout">Logout</a></li>
 					  </ul>

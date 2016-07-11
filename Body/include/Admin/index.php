@@ -26,6 +26,9 @@ require CONTROLLERS.'functions/approve_users.php';
 				if ($selected=='writeNotice') {
 					include 'include/add_notice.php';
 				}
+				if ($selected=='changePassword') {
+					include 'include/change_password.php';
+				}
 				if ($selected=='settings') {
 					include 'include/Admin/Settings.php';
 				}
