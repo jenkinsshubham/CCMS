@@ -1,5 +1,5 @@
 			<div class="profile-sidebar">
-				<?php if($selected==null||$level=='admin'){?>
+				<?php if($selected==null||$level=='admin'||$level=='principal'){?>
 				<div class="profile-userpic">
 					<img src="<?php echo $avatar;?>" class="img-responsive" alt="">
 				</div>

@@ -1,4 +1,89 @@
+<?php
+if(isset($_GET['search'])){
+  include CONTROLLERS.'functions/searched_profile.php';
+  ?>
+<br/>
 
+<div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><?php echo $_name;?>
+              <?php if($_frm=='f'){ ?>
+              <span class="pull-right">(<?php echo $_designation;?>)</span><?php }?>
+              </h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="<?php echo $_avatar;?>" class="img-circle img-responsive"> </div>
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td><?php echo $_a = ($_frm=='s') ? "USN" : "Faculty ID" ;?></td>
+                        <td><?php echo $_id;?></td>
+                      </tr>
+                      <tr>
+                        <td><?php echo $_a = ($_frm=='s') ? "Branch" : "Department" ;?></td>
+                        <td><?php echo $_br;?></td>
+                      </tr>
+                      <?php if($_frm=='s'){ ?>
+                      <tr>
+                        <td>Semester</td>
+                        <td>
+                          <?php echo $_sem;?>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Section</td>
+                        <td><?php echo $_sec;?></td>
+                      </tr>
+                      <?php }?>
+                      <tr>
+                        <td>Gender</td>
+                        <td><?php echo $_sex;?></td>
+                      </tr>
+                      <?php if($_frm=='s'){ ?>
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td><?php echo $_dob;?></td>
+                      </tr>
+                        <tr>
+                        <td>Home Address</td>
+                        <td><?php echo $_address;?></td>
+                      </tr>
+                      <?php ; } ?>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:<?php echo $_email;?>"><?php echo $_email;?></a></td>
+                      </tr>
+                        <td>Phone Number</td>
+                        <td><?php echo $_mob; if($_frm=='s'){ ?> (User)<br><br><?php echo $_f_mob." (Guardian)";}?>
+                        </td>
+                           
+                      </tr>
+                     
+                    </tbody>
+                  </table>
+                  
+                  <!-- <a href="#" class="btn btn-primary">My Sales Performance</a>
+                  <a href="#" class="btn btn-primary">Team Sales Performance</a> -->
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                      <a href="mailto:<?php echo $_email;?>" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                  </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+<?php }
+else{?>
 <br/>
 
 <div class="container">
@@ -89,3 +174,4 @@
         </div>
       </div>
     </div>
+<?php }?>
