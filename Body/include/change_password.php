@@ -10,9 +10,10 @@
 			</div> --><br/>
 			<div class="input-group">
 				<span class="input-group-addon"> New Password:</span>
-				<input class="form-control" type="password" 
-					placeholder="Enter a strong new password.." id="password" name="newpass">
-				<input class="form-control" type="password" placeholder="Re-enter new password..." id="password_confirm">
+				<input class="form-control" type="password" required  
+					placeholder="Enter a strong new password.." id="password" name="password">
+				<input class="form-control" type="password" required
+					 placeholder="Re-enter new password..." id="password_confirm">
 			</div><br/>
 			<input class="btn btn-primary pull-right" type="submit" value="Change password" name="submit">
 		</form>

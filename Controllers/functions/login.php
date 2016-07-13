@@ -1,7 +1,8 @@
 <?php
 if (isset($_POST['submit'])) {
+
 	$id = $db->real_escape_string($_POST['id']);
-	$password = $db->real_escape_string($_POST['password']);
+	$password =$_POST['password'];
 	$frm =$db->real_escape_string($_POST['frm']);
 	// QUERYING
 	$sql="SELECT * FROM log_";
@@ -15,7 +16,6 @@ if (isset($_POST['submit'])) {
 		die('There was an error running the query ['.$db->error.']');
 	}
 	if($result->num_rows==0) {
-		// echo "<script>alert('User not registered!')</script>";
 		$_SESSION['_m']="User not registered!";
 		$_SESSION['_t']='w';
 	}
@@ -25,8 +25,10 @@ if (isset($_POST['submit'])) {
 		$row=$result->fetch_array();	
 		$logid=$row['username'];
 		$flag=$row['flag'];
+		$hash=$row['password'];
+		$_ls=password_verify($password,$hash)?1:0;
 
-		if($row['password']==$password){
+		if($_ls){
 			if ($flag) {
 				$_SESSION['id'] = $logid;
 				$_SESSION['frm'] = $frm;
@@ -35,7 +37,8 @@ if (isset($_POST['submit'])) {
 			else{ 
 				// echo "<script>alert('Account not approved!')</script>";
 				$_SESSION['_m']="Account not approved!";
-				$_SESSION['_t']='i';}
+				$_SESSION['_t']='i';
+			}
 		}
 		else{
 			$_SESSION['_m']="Incorrect Password!";

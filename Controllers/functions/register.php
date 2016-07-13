@@ -1,31 +1,4 @@
 <?php
-require CONTROLLERS.'lib/PasswordHash.php';
-if (isset($_POST['register'])) {
-
-// Base-2 logarithm of the iteration count used for password stretching
-$hash_cost_log2 = 8;
-// Do we require the hashes to be portable to older systems (less secure)?
-$hash_portable = FALSE;
-
-// Are we debugging this code?  If enabled, OK to leak server setup details.
-$debug = TRUE;
-
-function fail($pub, $pvt = '')
-{
-	global $debug;
-	$msg = $pub;
-	if ($debug && $pvt !== '')
-		$msg .= ": $pvt";
-/* The $pvt debugging messages may contain characters that would need to be
- * quoted if we were producing HTML output, like we would be in a real app,
- * but we're using text/plain here.  Also, $debug is meant to be disabled on
- * a "production install" to avoid leaking server setup details. */
-	exit("An error occurred ($msg).\n");
-}
-
-
-
-
 
 	$frm =$db->real_escape_string($_POST['frm']);
 	
@@ -45,11 +18,6 @@ function fail($pub, $pvt = '')
 	}
 // HASHING
 
-$hasher = new PasswordHash($hash_cost_log2, $hash_portable);
-$hash = $hasher->HashPassword($password);
-if (strlen($hash) < 6)
-	fail('Failed to hash new password');
-unset($hasher);
 
 
 

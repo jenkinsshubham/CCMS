@@ -51,6 +51,7 @@ else $frm="s";
         <div class="login-form-1">
         	<center><?php include CONTROLLERS.'errors/msg.php';?></center>
             <form id="login-form" class="text-left" method="post">
+                <input type="hidden" name="op" value="login">
                 <div class="login-form-main-message"></div>
                 <div class="main-login-form">
                     <div class="login-group">

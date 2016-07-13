@@ -24,17 +24,17 @@ if (isset($_POST['submit'])) {
 		// FETCHING
 		$row=$result->fetch_array();	
 		$u=$row['username'];
-		$p=$row['password'];
+		$hash=$row['password'];
+		$_ls=password_verify($password,$hash)?1:0;
 
 		if($u==$username){
-			if($p==$password){
+			if($_ls){
 				$_SESSION['id'] = $username;
 				$_SESSION['frm'] = 'admin';
 				$_SESSION['level'] = $level;
 				header("Location: ".BASEPATH);
 			}
 			else{ 
-				// echo "<script>alert('wrong password for $u')</script>";
 				$_SESSION['_m']="Wrong password for $u";
 				$_SESSION['_t']='d';
 			}
