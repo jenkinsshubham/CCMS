@@ -24,8 +24,8 @@ else $frm="s";
         <meta charset="utf-8">
         <title><?php echo SHORTNAME ?></title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
      
+    <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo STYLERS ?>css/font-awesome.min.css">
     <link href='<?php echo STYLERS ?>css/varela.css' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -33,6 +33,7 @@ else $frm="s";
 
     <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
     <script src="<?php echo STYLERS ?>js/bootstrap.min.js"></script>
+    <script src="<?php echo STYLERS ?>js/validation.js"></script>
 </head>
 <body>
     <center>
@@ -90,7 +91,6 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
         <div class="login-form-1">
         	<center><?php include CONTROLLERS.'errors/msg.php';?></center>
             <form id="register-form" class="text-left" method="post">
-                <div class="login-form-main-message"></div>
                 <div class="main-login-form">
                     <div class="login-group">
                         <div class="form-group">
@@ -100,15 +100,18 @@ if(isset($_GET['register'])) { require('../Controllers/functions/register.php');
                         </div>
                         <div class="form-group">
                             <label for="username" class="sr-only">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Choose a username..." required>
+                            <input type="text" class="form-control" name="username" id="username" 
+                            placeholder="Choose a unique username..." required>
+                            <div id='username_availability_result'></div>
+                            </span>
                         </div>
                         <div class="form-group">
                             <label for="username" class="sr-only">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Create a password..." required>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Create a password..." required>
                         </div>
                         <div class="form-group">
                             <label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-                            <input type="password" class="form-control" name="password_confirm" placeholder="confirm password"  required>
+                            <input type="password" class="form-control" name="password_confirm" id="password_confirm" placeholder="confirm password"  required>
                         </div>
                         <div class="form-group">
                             <label for="username" class="sr-only">Email</label>
