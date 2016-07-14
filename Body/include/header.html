@@ -12,7 +12,7 @@ if(isset($_SESSION['id']))  {
   require(CONTROLLERS.'/functions/user_info.php');
 }
   else $frm=null;
-
+$sv=(isset($_POST['key']))?$_POST['key']:null;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +43,6 @@ if(isset($_SESSION['id']))  {
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
     <script src="<?php echo STYLERS ?>js/typeahead.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
     <script src="<?php echo STYLERS ?>js/popup.js"></script>
     <script src="<?php echo STYLERS ?>js/hide_sec.js"></script>
@@ -102,9 +101,11 @@ if(isset($_SESSION['id']))  {
             </ul>
             <form class="navbar-form navbar-right" method="post" action="<?php echo BASEPATH;?>page/search">
               <div class="input-group">
-                <input type="text" class="form-control" autocomplete="off" name="key" placeholder="Search...">
+                <input type="text" class="form-control" value="<?php echo $sv;?>" autocomplete="off" name="key" placeholder="Search...">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" style="background-color:#393D54;color:white;" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                  <button class="btn btn-default" style="background-color:#393D54;color:white;" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
                 </span>
             </form>
           </div>
