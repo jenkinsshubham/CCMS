@@ -3,8 +3,8 @@
 require '../Controllers/functions/subject_count.php';
 
 
-$exam='internal_1';
-
+$exam="internal_";
+$exam.=(isset($_POST['exam']))?$db->real_escape_string($_POST['exam']):'4';
 	$sql=" SELECT *";
 	$sql.=" FROM $exam";
 	$sql.=" WHERE usn='$id'";
@@ -21,6 +21,23 @@ $exam='internal_1';
 
 
 <div id="aa">
+<div class="pull-right">
+<form method="post">
+<div class="input-group">
+    <select name="exam" style="border-radius:0px" class="form-control input-sm">
+        <option <?= $exam == 'internal_1' ? ' selected="selected"' : '';?> value="1">1st internal</option>
+        <option <?= $exam == 'internal_2' ? ' selected="selected"' : '';?> value="2">2nd internal</option>
+        <option <?= $exam == 'internal_3' ? ' selected="selected"' : '';?> value="3">3rd internal</option>
+        <option <?= $exam == 'internal_4' ? ' selected="selected"' : '';?> value="4">Preparatory</option>
+    </select>
+    <span class="input-group-btn">
+      <button class="btn btn-primary btn-sm" type="submit">
+        <span class="glyphicon glyphicon-refresh"></span>
+      </button>
+    </span>
+</div>
+</form>
+</div>
     <div class="row">
         <div class="col-md-12">
             <div class="text-center text-uppercase">
