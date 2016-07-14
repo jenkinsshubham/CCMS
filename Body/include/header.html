@@ -25,7 +25,7 @@ if(isset($_SESSION['id']))  {
     <meta name="author" content="Jenkins Shubham" >
     <link rel="icon" href="<?php echo STYLERS ?>favicon.ico">
 
-    <title><?php echo SHORTNAME ?></title>
+    <title><?php echo SHORTNAME ?> | <?php echo $selected;?></title>
 
     <link href="<?php echo STYLERS ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo STYLERS ?>css/font-awesome.min.css" rel="stylesheet">
@@ -42,6 +42,8 @@ if(isset($_SESSION['id']))  {
 
     <script src="<?php echo STYLERS ?>js/ie-emulation-modes-warning.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery2.min.js"></script>
+    <script src="<?php echo STYLERS ?>js/typeahead.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="<?php echo STYLERS ?>js/jquery1.11.1.js"></script>
     <script src="<?php echo STYLERS ?>js/popup.js"></script>
     <script src="<?php echo STYLERS ?>js/hide_sec.js"></script>
@@ -98,8 +100,12 @@ if(isset($_SESSION['id']))  {
                   <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a>
               </li>
             </ul>
-            <form class="navbar-form navbar-right" action="/page/search">
-              <input type="text" class="form-control" name="q" placeholder="Search...">
+            <form class="navbar-form navbar-right" method="post" action="<?php echo BASEPATH;?>page/search">
+              <div class="input-group">
+                <input type="text" class="form-control" autocomplete="off" name="key" placeholder="Search...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default" style="background-color:#393D54;color:white;" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
             </form>
           </div>
         </div>
@@ -119,13 +125,13 @@ if(isset($_SESSION['id']))  {
               nav.css("position","relative");
       $j(window).scroll(function () {
           if ($j(this).scrollTop() > 75) {
-            $j('#header').hide(500);
-            $j('#na').show(552);
+            $j('#header').hide(400);
+            $j('#na').show(540);
             nav.css("position","fixed");
             body.css("padding-top","150px");
           } else {
-            $j('#header').show(451);
-            $j('#na').hide(450);
+            $j('#header').show(400);
+            $j('#na').hide(540);
             nav.css("position","relative");
             body.css("padding-top","2px");
           }
@@ -133,3 +139,13 @@ if(isset($_SESSION['id']))  {
   });
 </script>
 <?php }?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('input.typeahead').typeahead({
+        name: 'typeahead',
+        remote:'http://js/sitn/Controllers/functions/search.php?key=%QUERY',
+        limit : 10
+    });
+  });
+</script>

@@ -23,6 +23,12 @@ require CONTROLLERS.'functions/approve_users.php';
 			  	if($selected=='fetchReport'||$selected=='report') { 
 			  	 	include('include/fetch_report.php');
 			  	}
+				if($selected=='search') { 
+			  	 	include('include/search.php');
+			  	}
+				if($selected=='profile') { 
+			  	 	include('include/profile.php');
+			  	}
 				if ($selected=='writeNotice') {
 					include 'include/add_notice.php';
 				}
