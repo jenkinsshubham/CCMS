@@ -1,5 +1,5 @@
 <?php
-
+if(isset($_POST['register'])){
 	$frm =$db->real_escape_string($_POST['frm']);
 	
 	$name = $db->real_escape_string($_POST['name']);
