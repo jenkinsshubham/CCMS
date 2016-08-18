@@ -17,9 +17,7 @@ if(isset($_POST['register'])){
 		$department =$db->real_escape_string($_POST['department']);
 	}
 // HASHING
-
-
-
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
 	// RESTERING
 	$sql="INSERT INTO log_";
