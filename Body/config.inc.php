@@ -1,11 +1,11 @@
 <?php
 //Generated From admin settings.
-define('SITENAME', 'Srinivas Institute Of Technology');
-define('SHORTNAME', 'SIT');
-define('TAGLINE', 'A Sharma Rao Foundation');
-define('EMAIL', 'admin@sit.com');
+define('SITENAME', 'Local Institute Of Technology');
+define('SHORTNAME', 'LIT');
+define('TAGLINE', 'A Local Foundation');
+define('EMAIL', 'admin@lit.com');
 // site constants
-define('BASEPATH', '/sitn/');
+define('BASEPATH', '/works/ccms/');
 define('STYLERS', BASEPATH.'Stylers/');
 define('CONTROLLERS', '../Controllers/');
 define('BODY', BASEPATH.'Body/');
