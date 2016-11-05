@@ -1,0 +1,6 @@
+{
+  "name": "CCMS",
+  "tagline": "Dynamin website with login system for colleges.",
+  "body": "\r\n# College CMS web app\r\n\r\n\r\nIt's just a first version, but we will continue development of this CMS to create not just another bootstrap customization, but the whole PHP framework.\r\n\r\n![alt tag](https://github.com/jenkinsshubham/CCMS/raw/master/Preview/Screenshot%20from%202016-06-08%2018-24-45.png)\r\n\r\n## Features\r\n* Student & Faculty login\r\n* HOD & Principal login\r\n* Admin panel for Easy Control\r\n* Graph for attendence and marks\r\n* Report Create\r\n* Responsive layout\r\n* Bootstrap CSS Framework\r\n* jQuery Image slideshow\r\n* and much more... \r\n\r\n\r\n### From Jenkins\r\n\r\nEnjoy!\r\n\r\nMade with ♥ by Shubham.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
