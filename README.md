@@ -4,7 +4,7 @@
 
 It's just a first version, but we will continue development of this CMS to create not just another bootstrap customization, but the whole PHP framework.
 
-![alt tag](https://github.com/jenkinsshubham/sitn/blob/master/Preview/Screenshot from 2016-06-08 18-21-36.png)
+![alt tag](https://github.com/jenkinsshubham/CCMS/raw/master/Preview/Screenshot%20from%202016-06-08%2018-24-45.png)
 
 ## Features
 * Student & Faculty login
